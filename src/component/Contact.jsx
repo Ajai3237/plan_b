@@ -3,7 +3,7 @@ import React from 'react'
 function Contact() {
 return (
     <>
-    <div style={{marginTop:'300px'}} className="con">
+    <div style={{marginTop:'200px'}} className="con">
         <h2 className='m-5' style={{ textAlign: 'center', textShadow: '2px 2px 4px #000000',  }}>Contact us for more details</h2>
 
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
