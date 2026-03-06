@@ -1,0 +1,86 @@
+<!-- service_request_email.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+        <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script>
+  <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbivGXYekPu2_d1JRXFk7W06H5377XbXg&callback=initMap"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Career Request</title>
+    <style>
+        /* Add any CSS styles for formatting here */
+        /* For example, basic styles for readability */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #090912;
+
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color:#090912;
+            color:#fff;
+        }
+        /* Customize styles based on your preferences */
+    </style>
+</head>
+<body class="home-corp main-bg">
+    
+
+    <div class="container">
+    
+        <nav>
+            <!-- Logo -->
+            <a class="logo" href="https://norpro.ca/">
+                <img src="https://norpro.ca/static/assets/imgs/header/new-norpro-logo-1.png" alt="logo" style="width:150px;  margin:30px;">
+            </a>
+
+        </nav>
+
+        <div style="padding:20px">
+        <h2> Career Form </h2>
+        <p>
+            <strong>Name:</strong> {{ first_name }} {{ last_name }} <br>
+            <strong>Email:</strong> {{ email }} <br>
+            <strong>Phone:</strong> {{ phone }} <br>
+            {% if resume %}
+                <strong>Resume:</strong> <a href="{{ resume }}" target="_blank">View Resume</a><br>
+            {% endif %}
+            {% if cover_letter %}
+                <strong>Cover Letter:</strong> <a href="{{ cover_letter }}" target="_blank">View Cover Letter</a><br>
+            {% endif %}
+            {% if other_documents %}
+                <strong>Other Documents:</strong> <a href="{{ other_documents }}" target="_blank">View Other Documents</a><br>
+            {% endif %}
+            <strong>Career:</strong> {{ type_career }} <br>
+        </p>
+    </div>
+
+     <footer class="sub-bg" style="padding: 20px; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <p class="fz-15"> <a href="https://www.facebook.com/norpro.secuity.1" target="_blank"><img src="https://norpro.ca/static/assets/imgs/facebook-1.png" alt="Facebook" style="width:15px;"></a> 
+                <span class="" style="color: #fff;"><a href="" target="_blank"> &nbsp;</a><a href="https://www.linkedin.com/company/norpro-security/" target="_blank"><img src="https://norpro.ca/static/assets/imgs/linkedin-logo.png" alt="Linkedin" style="width:15px;"></a> &nbsp;<a href="https://instagram.com/norprosecurity" target="_blank"><img src="https://norpro.ca/static/assets/imgs/instagram.png" alt="Instagram" style="width:15px;"></a> &nbsp; <a href="https://www.youtube.com/@norprosecurity" target="_blank"><img src="https://norpro.ca/static/assets/imgs/youtube.png" alt="Youtube" style="width:15px;"></a> &nbsp;Copyright © 2023 norpro </span></p>
+        </footer>
+    </div>
+
+    
+    <!-- ==================== Start Footer ==================== -->
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,288 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block SEO %}
+    <!-- SEO module  -->
+    <!-- Title  -->
+    <title>Security services company in Sault Ste. Marie | Norpro</title>
+    <meta content="Norpro Security offers top-tier security services in Northern Ontario,
+    Canada. Trust us for comprehensive security guard services tailored to your needs." name="description">
+    <meta name="keywords" content="Safety, safety sault ste marie, health and safety, health and safety sault ste marie, safety services, health and safety services, respirator fit testing, respirator fit testing sault ste marie, fit testing sault ste marie, safety training, safety training sault ste marie, health and safety training, health and safety training sault ste marie, whmis training, confined space training, respirator training, supervisor training,">
+    <meta property="og:description" content="Norpro Security offers top-tier security services in Northern Ontario,
+    Canada. Trust us for comprehensive security guard services tailored to your needs."/>
+    <meta property="og:title" content="Security services company in Sault Ste. Marie | Norpro"/>
+    <meta property="og:image" content="https://norpro.ca{% static "assets/imgs/header/new-logos.png" %}" />
+
+<!--End of SEO module  -->
+{% endblock SEO %}
+{% block content %}
+
+<style>
+    .color_code{
+        background:#9d1922;
+        padding: 40px 0 0 0;
+        }
+        .icon_code{
+            background: rgb(255 255 255 / 28%) !important;
+        }
+        .color_code_w{
+            background:#ffff;
+        padding: 40px 0 0 0;
+        }
+    .profile-images {
+        left: auto;
+        top: 66%;
+        left: 60px;
+        height: 95px;
+        width: 95px;
+        border-radius: 50%;
+        background-position: center center !important;
+        background-size: cover !important;
+        margin: 10px auto 0 auto;
+        border: 4px solid #cbc7c7;
+        object-fit: cover;
+    }
+    .grid-img {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 50px;
+    }
+    .icon_size {
+        height: 50px;
+        width: 50px;
+        margin-left: 18px;
+        margin-top: 18px;
+    }
+    .grid-img > a {
+        flex-basis: calc(18% - 20px);
+        max-width: calc(20% - 20px);
+    }
+    .color_code_w_text h5{
+        color:#000;
+    }
+    .color_code_w_text{
+        color:#000;
+    }
+    .block-serv .content .icon_w {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        background: rgb(167 167 167);
+        margin-right: 20px;
+        font-size: 13px;
+    }
+    .color_code,
+    .color_code_w {
+    scroll-margin-top: 100px; 
+    }
+  
+    /* If needed for older browsers */
+    .color_code::before,
+    .color_code_w::before {
+    content: "";
+    display: block;
+    height: 100px;
+    margin: -100px 0 0;
+    visibility: hidden;
+    }
+    .main-colorbg3_w {
+      background-color:rgb(0, 0, 0);
+  }
+  .bord-thin-bottom {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .bord-thin-bottom_w {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+  .butn.butn-bg.btn_w:hover {
+    background: rgb(0, 0, 0) !important;
+  }
+  .serv-box .serv-item.color_code_w:hover {
+    border: 1.5px solid  #9d1922 !important;
+  }
+  .serv-item {
+    height: 650px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+  @media(max-width:991px){
+    .serv-item {
+        height: auto;
+        display: block;
+      }
+  }
+</style>
+
+
+
+<!-- ==================== End About ==================== -->
+
+
+
+<!-- ==================== Start Services ==================== -->
+
+<section class="serv-box" style="padding: 80px 0;">
+    <div class="container">
+        <div class="sec-lg-head mb-80">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="position-re">
+                        {% comment %} <h6 class="dot-titl-non mb-10">Featured Services</h6> {% endcomment %}
+                        <h1 class="fz-60 fw-700">Security Services</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+           
+            <div class="col-lg-4">
+                <a href="{% url "mine_security" %}">
+                <div class="serv-item md-mb50 radius-10 color_code">
+                    <div class="icon-img-60 mb-40">
+                        <svg width="50" height="65" viewBox="0 0 396 396" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M365.434 76.1063C363.553 75.0201 361.419 74.4483 359.246 74.4483C357.074 74.4483 354.94 75.0201 353.059 76.1063L247.5 128.453V86.625C247.494 84.5155 246.948 82.4427 245.915 80.6033C244.882 78.764 243.396 77.2192 241.599 76.1157C239.801 75.0122 237.751 74.3866 235.643 74.2983C233.535 74.21 231.44 74.662 229.556 75.6113L123.75 128.453V37.125C123.75 33.8429 122.446 30.6953 120.125 28.3746C117.805 26.0538 114.657 24.75 111.375 24.75H37.125C33.8429 24.75 30.6953 26.0538 28.3746 28.3746C26.0538 30.6953 24.75 33.8429 24.75 37.125V346.5H371.25V86.625C371.254 84.5219 370.722 82.4525 369.705 80.6121C368.687 78.7716 367.217 77.2209 365.434 76.1063ZM272.25 321.75H222.75V235.125H272.25V321.75ZM346.5 321.75H297V222.75C297 219.468 295.696 216.32 293.375 214C291.055 211.679 287.907 210.375 284.625 210.375H210.375C207.093 210.375 203.945 211.679 201.625 214C199.304 216.32 198 219.468 198 222.75V321.75H49.5V49.5H99V168.547L222.75 106.672V168.547L346.5 106.672V321.75Z" fill="#F8F8F8" />
+                        </svg>
+                    </div>
+                    <h5 class="mb-30 pb-30 fz-15 bord-thin-bottom">Mine Security</h5>
+                    Norpro excels in securing the mining sector in Northern Ontario. Our dedicated industrial security guards, licensed in Ontario and trained in security awareness, guarantee a secure environment. From medical first response to defensive driving, CANNAMM drug testing, and live monitoring, our team excels in access control, refinery security, and crisis intervention.
+                    <a href="{% url "mine_security" %}" class="butn butn-md butn-bg main-colorbg3_w text-dark mt-30" style="padding: 10px 18px;">
+                        <span class="text-white"> More Details</span>
+                        <i class="ml-5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z" fill="white"></path>
+                            </svg></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+           
+            <div class="col-lg-4">
+                <a href="{% url "mobile_patrol" %}">
+                <div class="serv-item md-mb50 radius-10 color_code_w">
+                    <div class="icon-img-60 mb-40">
+                        <svg width="50" height="65" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css">  .st0{fill:#9d1922;}  </style> <g> <path class="st0" d="M42.031,466.641c0,12.969,10.5,23.484,23.469,23.484h32.188c12.969,0,23.5-10.516,23.5-23.484v-33.578H42.031 V466.641z"></path> <path class="st0" d="M390.813,466.641c0,12.969,10.531,23.484,23.5,23.484H446.5c12.969,0,23.469-10.516,23.469-23.484v-33.578 h-79.156V466.641z"></path> <path class="st0" d="M227.313,21.875h-94.188c-4.313,0-7.813,3.516-7.813,7.828v40.734h102V21.875z"></path> <path class="st0" d="M386.688,29.703c0-4.313-3.5-7.828-7.813-7.828h-94.188v48.563h102V29.703z"></path> <rect x="240.063" y="21.875" class="st0" width="31.875" height="48.563"></rect> <path class="st0" d="M510.25,298.719c-0.688-19.875-13.844-37.172-32.813-43.156l-21.719-12.094l-31-112.75 c-5.625-20.391-24.156-34.516-45.281-34.516c0,0-47.063,0-58.094,0c-11.063,0-188.781,0-188.781,0 c-21.125,0-39.656,14.125-45.281,34.516l-31,112.75l-21.719,12.094c-18.969,5.984-32.125,23.281-32.813,43.156L0,386.266 c-0.188,8.422,3,16.594,8.906,22.625c5.875,6.047,13.969,9.453,22.406,9.453h449.375c8.438,0,16.531-3.406,22.406-9.453 c5.906-6.031,9.094-14.203,8.906-22.625L510.25,298.719z M95.406,226.203L119.25,139.5c1.625-5.984,7.125-10.156,13.313-10.156 h246.875c6.188,0,11.688,4.172,13.313,10.172l23.844,86.688c0.656,2.344,0.156,4.875-1.313,6.813s-3.781,3.078-6.219,3.078H102.938 c-2.438,0-4.75-1.141-6.219-3.078S94.75,228.547,95.406,226.203z M74.688,379.688c-21.344,0-38.656-17.313-38.656-38.656 c0-21.359,17.313-38.672,38.656-38.672s38.656,17.313,38.656,38.672C113.344,362.375,96.031,379.688,74.688,379.688z M314.906,376 H197.094v-38.656h117.813V376z M437.313,379.688c-21.375,0-38.656-17.313-38.656-38.656c0-21.359,17.281-38.672,38.656-38.672 c21.344,0,38.656,17.313,38.656,38.672C475.969,362.375,458.656,379.688,437.313,379.688z"></path> </g> </g>
+                        </svg>
+                    </div>
+                    <h5 class="mb-30 pb-30 fz-15 bord-thin-bottom_w color_code_w_text">Patrol</h5>
+                    <div class="color_code_w_text">Our diligent patrol guards create a secure environment for customers and employees through expert monitoring of premises and personnel. Specially trained for mobile patrol inspections, our officers, whether on foot or by car, conduct thorough spot checks, parking lot patrols, and perimeter sweeps. With advanced tools, they provide real-time online reporting, ensuring enhanced security for your peace of mind.</div>
+                    <a href="{% url "mobile_patrol" %}" class="butn butn-md butn-bg main-colorbg3 text-dark mt-30 btn_w" style="padding: 10px 18px;">
+                        <span class="text-white"> More Details</span>
+                        <i class="ml-5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z" fill="white"></path>
+                            </svg></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+
+            <div class="col-lg-4">
+                <a href="{% url "industrial_guards" %}">
+                <div class="serv-item radius-10 color_code">
+                    <div class="icon-img-60 mb-40">
+                        <svg width="50" height="65" viewBox="0 0 764 764" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M238.75 573H286.5V716.25H238.75V573Z" fill="#F8F8F8" />
+                            <path d="M501.375 477.5H167.125C148.135 477.481 129.928 469.929 116.499 456.501C103.071 443.072 95.519 424.865 95.5 405.875V143.25H47.75V405.875C47.7879 437.524 60.3771 467.865 82.756 490.244C105.135 512.623 135.476 525.212 167.125 525.25H501.375C518.769 525.327 535.931 529.248 551.632 536.734L405.875 682.491L439.634 716.25L590.214 565.67C609.773 587.327 620.647 615.443 620.75 644.625V716.25H668.5V644.625C668.449 600.316 650.825 557.837 619.494 526.506C588.163 495.175 545.684 477.551 501.375 477.5Z" fill="#F8F8F8" />
+                            <path d="M603.441 96.4312L436.316 48.6812C432.024 47.4551 427.476 47.4551 423.184 48.6812L256.059 96.4312C250.111 98.1351 245.056 102.082 241.961 107.44C238.865 112.798 237.971 119.148 239.466 125.153L262.625 217.812V262.625C262.625 284.572 266.948 306.304 275.347 326.581C283.746 346.858 296.056 365.281 311.575 380.8C327.094 396.319 345.518 408.63 365.794 417.028C386.071 425.427 407.803 429.75 429.75 429.75C451.697 429.75 473.43 425.427 493.706 417.028C513.983 408.63 532.406 396.319 547.925 380.8C563.444 365.281 575.755 346.858 584.153 326.581C592.552 306.304 596.875 284.572 596.875 262.625V217.812L620.034 125.177C621.536 119.169 620.645 112.812 617.549 107.449C614.453 102.086 609.395 98.135 603.441 96.4312ZM429.75 96.455L568.106 135.992L554.378 191H453.625V143.25H405.875V191H305.146L291.394 135.992L429.75 96.455ZM429.75 382C398.102 381.962 367.76 369.373 345.381 346.994C323.002 324.615 310.413 294.274 310.375 262.625V238.75H549.125V262.625C549.087 294.274 536.498 324.615 514.119 346.994C491.74 369.373 461.399 381.962 429.75 382Z" fill="#F8F8F8" />
+                        </svg>
+                    </div>
+                    <h5 class="mb-30 fz-15 pb-30 bord-thin-bottom">Industrial Guards</h5>
+                    We prioritize precision and expertise in safeguarding your operations. Our highly trained personnel ensure the safety of industrial facilities, assets, and personnel through advanced, sector-specific security measures. From access control to incident response, our skilled professionals, trained in industrial security, adeptly handle the complexities of your environment.
+                    <a href="{% url "industrial_guards" %}" class="butn butn-md butn-bg main-colorbg3_w text-dark mt-30" style="padding: 10px 18px;">
+                        <span class="text-white"> More Details</span>
+                        <i class="ml-5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z" fill="white"></path>
+                            </svg></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="{% url "static_guards_and_event_management" %}">
+                <div class="serv-item  radius-10 color_code_w">
+                    <div class="icon-img-60 mb-40">
+                        <svg fill="#9d1922" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><defs><style>.cls-1{fill:none;}</style></defs><title>event</title><path d="M28,6a2,2,0,0,0-2-2H22V2H20V4H12V2H10V4H6A2,2,0,0,0,4,6V26a2,2,0,0,0,2,2h4V26H6V6h4V8h2V6h8V8h2V6h4v6h2Z"></path><polygon points="21 15 23.549 19.938 29 20.729 25 24.573 26 30 21 27.438 16 30 17 24.573 13 20.729 18.6 19.938 21 15"></polygon><rect id="_Transparent_Rectangle_" data-name="<Transparent Rectangle>" class="cls-1" width="50" height="65"></rect></g></svg>
+                    </div>
+                    <h5 class="mb-30 pb-30 fz-15 bord-thin-bottom_w color_code_w_text">Static Guards & Event Management</h5>
+                    <div class="color_code_w_text">At Norpro, we specialize in providing professional static guards and event management security services to your needs. Our trained guards ensure the safety and protection of your premises, whether for long-term assignments or one-off events. With a keen focus on crowd control, risk assessment, and maintaining order, our security team is equipped to handle events of any scale. From corporate gatherings to large public events, Norpro delivers reliable security solutions, giving you peace of mind. Trust us to safeguard your event with our expert security services.</div>
+                    <a href="{% url "static_guards_and_event_management" %}" class="butn butn-md butn-bg main-colorbg3 text-dark mt-30 btn_w" style="padding: 10px 18px;">
+                        <span class="text-white"> More Details</span>
+                        <i class="ml-5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z" fill="white"></path>
+                            </svg></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="{% url "institutional_guards" %}">
+                <div class="serv-item  radius-10 color_code">
+                    <div class="icon-img-60 mb-40">
+                        <svg width="50" height="65" viewBox="0 0 868 871" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M419.128 0.911621L0.875 202.293V307.062H867.125V201.737L419.128 0.911621ZM809.375 249.312H58.625V238.582L419.997 64.5882L809.375 239.138V249.312ZM0.875 870.125H867.125V682.437H0.875V870.125ZM58.625 740.187H809.375V812.375H58.625V740.187ZM101.938 350.375H159.688V639.125H101.938V350.375ZM708.312 350.375H766.062V639.125H708.312V350.375ZM304.062 350.375H361.812V639.125H304.062V350.375ZM506.188 350.375H563.938V639.125H506.188V350.375Z" fill="#F8F8F8" />
+                        </svg>
+                    </div>
+                    <h5 class="mb-30 pb-30 fz-15 bord-thin-bottom">Institutional Guards</h5>
+                    Norpro excels in tailored Institutional Security Services for education, healthcare, and government institutions. Our expert team ensures a secure environment for students, staff, patients, and the public. With skilled professionals, strict access control, swift emergency response, advanced surveillance, efficient incident reporting, and custom solutions, Norpro stands out for its comprehensive and professional approach.
+                    <a href="{% url "institutional_guards" %}" class="butn butn-md butn-bg main-colorbg3_w text-dark mt-30" style="padding: 10px 18px;">
+                        <span class="text-white"> More Details</span>
+                        <i class="ml-5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z" fill="white"></path>
+                            </svg></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+            <div class="col-lg-4">
+                <a href="{% url "Loss_prevention" %}">
+                <div class="serv-item radius-10 color_code_w">
+                    <div class="icon-img-60 mb-40">
+                        <svg width="50" height="65" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 4L7 5" stroke="#9d1922" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7 9L7 10" stroke="#9d1922" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M17 12V4M17 4L20 7M17 4L14 7" stroke="#9d1922" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 16L20 18" stroke="#9d1922" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M20 22.01L20.01 21.9989" stroke="#9d1922" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M7 14V20M7 20L10 17M7 20L4 17" stroke="#9d1922" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </div>
+                    <h5 class="mb-30 fz-15 pb-30 bord-thin-bottom_w color_code_w_text">Loss Prevention</h5>
+                    <div class="color_code_w_text">This is dedicated to minimizing losses and protecting assets for businesses across Northern Ontario. Our team employs a multi-faceted approach, including video surveillance, access control, inventory audits, and employee training programs. By identifying vulnerabilities, implementing proactive measures, and conducting regular assessments, we help mitigate risks and safeguard your business against financial losses.</div>
+                    <a href="{% url "Loss_prevention" %}" class="butn butn-md butn-bg main-colorbg3 text-dark mt-30 btn_w" style="padding: 10px 18px;">
+                        <span class="text-white"> More Details</span>
+                        <i class="ml-5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z" fill="white"></path>
+                            </svg></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-4">
+                <a href="{% url "other_service" %}">
+                <div class="serv-item  radius-10 color_code">
+                    <div class="icon-img-60 mb-40">
+                        <svg width="50" height="65" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="#ffffff"> <path d="M6.834.33a2.25 2.25 0 012.332 0l5.25 3.182A2.25 2.25 0 0115.5 5.436V6A.75.75 0 0114 6v-.564a.75.75 0 00-.361-.642l-5.25-3.181a.75.75 0 00-.778 0l-5.25 3.181A.75.75 0 002 5.436v5.128a.75.75 0 00.361.642l4.028 2.44a.75.75 0 11-.778 1.283l-4.027-2.44A2.25 2.25 0 01.5 10.563V5.436a2.25 2.25 0 011.084-1.924L6.834.33z"></path> <path fill-rule="evenodd" d="M11.749 7.325l.001-.042v-.286a.75.75 0 00-1.5 0v.286l.001.042a3.73 3.73 0 00-1.318.546.76.76 0 00-.03-.03l-.201-.203a.75.75 0 00-1.06 1.06l.201.203.03.028c-.26.394-.45.84-.547 1.319a.878.878 0 00-.04-.001H7a.75.75 0 000 1.5h.286l.038-.001c.097.48.286.926.547 1.32a.71.71 0 00-.028.027l-.202.202a.75.75 0 001.06 1.06l.203-.202a.695.695 0 00.025-.026c.395.261.842.45 1.322.548l-.001.036v.286a.75.75 0 001.5 0v-.286-.036c.48-.097.926-.287 1.32-.548l.026.026.202.203a.75.75 0 001.06-1.061l-.201-.202a.667.667 0 00-.028-.026c.261-.395.45-.842.547-1.321H15a.75.75 0 000-1.5h-.286l-.04.002a3.734 3.734 0 00-.547-1.319l.03-.028.202-.202a.75.75 0 00-1.06-1.061l-.203.202-.029.03a3.73 3.73 0 00-1.318-.545zM11 8.75A2.247 2.247 0 008.75 11 2.247 2.247 0 0011 13.25 2.247 2.247 0 0013.25 11 2.247 2.247 0 0011 8.75z" clip-rule="evenodd"></path> </g> </g></svg>
+                    </div>
+                    <h5 class="mb-30 pb-30 fz-15 bord-thin-bottom">Other Services</h5>
+                    We understand that security is not a one-size-fits-all solution, and we are committed to tailoring our services to your unique needs. Our team of highly trained professionals is dedicated to making your safety and security our top priority. From loss prevention and crowd control to cash in transit and coordinating First Nation Gatherings, we have the expertise and experience to ensure that you, your assets and your interests are safeguarded. With a commitment to dependability, integrity, and excellence, we provide peace of mind, so you can focus on what matters most.
+                    <a href="{% url "other_service" %}" class="butn butn-md butn-bg main-colorbg3_w text-dark mt-30" style="padding: 10px 18px;">
+                        <span class="text-white"> More Details</span>
+                        <i class="ml-5"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.922 4.5V11.8125C13.922 11.9244 13.8776 12.0317 13.7985 12.1108C13.7193 12.1899 13.612 12.2344 13.5002 12.2344C13.3883 12.2344 13.281 12.1899 13.2018 12.1108C13.1227 12.0317 13.0783 11.9244 13.0783 11.8125V5.51953L4.79547 13.7953C4.71715 13.8736 4.61092 13.9176 4.50015 13.9176C4.38939 13.9176 4.28316 13.8736 4.20484 13.7953C4.12652 13.717 4.08252 13.6108 4.08252 13.5C4.08252 13.3892 4.12652 13.283 4.20484 13.2047L12.4806 4.92188H6.18765C6.07577 4.92188 5.96846 4.87743 5.88934 4.79831C5.81023 4.71919 5.76578 4.61189 5.76578 4.5C5.76578 4.38811 5.81023 4.28081 5.88934 4.20169C5.96846 4.12257 6.07577 4.07813 6.18765 4.07812H13.5002C13.612 4.07813 13.7193 4.12257 13.7985 4.20169C13.8776 4.28081 13.922 4.38811 13.922 4.5Z" fill="white"></path>
+                            </svg></i>
+                    </a>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    </main>
+
+{% endblock content %}

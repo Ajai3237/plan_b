@@ -1,0 +1,765 @@
+{% extends "layout/base.html" %} 
+{% load static %} 
+{% block SEO %}
+    <!-- SEO module  -->
+    <!-- Title  -->
+    <title>Management System Implementation & Auditing | Norpro</title>
+    <meta content="A Management System is a structured framework of policies, processes, procedures, and practices that an organization uses to achieve its objectives and manage its operations effectively. It provides a systematic approach to planning, executing, monitoring, and improving activities to ensure consistency, efficiency, and compliance with internal and external requirements." name="description">
+    <meta name="keywords" content="Safety, safety sault ste marie, health and safety, health and safety sault ste marie, safety services, health and safety services, respirator fit testing, respirator fit testing sault ste marie, fit testing sault ste marie, safety training, safety training sault ste marie, health and safety training, health and safety training sault ste marie, whmis training, confined space training, respirator training, supervisor training,">
+    <meta property="og:description" content="A Management System is a structured framework of policies, processes, procedures, and practices that an organization uses to achieve its objectives and manage its operations effectively. It provides a systematic approach to planning, executing, monitoring, and improving activities to ensure consistency, efficiency, and compliance with internal and external requirements."/>
+    <meta property="og:title" content="Management System Implementation & Auditing | Norpro"/>
+    <meta property="og:image" content="https://norpro.ca{% static "assets/imgs/health_safety/system_management.jpg" %}" />
+<!--End of SEO module  -->
+{% endblock SEO %}
+
+{% block content %}
+<style>
+  .color_code{
+    background:#9d1922;
+    padding: 40px 0 0 0;
+  }
+  .icon_code{
+    background: rgb(255 255 255 / 28%) !important;
+  }
+  .profile-images {
+      left: auto;
+      top: 66%;
+      left: 60px;
+      height: 95px;
+      width: 95px;
+      border-radius: 50%;
+      background-position: center center !important;
+      background-size: cover !important;
+      margin: 10px auto 0 auto;
+      border: 4px solid #cbc7c7;
+      object-fit: cover;
+  }
+  .grid-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 30px;
+    margin-top: 0px;
+  }
+  .icon_size {
+      height: 50px;
+      width: 50px;
+      margin-left: 18px;
+      margin-top: 18px;
+  }
+  .grid-img > a {
+      flex-basis: calc(18% - 20px);
+      max-width: calc(20% - 20px);
+  }
+  .phones{
+    display:none;
+  }
+  .ulli{
+    color: #ddd;
+  }
+  ::marker {
+    color:rgb(255, 255, 255);
+  }
+  .accordion-item {
+    background-color: #222; /* Slightly lighter than body */
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .accordion-button {
+    background-color: #090912;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    border: 0.5px solid white;
+  }
+
+  .accordion-button::after {
+    display: none; /* Remove Bootstrap default icon */
+  }
+
+  .accordion-button i {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .accordion-button[aria-expanded="true"] i {
+    transform: rotate(180deg); /* Change + to - when open */
+  }
+
+  .accordion-body {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+  .accordion-button:not(.collapsed) {
+    color: #9d1922;
+    background-color: #e7f1ff;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+  }
+  .block-serv .content .icon_test {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 20px;
+    font-size: 13px;
+  }
+  .serv-intro {
+    background: url('{% static "assets/imgs/health_safety/Managed_System.jpg" %}') no-repeat center center/cover;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 80px 0;
+  }
+  .block-serv .row{
+      padding: 80px;
+  }
+  @media(max-width:600px){
+    .grid-img a {
+      flex: 1 1 calc(33.33% - 30px); /* Each item takes up 1/3 of the row with gap */
+      max-width: calc(33.33% - 30px);
+    }
+  }
+  @media(max-width:500px){
+    .profile-images {
+      left: auto;
+      top: 66%;
+      left: 60px;
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      background-position: center center !important;
+      background-size: cover !important;
+      margin: 10px auto 0 auto;
+      border: 4px solid #cbc7c7;
+      object-fit: cover;
+    }
+    .icon_size {
+      height: 40px;
+      width: 40px;
+      margin-left: 16px;
+      margin-top: 16px;
+    }
+    .grid-img a {
+      flex: 1 1 calc(50% - 30px); 
+      max-width: calc(50% - 30px);
+    }
+  }
+  @media(max-width:422px){
+    .phone{
+      display:none;
+    }
+    .phones{
+      display:block;
+      font-size: 18px;
+    }
+    .block-serv .row{
+      padding: 40px 10px;
+    }
+  }
+ 
+</style>
+<main>
+  <section class="serv-intro">
+    <div class="container">
+      <div class="sec-lg-head mb-20">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="dot-titl-non mb-15 wow fadeIn">
+              Our Health & Safety Services
+            </h1>
+            <h2 class="fz-60 fw-700 d-rotate wow animated">
+              <span class="rotate-text">Management System Implementation & Auditing</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="container">
+
+          <div class="grid-img">
+              <a href="#" class="scroll-to-section" data-target="ISO_implementation_and_auditing" rel="noopener noreferrer">
+                <div class="center-div">
+                <div class="profile-images mb-2">
+                    <svg class="icon_size" width="25" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5H7C4.79086 5 3 6.79086 3 9V15C3 17.2091 4.79086 19 7 19H17C19.2091 19 21 17.2091 21 15V9C21 6.79086 19.2091 5 17 5Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13.6079 11.9894C13.6021 11.5753 13.2616 11.2443 12.8474 11.2501C12.4333 11.2559 12.1022 11.5964 12.1081 12.0106L13.6079 11.9894ZM15.429 14.5L15.4331 13.75C15.4282 13.75 15.4234 13.75 15.4186 13.7501L15.429 14.5ZM16.163 14.4L15.9617 13.6775L15.9585 13.6785L16.163 14.4ZM18.75 12.0057C18.7531 11.5915 18.4198 11.2532 18.0056 11.25C17.5914 11.2469 17.2531 11.5802 17.25 11.9944L18.75 12.0057ZM17.2501 12.0106C17.2559 12.4248 17.5964 12.7558 18.0106 12.7499C18.4247 12.7441 18.7558 12.4036 18.7499 11.9894L17.2501 12.0106ZM15.429 9.50002L15.4249 10.25C15.4298 10.25 15.4346 10.25 15.4394 10.2499L15.429 9.50002ZM14.695 9.60002L14.896 10.3226L14.8995 10.3216L14.695 9.60002ZM12.107 11.9943C12.1039 12.4085 12.4371 12.7468 12.8513 12.75C13.2655 12.7532 13.6038 12.4199 13.607 12.0057L12.107 11.9943ZM6.75 9.50002C6.75 9.08581 6.41421 8.75002 6 8.75002C5.58579 8.75002 5.25 9.08581 5.25 9.50002H6.75ZM5.25 14.5C5.25 14.9142 5.58579 15.25 6 15.25C6.41421 15.25 6.75 14.9142 6.75 14.5H5.25ZM11.15 10.25C11.5642 10.25 11.9 9.91424 11.9 9.50002C11.9 9.08581 11.5642 8.75002 11.15 8.75002V10.25ZM9.5 9.50002L9.47062 10.2494C9.48041 10.2498 9.4902 10.25 9.5 10.25V9.50002ZM8.56585 9.84514L9.0754 10.3955L8.56585 9.84514ZM8.15 10.75L7.40053 10.7218C7.39982 10.7406 7.39982 10.7595 7.40053 10.7783L8.15 10.75ZM8.56585 11.6549L9.0754 11.1046V11.1046L8.56585 11.6549ZM9.5 12V11.25C9.4902 11.25 9.48041 11.2502 9.47062 11.2506L9.5 12ZM9.8 12V12.75C9.8098 12.75 9.81959 12.7498 9.82938 12.7494L9.8 12ZM10.7342 12.3451L10.2246 12.8955L10.7342 12.3451ZM11.15 13.25L11.8995 13.2783C11.9002 13.2595 11.9002 13.2406 11.8995 13.2218L11.15 13.25ZM10.7342 14.1549L10.2246 13.6046L10.7342 14.1549ZM9.8 14.5L9.82938 13.7506C9.81959 13.7502 9.8098 13.75 9.8 13.75V14.5ZM8.15 13.75C7.73579 13.75 7.4 14.0858 7.4 14.5C7.4 14.9142 7.73579 15.25 8.15 15.25V13.75ZM12.1081 12.0106C12.1337 13.825 13.625 15.2752 15.4394 15.2499L15.4186 13.7501C14.4324 13.7638 13.6218 12.9756 13.6079 11.9894L12.1081 12.0106ZM15.4249 15.25C15.7436 15.2517 16.0609 15.2085 16.3675 15.1216L15.9585 13.6785C15.7876 13.7269 15.6107 13.751 15.4331 13.75L15.4249 15.25ZM16.3643 15.1225C17.7658 14.732 18.739 13.4605 18.75 12.0057L17.25 11.9944C17.2441 12.78 16.7185 13.4667 15.9617 13.6775L16.3643 15.1225ZM18.7499 11.9894C18.7243 10.1751 17.233 8.72487 15.4186 8.75009L15.4394 10.2499C16.4256 10.2362 17.2362 11.0245 17.2501 12.0106L18.7499 11.9894ZM15.4331 8.75003C15.1144 8.74831 14.7971 8.79154 14.4905 8.87845L14.8995 10.3216C15.0704 10.2731 15.2473 10.2491 15.4249 10.25L15.4331 8.75003ZM14.494 8.87746C13.092 9.26744 12.1181 10.5391 12.107 11.9943L13.607 12.0057C13.613 11.2199 14.1389 10.5332 14.896 10.3226L14.494 8.87746ZM5.25 9.50002V14.5H6.75V9.50002H5.25ZM11.15 8.75002H9.5V10.25H11.15V8.75002ZM9.52938 8.7506C8.98558 8.72928 8.45562 8.92507 8.05629 9.29482L9.0754 10.3955C9.18254 10.2963 9.32472 10.2437 9.47062 10.2494L9.52938 8.7506ZM8.05629 9.29482C7.65696 9.66456 7.42105 10.1779 7.40053 10.7218L8.89947 10.7783C8.90497 10.6324 8.96827 10.4947 9.0754 10.3955L8.05629 9.29482ZM7.40053 10.7783C7.42105 11.3221 7.65696 11.8355 8.05629 12.2052L9.0754 11.1046C8.96827 11.0054 8.90497 10.8677 8.89947 10.7218L7.40053 10.7783ZM8.05629 12.2052C8.45562 12.575 8.98558 12.7708 9.52938 12.7494L9.47062 11.2506C9.32472 11.2563 9.18254 11.2038 9.0754 11.1046L8.05629 12.2052ZM9.5 12.75H9.8V11.25H9.5V12.75ZM9.82938 12.7494C9.97528 12.7437 10.1175 12.7963 10.2246 12.8955L11.2437 11.7948C10.8444 11.4251 10.3144 11.2293 9.77062 11.2506L9.82938 12.7494ZM10.2246 12.8955C10.3317 12.9947 10.395 13.1324 10.4005 13.2783L11.8995 13.2218C11.879 12.6779 11.643 12.1646 11.2437 11.7948L10.2246 12.8955ZM10.4005 13.2218C10.395 13.3677 10.3317 13.5054 10.2246 13.6046L11.2437 14.7052C11.643 14.3355 11.879 13.8221 11.8995 13.2783L10.4005 13.2218ZM10.2246 13.6046C10.1175 13.7038 9.97528 13.7563 9.82938 13.7506L9.77062 15.2494C10.3144 15.2708 10.8444 15.075 11.2437 14.7052L10.2246 13.6046ZM9.8 13.75H8.15V15.25H9.8V13.75Z" fill="#ffffff"></path> </g></svg>
+                    </div>
+                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">ISO Implementation and Auditing (Quality 9001 and H&S 45001)</h6>
+                    
+                </div>
+              </a>
+
+              
+              <a href="#" class="scroll-to-section" data-target="management_system_gap_analysis" rel="noopener noreferrer">
+                  <div class="center-div">
+                  <div class="profile-images mb-2">
+                      <svg class="icon_size" width="25" height="38" fill="#ffffff" height="200px" width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 297 297" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 297 297"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M225.656,77.674c21.414,0,38.837-17.422,38.837-38.837S247.07,0,225.656,0S186.82,17.422,186.82,38.837 S204.241,77.674,225.656,77.674z M225.656,16.819c12.14,0,22.018,9.878,22.018,22.018s-9.878,22.018-22.018,22.018 s-22.017-9.878-22.017-22.018S213.515,16.819,225.656,16.819z"></path> <path d="m270.577,194.311c-13.621,31.839-44.341,54.195-80.55,56.439l14.699-14.7c3.284-3.285 3.284-8.609 0-11.893-3.285-3.283-8.608-3.283-11.893,0l-29.243,29.244c-3.284,3.285-3.284,8.609 0,11.893l29.243,29.243c1.642,1.641 3.794,2.463 5.947,2.463 2.153,0 4.304-0.821 5.947-2.463 3.284-3.284 3.284-8.609 0-11.893l-15.027-15.026c53.241-2.636 101.018-42.65 104.726-94.915 0.819-11.542 0.215-46.283 0.215-46.283 0-16.58-10.288-31.241-26.017-36.483-0.064-0.021-10.928-3.355-10.928-3.355-4.279-1.316-8.835,0.956-10.368,5.159l-14.031,38.496c0,0-3.547-21.974-3.841-22.459 0.017-0.029 0.039-0.054 0.056-0.083l7.453-12.909c0.795-1.378 0.795-3.074 0-4.452-0.795-1.378-2.266-2.226-3.856-2.226h-14.906c-1.59,0-3.061,0.848-3.856,2.226s-0.795,3.074 0,4.452l7.453,12.909c0.017,0.029 0.038,0.055 0.056,0.083-0.294,0.485-3.841,22.459-3.841,22.459l-14.03-38.496c-1.532-4.204-6.091-6.477-10.368-5.159 0,0-10.864,3.334-10.928,3.355-15.729,5.242-26.296,19.903-26.296,36.483v59.482c0,4.644 3.765,8.409 8.409,8.409h105.775zm-97.366-16.818v-51.073c0-9.298 5.906-17.524 14.707-20.499l2.998-.92 26.421,72.491h-44.126zm104.511-9.146c0,5.272-6.892,9.146-12.459,9.146h-31.289l26.422-72.491 2.998,.92c8.802,2.975 14.328,11.2 14.328,20.499 0-1.42109e-14 0,30.74 0,41.926z"></path> <path d="m71.7,219.894c14.654,0 26.576-11.922 26.576-26.576 0-14.653-11.922-26.576-26.576-26.576-14.653,0-26.576,11.922-26.576,26.576 0.001,14.653 11.923,26.576 26.576,26.576zm0-36.333c5.38,0 9.758,4.377 9.758,9.757s-4.378,9.757-9.758,9.757c-5.38,0-9.757-4.377-9.757-9.757s4.377-9.757 9.757-9.757z"></path> <path d="m115.635,19.452c-3.285-3.283-8.608-3.283-11.893,0-3.284,3.285-3.284,8.609 0,11.893l15.023,15.022c-58.18,2.807-104.684,49.598-105.203,112.411l-10.29,17.823c-1.115,1.931-1.417,4.227-0.84,6.381 0.577,2.154 1.986,3.991 3.918,5.106l9.058,5.23-9.058,5.23c-1.931,1.115-3.341,2.952-3.918,5.106-0.578,2.154-0.275,4.45 0.84,6.381l19.737,34.185c2.322,4.023 7.464,5.398 11.487,3.078l9.058-5.23v10.459c0,4.644 3.765,8.409 8.409,8.409h39.473c4.644,0 8.409-3.765 8.409-8.409v-10.459l9.058,5.23c1.931,1.115 4.227,1.417 6.381,0.84 2.154-0.577 3.991-1.986 5.106-3.918l19.736-34.185c2.322-4.022 0.944-9.165-3.078-11.487l-9.059-5.23 9.059-5.23c4.022-2.323 5.4-7.465 3.078-11.487l-19.736-34.185c-1.115-1.931-2.952-3.341-5.106-3.918-2.154-0.58-4.45-0.275-6.381,0.84l-9.058,5.23v-10.46c0-4.644-3.765-8.409-8.409-8.409h-39.472c-4.644,0-8.409,3.765-8.409,8.409v10.46l-9.058-5.23c-0.732-0.422-1.501-0.719-2.284-0.902 8.265-41.08 43.409-72.543 86.229-75.196l-14.7,14.699c-3.284,3.284-3.284,8.609 0,11.893 1.642,1.641 3.794,2.463 5.947,2.463s4.304-0.821 5.947-2.463l29.244-29.244c1.577-1.578 2.463-3.717 2.463-5.947 0-2.231-0.886-4.369-2.463-5.947l-29.245-29.242zm-67.876,146.964c2.603,1.501 5.806,1.501 8.409,0 2.602-1.502 4.205-4.278 4.205-7.283v-16.617h22.655v16.617c0,3.005 1.603,5.78 4.205,7.283 2.603,1.501 5.808,1.501 8.409,0l14.39-8.308 11.327,19.619-14.39,8.308c-2.602,1.502-4.205,4.278-4.205,7.283s1.603,5.78 4.205,7.283l14.39,8.308-11.327,19.619-14.39-8.308c-2.603-1.501-5.808-1.501-8.409,0-2.602,1.502-4.205,4.278-4.205,7.283v16.616h-22.655v-16.616c0-3.005-1.603-5.78-4.205-7.283-2.603-1.501-5.806-1.501-8.409,0l-14.39,8.308-11.328-19.619 14.39-8.308c2.602-1.502 4.205-4.278 4.205-7.283s-1.603-5.78-4.205-7.283l-14.39-8.308 11.328-19.619 14.39,8.308z"></path> </g> </g></svg>
+                  </div>
+                      <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Management System Gap Analysis</h6>
+                      
+                  </div>
+              </a>
+
+              <a href="#" class="scroll-to-section" data-target="certificate_of_recognition_support" rel="noopener noreferrer">
+                  <div class="center-div">
+                  <div class="profile-images mb-2">
+                      <svg class="icon_size" width="25" height="38" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32.001 32.001" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M27.803,11.343c0.153-0.482,0.105-0.903-0.075-1.238c-0.169-0.338-0.427-0.6-0.74-0.794 c-0.035-0.023-0.07-0.043-0.104-0.064c-0.06-0.243-0.118-0.487-0.194-0.726c0.126-0.493,0.229-0.937,0.198-1.185 c-0.021-0.505-0.21-0.884-0.494-1.137c-0.275-0.26-0.605-0.417-0.968-0.493c-0.036-0.009-0.07-0.011-0.106-0.019 c-0.136-0.203-0.288-0.396-0.438-0.589c-0.045-0.52-0.116-0.969-0.22-1.205c-0.396-0.937-1.222-1.124-1.932-1.031 c-0.043,0.003-0.084,0.011-0.126,0.017c-0.196-0.143-0.396-0.281-0.602-0.412c-0.22-0.471-0.439-0.867-0.618-1.053 c-0.691-0.745-1.532-0.638-2.168-0.308c-0.034,0.016-0.067,0.036-0.103,0.053c-0.237-0.069-0.478-0.132-0.721-0.186 c-0.363-0.363-0.7-0.651-0.928-0.766c-0.444-0.253-0.871-0.24-1.23-0.143c-0.363,0.089-0.664,0.333-0.912,0.594 c-0.029,0.029-0.055,0.061-0.083,0.09c-0.247,0.017-0.492,0.041-0.734,0.073c-0.472-0.218-0.892-0.376-1.147-0.405 c-0.505-0.085-0.9,0.073-1.206,0.287c-0.311,0.208-0.51,0.541-0.653,0.87c-0.017,0.035-0.029,0.071-0.044,0.107 C11.23,1.78,11.009,1.886,10.792,2c-0.515-0.045-0.957-0.038-1.213,0.008c-0.496,0.101-0.816,0.383-1.035,0.68 C8.333,3,8.258,3.381,8.229,3.731C8.225,3.773,8.226,3.815,8.224,3.857C8.049,4.024,7.884,4.201,7.722,4.378 C7.214,4.514,6.794,4.673,6.566,4.807c-0.432,0.266-0.635,0.64-0.74,0.993c-0.091,0.365-0.03,0.749,0.062,1.089 c0.011,0.041,0.025,0.08,0.038,0.12c-0.108,0.221-0.216,0.44-0.31,0.668c-0.416,0.297-0.755,0.581-0.921,0.78 c-0.302,0.4-0.378,0.817-0.354,1.187c0.042,0.375,0.228,0.714,0.431,1.002c0.021,0.03,0.044,0.058,0.066,0.087 c-0.026,0.244-0.034,0.494-0.044,0.742c-0.293,0.427-0.519,0.816-0.608,1.063c-0.146,0.479-0.075,0.897,0.074,1.235 c0.168,0.338,0.459,0.594,0.748,0.794c0.034,0.024,0.069,0.044,0.104,0.066c0.06,0.241,0.118,0.482,0.193,0.717 c-0.126,0.493-0.207,0.93-0.207,1.188c0.042,0.494,0.227,0.874,0.496,1.135c0.284,0.255,0.629,0.403,0.97,0.493 c0.039,0.009,0.076,0.016,0.114,0.022c0.137,0.204,0.29,0.396,0.439,0.591c0.039,0.396,0.092,0.747,0.155,1.003 c-1.061,1.988-3.548,6.82-2.851,7.151c1.885,0.084,4.524,0.587,4.524,0.587s1.592,2.765,1.885,3.016 c0.998-3.263,2.634-5.616,3.676-6.884c0.01,0.005,0.022,0.016,0.032,0.02c0.44,0.225,0.84,0.239,1.193,0.144l4.313,8.187 l2.137-3.477l5.235-0.838c0,0-2.002-5.453-3.646-7.641c0-0.011,0-0.02,0-0.029c0.173-0.166,0.337-0.342,0.499-0.519 c0.503-0.139,0.948-0.275,1.152-0.429c0.21-0.137,0.377-0.293,0.504-0.457c0.115-0.173,0.188-0.356,0.233-0.54 c0.089-0.367,0.059-0.733-0.057-1.085c-0.013-0.039-0.026-0.077-0.039-0.117c0.108-0.222,0.219-0.445,0.313-0.676 c0.417-0.298,0.78-0.573,0.917-0.783c0.151-0.201,0.254-0.404,0.317-0.603c0.049-0.202,0.055-0.399,0.034-0.587 c-0.042-0.375-0.196-0.709-0.425-1c-0.021-0.028-0.045-0.056-0.066-0.083c0.026-0.242,0.033-0.489,0.043-0.735 C27.491,11.979,27.747,11.589,27.803,11.343z M24.071,16.053c-0.628,0.198-1.148,0.421-1.251,1.178 c-0.01,0.183,0.002,0.499-0.011,0.892c-0.143,0.155-0.285,0.31-0.438,0.453c-0.062-0.002-0.126-0.005-0.188-0.006 c-0.331-0.022-0.646-0.023-0.908,0.073c-0.267,0.094-0.504,0.244-0.672,0.607c-0.083,0.149-0.175,0.467-0.321,0.838 c-0.184,0.098-0.371,0.188-0.562,0.271c-0.062-0.024-0.122-0.05-0.183-0.072c-0.303-0.135-0.6-0.244-0.878-0.243 c-0.282-0.003-0.558,0.06-0.84,0.342c-0.129,0.111-0.323,0.378-0.586,0.675c-0.204,0.027-0.41,0.048-0.618,0.062 c-0.047-0.044-0.095-0.088-0.143-0.131c-0.239-0.229-0.48-0.431-0.743-0.523c-0.264-0.103-0.543-0.136-0.905,0.033 c-0.162,0.064-0.437,0.246-0.79,0.438c-0.202-0.045-0.401-0.099-0.599-0.154c-0.03-0.06-0.061-0.119-0.091-0.177 c-0.146-0.298-0.304-0.569-0.52-0.746c-0.212-0.188-0.464-0.314-0.862-0.28c-0.172,0.006-0.488,0.082-0.879,0.141 c-0.177-0.111-0.349-0.23-0.517-0.354c-0.007-0.062-0.015-0.126-0.022-0.188c-0.036-0.329-0.097-0.632-0.235-0.875 c-0.12-0.266-0.343-0.442-0.711-0.563c-0.152-0.062-0.49-0.085-0.873-0.162c-0.129-0.167-0.259-0.332-0.377-0.507 c0.016-0.066,0.032-0.132,0.047-0.198c0.079-0.321,0.125-0.626,0.079-0.901C8.454,15.685,8.306,15.441,8,15.203 c-0.124-0.111-0.44-0.251-0.778-0.459c-0.063-0.196-0.112-0.398-0.162-0.6c0.037-0.054,0.074-0.107,0.112-0.161 c0.341-0.553,0.619-1.062,0.198-1.708c-0.077-0.146-0.326-0.382-0.569-0.688c0.008-0.21,0.014-0.422,0.036-0.629 c0.056-0.04,0.112-0.08,0.169-0.12c0.509-0.402,0.945-0.785,0.771-1.537C7.753,9.132,7.599,8.821,7.474,8.445 c0.08-0.192,0.171-0.38,0.263-0.566C7.798,7.862,7.86,7.844,7.923,7.828c0.62-0.202,1.152-0.418,1.251-1.179 c0.026-0.169-0.005-0.501,0.007-0.891C9.326,5.6,9.472,5.444,9.625,5.296c0.063,0.006,0.127,0.01,0.192,0.015 c0.651,0.022,1.225,0.002,1.579-0.679c0.083-0.151,0.168-0.479,0.316-0.847c0.182-0.096,0.368-0.184,0.558-0.269 c0.062,0.027,0.123,0.055,0.184,0.082c0.294,0.113,0.589,0.22,0.874,0.239c0.281,0.005,0.548-0.089,0.84-0.336 c0.087-0.08,0.202-0.23,0.347-0.417c0.072-0.084,0.153-0.174,0.24-0.269c0.207-0.028,0.416-0.048,0.626-0.063 c0.047,0.046,0.094,0.091,0.141,0.136C15.76,3.095,16,3.296,16.261,3.413c0.264,0.1,0.546,0.105,0.904-0.028 c0.11-0.046,0.27-0.147,0.47-0.274c0.1-0.055,0.207-0.114,0.325-0.174c0.201,0.044,0.397,0.097,0.593,0.153 c0.029,0.061,0.06,0.121,0.089,0.181c0.15,0.279,0.311,0.544,0.516,0.744c0.212,0.188,0.478,0.285,0.86,0.282 C20.136,4.292,20.32,4.25,20.552,4.2c0.106-0.016,0.227-0.033,0.353-0.05c0.179,0.114,0.353,0.233,0.523,0.358 c0.008,0.064,0.014,0.128,0.021,0.191c0.046,0.313,0.106,0.617,0.229,0.876c0.137,0.248,0.352,0.431,0.712,0.56 c0.112,0.036,0.301,0.061,0.535,0.093c0.105,0.021,0.224,0.045,0.347,0.073c0.127,0.163,0.255,0.325,0.371,0.498 c-0.017,0.066-0.031,0.133-0.046,0.198c-0.143,0.643-0.214,1.206,0.395,1.672c0.157,0.101,0.441,0.253,0.782,0.467 c0.062,0.195,0.11,0.396,0.161,0.598c-0.036,0.055-0.072,0.109-0.106,0.164c-0.354,0.556-0.613,1.061-0.202,1.706 c0.112,0.146,0.323,0.384,0.567,0.695c-0.008,0.205-0.014,0.411-0.035,0.613c-0.056,0.042-0.112,0.084-0.166,0.126 c-0.522,0.4-0.936,0.787-0.772,1.533c0.055,0.178,0.177,0.477,0.3,0.857c-0.079,0.192-0.17,0.379-0.263,0.564 C24.194,16.016,24.132,16.033,24.071,16.053z"></path> </g> </g></svg>
+                      </div>
+                      <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Certificate of Recognition (COR) Support</h6>
+                      
+                  </div>
+              </a>
+
+              <a href="#" class="scroll-to-section" data-target="custom_occupational_health_and_safety_management_system_development" rel="noopener noreferrer">
+                  <div class="center-div">
+                  <div class="profile-images mb-2">
+                      <svg class="icon_size"width="25" height="38" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M981.333333 469.333333a21.333333 21.333333 0 0 0-21.333333 21.333334v85.333333a85.333333 85.333333 0 0 1-85.333333 85.333333H149.333333a85.333333 85.333333 0 0 1-85.333333-85.333333V149.333333a85.333333 85.333333 0 0 1 85.333333-85.333333h725.333334a85.333333 85.333333 0 0 1 85.333333 85.333333 21.333333 21.333333 0 0 0 42.666667 0 128 128 0 0 0-128-128H149.333333a128 128 0 0 0-128 128v426.666667a128 128 0 0 0 128 128h725.333334a128 128 0 0 0 128-128v-85.333333a21.333333 21.333333 0 0 0-21.333334-21.333334z" fill="#ffffff"></path><path d="M981.333333 298.666667a21.333333 21.333333 0 0 0-21.333333 21.333333v85.333333a21.333333 21.333333 0 0 0 42.666667 0v-85.333333a21.333333 21.333333 0 0 0-21.333334-21.333333zM966.186667 219.52a21.333333 21.333333 0 0 0 0 30.293333 21.333333 21.333333 0 0 0 30.293333 0l2.56-3.413333a11.946667 11.946667 0 0 0 1.92-3.626667 13.226667 13.226667 0 0 0 1.706667-3.84 26.88 26.88 0 0 0 0-4.266666 21.333333 21.333333 0 0 0-36.48-15.146667zM896 960H128a21.333333 21.333333 0 0 0 0 42.666667h768a21.333333 21.333333 0 0 0 0-42.666667zM682.666667 853.333333a21.333333 21.333333 0 0 0 0-42.666666H341.333333a21.333333 21.333333 0 0 0 0 42.666666zM704 384a21.333333 21.333333 0 0 0 0-42.666667h-44.373333a149.333333 149.333333 0 0 0-28.16-67.84l31.36-31.36a21.333333 21.333333 0 1 0-30.08-30.08l-31.573334 31.146667A149.333333 149.333333 0 0 0 533.333333 215.04V170.666667a21.333333 21.333333 0 0 0-42.666666 0v44.373333a149.333333 149.333333 0 0 0-67.84 28.16l-31.573334-31.36a21.333333 21.333333 0 0 0-30.08 30.08l31.36 31.36A149.333333 149.333333 0 0 0 364.373333 341.333333H320a21.333333 21.333333 0 0 0 0 42.666667h44.373333a149.333333 149.333333 0 0 0 28.16 67.84l-31.36 31.36a21.333333 21.333333 0 1 0 30.08 30.08l31.36-31.36A149.333333 149.333333 0 0 0 490.666667 510.293333V554.666667a21.333333 21.333333 0 0 0 42.666666 0v-44.373334a149.333333 149.333333 0 0 0 67.84-28.16l31.36 31.36a21.333333 21.333333 0 0 0 30.08-30.08l-31.146666-31.573333A149.333333 149.333333 0 0 0 659.626667 384z m-192 85.333333a106.666667 106.666667 0 1 1 106.666667-106.666666 106.666667 106.666667 0 0 1-106.666667 106.666666z" fill="#ffffff"></path></g></>
+                      </div>
+                      <h6 class="text-center" style="line-height: 18px;font-size: 15px;">
+                        Custom Occupational Health & Safety Management System Development
+                      </h6>
+                      
+                  </div>
+              </a>
+
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== Start Slider ==================== -->
+
+  <header class="page-header" style="min-height:25vh">
+    <div class="container-fluid rest pt-20 pb-20 main-colorbg3" style="overflow:hidden;">
+      <div class="row">
+          <div class="col-12">
+              <div class="main-marq dark-text">
+                  <div class="slide-har st1">
+                      <div class="box non-strok">
+                      <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span>
+                                  <span class="fz-30 ml-50 mb-5  stroke icon" style="height:30px; width:30px">
+                                  <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                  </span>
+                              </h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5  stroke icon" style="height:30px; width:30px">
+                                  <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                  </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span>
+                                  <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                  <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                  </span>
+                              </h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Management System Implementation & Auditing</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="process">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-9">
+          <div class="sec-head mb-80">
+            <h3 class="fs-50 fw-700 text-left">Overview</h3>
+            <span class="text-left my-4">
+              <p>
+                A Management System is a structured framework of policies, processes, procedures, and practices that an organization uses to achieve its objectives and manage its operations effectively. It provides a systematic approach to planning, executing, monitoring, and improving activities to ensure consistency, efficiency, and compliance with internal and external requirements.
+              </p>
+              <p>Management systems are designed to help organizations meet their goals, whether related to quality, safety, environmental sustainability, information security, or other areas. They are often based on international standards (e.g., ISO standards) and can be tailored to suit the specific needs of an organization. 
+              </p>
+              <p>Norpro H&S will work with your organization through all of the implementation stages below:</p>
+              <ul class="ulli">
+                <li><b>Planing:</b> Defining objectives, scope, and requirements for the management system.</li>
+                <li><b>Design:</b> Develop policies, processes, and procedures to meet the objectives.
+                </li>
+                <li><b>Implementation:</b> Roll out the system across the organization, provide employees with training and required resources.
+                </li>
+                <li><b>Monitoring and Measurement:</b> Develop metrics to track key performance indicators (KPI’s) and conduct internal audits.
+                </li>
+                <li><b>Review and Improvement:</b> Develop regular review processes and improvement plans.</li>
+              </ul>
+              <p>If you are considering implementing a managed system in your workplace or require assistance with auditing of an existing system, please <a href="{% url "contact" %}" style="font-weight: 600;">contact us</a> today!</p>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== End process ==================== -->
+
+  <!-- ==================== Start about ==================== -->
+
+  <section class="block-serv section-padding bord-thin-top"  style="padding: 65px 0;padding-bottom: 0px;">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-9">
+            <div class="sec-head  mb-80">
+                <h3 class=" fs-50 fw-700 text-center">Our Services </h3>
+            </div>
+        </div>
+      </div>
+
+      <div class="row color_code" id="ISO_implementation_and_auditing" style="background: url('{% static "assets/imgs/health_safety/ISO.jpg" %}') no-repeat center center/cover;
+        background-blend-mode: multiply;
+        background-color: rgba(0, 0, 0, 0.6);">
+        <div class="col-lg-12 valign mine-modal-1">
+          <div class="content">
+            <div class="item d-flex mb-50">
+              <div>
+                <span class="icon icon_code">
+                    <svg width="25" height="38" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5H7C4.79086 5 3 6.79086 3 9V15C3 17.2091 4.79086 19 7 19H17C19.2091 19 21 17.2091 21 15V9C21 6.79086 19.2091 5 17 5Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13.6079 11.9894C13.6021 11.5753 13.2616 11.2443 12.8474 11.2501C12.4333 11.2559 12.1022 11.5964 12.1081 12.0106L13.6079 11.9894ZM15.429 14.5L15.4331 13.75C15.4282 13.75 15.4234 13.75 15.4186 13.7501L15.429 14.5ZM16.163 14.4L15.9617 13.6775L15.9585 13.6785L16.163 14.4ZM18.75 12.0057C18.7531 11.5915 18.4198 11.2532 18.0056 11.25C17.5914 11.2469 17.2531 11.5802 17.25 11.9944L18.75 12.0057ZM17.2501 12.0106C17.2559 12.4248 17.5964 12.7558 18.0106 12.7499C18.4247 12.7441 18.7558 12.4036 18.7499 11.9894L17.2501 12.0106ZM15.429 9.50002L15.4249 10.25C15.4298 10.25 15.4346 10.25 15.4394 10.2499L15.429 9.50002ZM14.695 9.60002L14.896 10.3226L14.8995 10.3216L14.695 9.60002ZM12.107 11.9943C12.1039 12.4085 12.4371 12.7468 12.8513 12.75C13.2655 12.7532 13.6038 12.4199 13.607 12.0057L12.107 11.9943ZM6.75 9.50002C6.75 9.08581 6.41421 8.75002 6 8.75002C5.58579 8.75002 5.25 9.08581 5.25 9.50002H6.75ZM5.25 14.5C5.25 14.9142 5.58579 15.25 6 15.25C6.41421 15.25 6.75 14.9142 6.75 14.5H5.25ZM11.15 10.25C11.5642 10.25 11.9 9.91424 11.9 9.50002C11.9 9.08581 11.5642 8.75002 11.15 8.75002V10.25ZM9.5 9.50002L9.47062 10.2494C9.48041 10.2498 9.4902 10.25 9.5 10.25V9.50002ZM8.56585 9.84514L9.0754 10.3955L8.56585 9.84514ZM8.15 10.75L7.40053 10.7218C7.39982 10.7406 7.39982 10.7595 7.40053 10.7783L8.15 10.75ZM8.56585 11.6549L9.0754 11.1046V11.1046L8.56585 11.6549ZM9.5 12V11.25C9.4902 11.25 9.48041 11.2502 9.47062 11.2506L9.5 12ZM9.8 12V12.75C9.8098 12.75 9.81959 12.7498 9.82938 12.7494L9.8 12ZM10.7342 12.3451L10.2246 12.8955L10.7342 12.3451ZM11.15 13.25L11.8995 13.2783C11.9002 13.2595 11.9002 13.2406 11.8995 13.2218L11.15 13.25ZM10.7342 14.1549L10.2246 13.6046L10.7342 14.1549ZM9.8 14.5L9.82938 13.7506C9.81959 13.7502 9.8098 13.75 9.8 13.75V14.5ZM8.15 13.75C7.73579 13.75 7.4 14.0858 7.4 14.5C7.4 14.9142 7.73579 15.25 8.15 15.25V13.75ZM12.1081 12.0106C12.1337 13.825 13.625 15.2752 15.4394 15.2499L15.4186 13.7501C14.4324 13.7638 13.6218 12.9756 13.6079 11.9894L12.1081 12.0106ZM15.4249 15.25C15.7436 15.2517 16.0609 15.2085 16.3675 15.1216L15.9585 13.6785C15.7876 13.7269 15.6107 13.751 15.4331 13.75L15.4249 15.25ZM16.3643 15.1225C17.7658 14.732 18.739 13.4605 18.75 12.0057L17.25 11.9944C17.2441 12.78 16.7185 13.4667 15.9617 13.6775L16.3643 15.1225ZM18.7499 11.9894C18.7243 10.1751 17.233 8.72487 15.4186 8.75009L15.4394 10.2499C16.4256 10.2362 17.2362 11.0245 17.2501 12.0106L18.7499 11.9894ZM15.4331 8.75003C15.1144 8.74831 14.7971 8.79154 14.4905 8.87845L14.8995 10.3216C15.0704 10.2731 15.2473 10.2491 15.4249 10.25L15.4331 8.75003ZM14.494 8.87746C13.092 9.26744 12.1181 10.5391 12.107 11.9943L13.607 12.0057C13.613 11.2199 14.1389 10.5332 14.896 10.3226L14.494 8.87746ZM5.25 9.50002V14.5H6.75V9.50002H5.25ZM11.15 8.75002H9.5V10.25H11.15V8.75002ZM9.52938 8.7506C8.98558 8.72928 8.45562 8.92507 8.05629 9.29482L9.0754 10.3955C9.18254 10.2963 9.32472 10.2437 9.47062 10.2494L9.52938 8.7506ZM8.05629 9.29482C7.65696 9.66456 7.42105 10.1779 7.40053 10.7218L8.89947 10.7783C8.90497 10.6324 8.96827 10.4947 9.0754 10.3955L8.05629 9.29482ZM7.40053 10.7783C7.42105 11.3221 7.65696 11.8355 8.05629 12.2052L9.0754 11.1046C8.96827 11.0054 8.90497 10.8677 8.89947 10.7218L7.40053 10.7783ZM8.05629 12.2052C8.45562 12.575 8.98558 12.7708 9.52938 12.7494L9.47062 11.2506C9.32472 11.2563 9.18254 11.2038 9.0754 11.1046L8.05629 12.2052ZM9.5 12.75H9.8V11.25H9.5V12.75ZM9.82938 12.7494C9.97528 12.7437 10.1175 12.7963 10.2246 12.8955L11.2437 11.7948C10.8444 11.4251 10.3144 11.2293 9.77062 11.2506L9.82938 12.7494ZM10.2246 12.8955C10.3317 12.9947 10.395 13.1324 10.4005 13.2783L11.8995 13.2218C11.879 12.6779 11.643 12.1646 11.2437 11.7948L10.2246 12.8955ZM10.4005 13.2218C10.395 13.3677 10.3317 13.5054 10.2246 13.6046L11.2437 14.7052C11.643 14.3355 11.879 13.8221 11.8995 13.2783L10.4005 13.2218ZM10.2246 13.6046C10.1175 13.7038 9.97528 13.7563 9.82938 13.7506L9.77062 15.2494C10.3144 15.2708 10.8444 15.075 11.2437 14.7052L10.2246 13.6046ZM9.8 13.75H8.15V15.25H9.8V13.75Z" fill="#ffffff"></path> </g></svg>
+                </span>
+              </div>
+              <div>
+                <h4>ISO Implementation and Auditing (Quality 9001 and H&S 45001)</h4>
+                <p class="ms-3">
+                  Norpro H&S is well-versed in the development and implementation of ISO quality and health and safety. Whether you're aiming for ISO certification or want to enhance your quality and/or workplace safety, we tailor programs to meet your specific business needs. We take pride in our own ISO Certification and aim to help businesses of all sizes achieve the same standard. 
+                </p>
+                <br>
+                <p class="ms-3">
+                  Our team provides support services tailored to the specific needs of your organization that range from the initial gap analysis to full implementation and certification support, including: 
+                </p>
+                <ul class="ulli ulli_w">
+                  <li>Conducting training sessions for employees and management on ISO standard requirements, key benefits for the workplace and effective implementation strategies. 
+                  </li>
+                  <li>Updating and/or developing internal policies, risk assessments, procedures and monitoring tools to align with standard requirements. 
+                  </li>
+                  <li>Providing hands-on support when setting up processes and assisting in integrating with existing management systems, if applicable.
+                  </li>
+                  <li>Conducting internal audits to evaluate the effectiveness of the management system, to identify non-conformities and areas for improvement.
+                  </li>
+                  <li>Aiding with preparation for external certification/surveillance audit(s).</li>
+                </ul>
+                <br>
+                <p>By leveraging Norpro’s management system consulting services, organizations can effectively implement a robust management system, ensuring a safer, more effective and efficient workplace compliant with international standards. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row color_code" id="management_system_gap_analysis">
+        <div class="col-lg-12 valign mine-modal-1">
+          <div class="content">
+            <div class="item d-flex mb-50">
+              <div>
+                <span class="icon icon_code">
+                  <svg width="25" height="38" fill="#ffffff" height="200px" width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 297 297" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 297 297"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M225.656,77.674c21.414,0,38.837-17.422,38.837-38.837S247.07,0,225.656,0S186.82,17.422,186.82,38.837 S204.241,77.674,225.656,77.674z M225.656,16.819c12.14,0,22.018,9.878,22.018,22.018s-9.878,22.018-22.018,22.018 s-22.017-9.878-22.017-22.018S213.515,16.819,225.656,16.819z"></path> <path d="m270.577,194.311c-13.621,31.839-44.341,54.195-80.55,56.439l14.699-14.7c3.284-3.285 3.284-8.609 0-11.893-3.285-3.283-8.608-3.283-11.893,0l-29.243,29.244c-3.284,3.285-3.284,8.609 0,11.893l29.243,29.243c1.642,1.641 3.794,2.463 5.947,2.463 2.153,0 4.304-0.821 5.947-2.463 3.284-3.284 3.284-8.609 0-11.893l-15.027-15.026c53.241-2.636 101.018-42.65 104.726-94.915 0.819-11.542 0.215-46.283 0.215-46.283 0-16.58-10.288-31.241-26.017-36.483-0.064-0.021-10.928-3.355-10.928-3.355-4.279-1.316-8.835,0.956-10.368,5.159l-14.031,38.496c0,0-3.547-21.974-3.841-22.459 0.017-0.029 0.039-0.054 0.056-0.083l7.453-12.909c0.795-1.378 0.795-3.074 0-4.452-0.795-1.378-2.266-2.226-3.856-2.226h-14.906c-1.59,0-3.061,0.848-3.856,2.226s-0.795,3.074 0,4.452l7.453,12.909c0.017,0.029 0.038,0.055 0.056,0.083-0.294,0.485-3.841,22.459-3.841,22.459l-14.03-38.496c-1.532-4.204-6.091-6.477-10.368-5.159 0,0-10.864,3.334-10.928,3.355-15.729,5.242-26.296,19.903-26.296,36.483v59.482c0,4.644 3.765,8.409 8.409,8.409h105.775zm-97.366-16.818v-51.073c0-9.298 5.906-17.524 14.707-20.499l2.998-.92 26.421,72.491h-44.126zm104.511-9.146c0,5.272-6.892,9.146-12.459,9.146h-31.289l26.422-72.491 2.998,.92c8.802,2.975 14.328,11.2 14.328,20.499 0-1.42109e-14 0,30.74 0,41.926z"></path> <path d="m71.7,219.894c14.654,0 26.576-11.922 26.576-26.576 0-14.653-11.922-26.576-26.576-26.576-14.653,0-26.576,11.922-26.576,26.576 0.001,14.653 11.923,26.576 26.576,26.576zm0-36.333c5.38,0 9.758,4.377 9.758,9.757s-4.378,9.757-9.758,9.757c-5.38,0-9.757-4.377-9.757-9.757s4.377-9.757 9.757-9.757z"></path> <path d="m115.635,19.452c-3.285-3.283-8.608-3.283-11.893,0-3.284,3.285-3.284,8.609 0,11.893l15.023,15.022c-58.18,2.807-104.684,49.598-105.203,112.411l-10.29,17.823c-1.115,1.931-1.417,4.227-0.84,6.381 0.577,2.154 1.986,3.991 3.918,5.106l9.058,5.23-9.058,5.23c-1.931,1.115-3.341,2.952-3.918,5.106-0.578,2.154-0.275,4.45 0.84,6.381l19.737,34.185c2.322,4.023 7.464,5.398 11.487,3.078l9.058-5.23v10.459c0,4.644 3.765,8.409 8.409,8.409h39.473c4.644,0 8.409-3.765 8.409-8.409v-10.459l9.058,5.23c1.931,1.115 4.227,1.417 6.381,0.84 2.154-0.577 3.991-1.986 5.106-3.918l19.736-34.185c2.322-4.022 0.944-9.165-3.078-11.487l-9.059-5.23 9.059-5.23c4.022-2.323 5.4-7.465 3.078-11.487l-19.736-34.185c-1.115-1.931-2.952-3.341-5.106-3.918-2.154-0.58-4.45-0.275-6.381,0.84l-9.058,5.23v-10.46c0-4.644-3.765-8.409-8.409-8.409h-39.472c-4.644,0-8.409,3.765-8.409,8.409v10.46l-9.058-5.23c-0.732-0.422-1.501-0.719-2.284-0.902 8.265-41.08 43.409-72.543 86.229-75.196l-14.7,14.699c-3.284,3.284-3.284,8.609 0,11.893 1.642,1.641 3.794,2.463 5.947,2.463s4.304-0.821 5.947-2.463l29.244-29.244c1.577-1.578 2.463-3.717 2.463-5.947 0-2.231-0.886-4.369-2.463-5.947l-29.245-29.242zm-67.876,146.964c2.603,1.501 5.806,1.501 8.409,0 2.602-1.502 4.205-4.278 4.205-7.283v-16.617h22.655v16.617c0,3.005 1.603,5.78 4.205,7.283 2.603,1.501 5.808,1.501 8.409,0l14.39-8.308 11.327,19.619-14.39,8.308c-2.602,1.502-4.205,4.278-4.205,7.283s1.603,5.78 4.205,7.283l14.39,8.308-11.327,19.619-14.39-8.308c-2.603-1.501-5.808-1.501-8.409,0-2.602,1.502-4.205,4.278-4.205,7.283v16.616h-22.655v-16.616c0-3.005-1.603-5.78-4.205-7.283-2.603-1.501-5.806-1.501-8.409,0l-14.39,8.308-11.328-19.619 14.39-8.308c2.602-1.502 4.205-4.278 4.205-7.283s-1.603-5.78-4.205-7.283l-14.39-8.308 11.328-19.619 14.39,8.308z"></path> </g> </g></svg>
+                </span>
+              </div>
+              <div>
+                <h4>Management System Gap Analysis</h4>
+                <p>
+                  A Management System Gap Analysis is a systematic process used to evaluate the current state of an organization's management system against a desired standard, framework, or set of requirements. The goal is to identify gaps or discrepancies between the existing system and the target requirements, enabling the organization to develop a plan to address these gaps and achieve compliance or improvement.
+                </p>
+                <br>
+                <p>This type of analysis is commonly used in the context of management systems such as Quality Management Systems (QMS), Environmental Management Systems (EMS) and Health and Safety Management Systems (HSMS). It is often conducted when an organization is preparing to implement a new management system, transition to updated standards, or improve existing processes. 
+                </p>
+                <br>
+                <p>Norpro H&S is able to conduct a management system gap analysis for organizations looking to meet any of the standards below:
+                </p>
+                <ul class="ulli">
+                  <li><b>ISO 9001 Quality:</b> An international standard focusing on meeting customer requirements and improving product or service quality. 
+                  </li>
+                  <li><b>ISO 45001 Health and Safety:</b> An international standard focusing on ensuring a safe and healthy work environment for employees and others.
+                  </li>
+                  <li><b>COR:</b> A provincial standard on workplace health and safety focusing on ensuring a safe and healthy work environment for employees and others. 
+                  </li>
+              </ul>
+              <p>
+                If you are considering a transition into a management system, in the process of implementing a new system or wanting to improve existing processes, <a href="{% url "contact" %}" style="font-weight: 600;">contact us</a> for assistance. 
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="certificate_of_recognition_support">
+        <div class="col-lg-12 valign mine-modal-1">
+          <div class="content">
+            <div class="item d-flex mb-50">
+              <div>
+                <span class="icon">
+                    <svg width="25" height="38" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32.001 32.001" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M27.803,11.343c0.153-0.482,0.105-0.903-0.075-1.238c-0.169-0.338-0.427-0.6-0.74-0.794 c-0.035-0.023-0.07-0.043-0.104-0.064c-0.06-0.243-0.118-0.487-0.194-0.726c0.126-0.493,0.229-0.937,0.198-1.185 c-0.021-0.505-0.21-0.884-0.494-1.137c-0.275-0.26-0.605-0.417-0.968-0.493c-0.036-0.009-0.07-0.011-0.106-0.019 c-0.136-0.203-0.288-0.396-0.438-0.589c-0.045-0.52-0.116-0.969-0.22-1.205c-0.396-0.937-1.222-1.124-1.932-1.031 c-0.043,0.003-0.084,0.011-0.126,0.017c-0.196-0.143-0.396-0.281-0.602-0.412c-0.22-0.471-0.439-0.867-0.618-1.053 c-0.691-0.745-1.532-0.638-2.168-0.308c-0.034,0.016-0.067,0.036-0.103,0.053c-0.237-0.069-0.478-0.132-0.721-0.186 c-0.363-0.363-0.7-0.651-0.928-0.766c-0.444-0.253-0.871-0.24-1.23-0.143c-0.363,0.089-0.664,0.333-0.912,0.594 c-0.029,0.029-0.055,0.061-0.083,0.09c-0.247,0.017-0.492,0.041-0.734,0.073c-0.472-0.218-0.892-0.376-1.147-0.405 c-0.505-0.085-0.9,0.073-1.206,0.287c-0.311,0.208-0.51,0.541-0.653,0.87c-0.017,0.035-0.029,0.071-0.044,0.107 C11.23,1.78,11.009,1.886,10.792,2c-0.515-0.045-0.957-0.038-1.213,0.008c-0.496,0.101-0.816,0.383-1.035,0.68 C8.333,3,8.258,3.381,8.229,3.731C8.225,3.773,8.226,3.815,8.224,3.857C8.049,4.024,7.884,4.201,7.722,4.378 C7.214,4.514,6.794,4.673,6.566,4.807c-0.432,0.266-0.635,0.64-0.74,0.993c-0.091,0.365-0.03,0.749,0.062,1.089 c0.011,0.041,0.025,0.08,0.038,0.12c-0.108,0.221-0.216,0.44-0.31,0.668c-0.416,0.297-0.755,0.581-0.921,0.78 c-0.302,0.4-0.378,0.817-0.354,1.187c0.042,0.375,0.228,0.714,0.431,1.002c0.021,0.03,0.044,0.058,0.066,0.087 c-0.026,0.244-0.034,0.494-0.044,0.742c-0.293,0.427-0.519,0.816-0.608,1.063c-0.146,0.479-0.075,0.897,0.074,1.235 c0.168,0.338,0.459,0.594,0.748,0.794c0.034,0.024,0.069,0.044,0.104,0.066c0.06,0.241,0.118,0.482,0.193,0.717 c-0.126,0.493-0.207,0.93-0.207,1.188c0.042,0.494,0.227,0.874,0.496,1.135c0.284,0.255,0.629,0.403,0.97,0.493 c0.039,0.009,0.076,0.016,0.114,0.022c0.137,0.204,0.29,0.396,0.439,0.591c0.039,0.396,0.092,0.747,0.155,1.003 c-1.061,1.988-3.548,6.82-2.851,7.151c1.885,0.084,4.524,0.587,4.524,0.587s1.592,2.765,1.885,3.016 c0.998-3.263,2.634-5.616,3.676-6.884c0.01,0.005,0.022,0.016,0.032,0.02c0.44,0.225,0.84,0.239,1.193,0.144l4.313,8.187 l2.137-3.477l5.235-0.838c0,0-2.002-5.453-3.646-7.641c0-0.011,0-0.02,0-0.029c0.173-0.166,0.337-0.342,0.499-0.519 c0.503-0.139,0.948-0.275,1.152-0.429c0.21-0.137,0.377-0.293,0.504-0.457c0.115-0.173,0.188-0.356,0.233-0.54 c0.089-0.367,0.059-0.733-0.057-1.085c-0.013-0.039-0.026-0.077-0.039-0.117c0.108-0.222,0.219-0.445,0.313-0.676 c0.417-0.298,0.78-0.573,0.917-0.783c0.151-0.201,0.254-0.404,0.317-0.603c0.049-0.202,0.055-0.399,0.034-0.587 c-0.042-0.375-0.196-0.709-0.425-1c-0.021-0.028-0.045-0.056-0.066-0.083c0.026-0.242,0.033-0.489,0.043-0.735 C27.491,11.979,27.747,11.589,27.803,11.343z M24.071,16.053c-0.628,0.198-1.148,0.421-1.251,1.178 c-0.01,0.183,0.002,0.499-0.011,0.892c-0.143,0.155-0.285,0.31-0.438,0.453c-0.062-0.002-0.126-0.005-0.188-0.006 c-0.331-0.022-0.646-0.023-0.908,0.073c-0.267,0.094-0.504,0.244-0.672,0.607c-0.083,0.149-0.175,0.467-0.321,0.838 c-0.184,0.098-0.371,0.188-0.562,0.271c-0.062-0.024-0.122-0.05-0.183-0.072c-0.303-0.135-0.6-0.244-0.878-0.243 c-0.282-0.003-0.558,0.06-0.84,0.342c-0.129,0.111-0.323,0.378-0.586,0.675c-0.204,0.027-0.41,0.048-0.618,0.062 c-0.047-0.044-0.095-0.088-0.143-0.131c-0.239-0.229-0.48-0.431-0.743-0.523c-0.264-0.103-0.543-0.136-0.905,0.033 c-0.162,0.064-0.437,0.246-0.79,0.438c-0.202-0.045-0.401-0.099-0.599-0.154c-0.03-0.06-0.061-0.119-0.091-0.177 c-0.146-0.298-0.304-0.569-0.52-0.746c-0.212-0.188-0.464-0.314-0.862-0.28c-0.172,0.006-0.488,0.082-0.879,0.141 c-0.177-0.111-0.349-0.23-0.517-0.354c-0.007-0.062-0.015-0.126-0.022-0.188c-0.036-0.329-0.097-0.632-0.235-0.875 c-0.12-0.266-0.343-0.442-0.711-0.563c-0.152-0.062-0.49-0.085-0.873-0.162c-0.129-0.167-0.259-0.332-0.377-0.507 c0.016-0.066,0.032-0.132,0.047-0.198c0.079-0.321,0.125-0.626,0.079-0.901C8.454,15.685,8.306,15.441,8,15.203 c-0.124-0.111-0.44-0.251-0.778-0.459c-0.063-0.196-0.112-0.398-0.162-0.6c0.037-0.054,0.074-0.107,0.112-0.161 c0.341-0.553,0.619-1.062,0.198-1.708c-0.077-0.146-0.326-0.382-0.569-0.688c0.008-0.21,0.014-0.422,0.036-0.629 c0.056-0.04,0.112-0.08,0.169-0.12c0.509-0.402,0.945-0.785,0.771-1.537C7.753,9.132,7.599,8.821,7.474,8.445 c0.08-0.192,0.171-0.38,0.263-0.566C7.798,7.862,7.86,7.844,7.923,7.828c0.62-0.202,1.152-0.418,1.251-1.179 c0.026-0.169-0.005-0.501,0.007-0.891C9.326,5.6,9.472,5.444,9.625,5.296c0.063,0.006,0.127,0.01,0.192,0.015 c0.651,0.022,1.225,0.002,1.579-0.679c0.083-0.151,0.168-0.479,0.316-0.847c0.182-0.096,0.368-0.184,0.558-0.269 c0.062,0.027,0.123,0.055,0.184,0.082c0.294,0.113,0.589,0.22,0.874,0.239c0.281,0.005,0.548-0.089,0.84-0.336 c0.087-0.08,0.202-0.23,0.347-0.417c0.072-0.084,0.153-0.174,0.24-0.269c0.207-0.028,0.416-0.048,0.626-0.063 c0.047,0.046,0.094,0.091,0.141,0.136C15.76,3.095,16,3.296,16.261,3.413c0.264,0.1,0.546,0.105,0.904-0.028 c0.11-0.046,0.27-0.147,0.47-0.274c0.1-0.055,0.207-0.114,0.325-0.174c0.201,0.044,0.397,0.097,0.593,0.153 c0.029,0.061,0.06,0.121,0.089,0.181c0.15,0.279,0.311,0.544,0.516,0.744c0.212,0.188,0.478,0.285,0.86,0.282 C20.136,4.292,20.32,4.25,20.552,4.2c0.106-0.016,0.227-0.033,0.353-0.05c0.179,0.114,0.353,0.233,0.523,0.358 c0.008,0.064,0.014,0.128,0.021,0.191c0.046,0.313,0.106,0.617,0.229,0.876c0.137,0.248,0.352,0.431,0.712,0.56 c0.112,0.036,0.301,0.061,0.535,0.093c0.105,0.021,0.224,0.045,0.347,0.073c0.127,0.163,0.255,0.325,0.371,0.498 c-0.017,0.066-0.031,0.133-0.046,0.198c-0.143,0.643-0.214,1.206,0.395,1.672c0.157,0.101,0.441,0.253,0.782,0.467 c0.062,0.195,0.11,0.396,0.161,0.598c-0.036,0.055-0.072,0.109-0.106,0.164c-0.354,0.556-0.613,1.061-0.202,1.706 c0.112,0.146,0.323,0.384,0.567,0.695c-0.008,0.205-0.014,0.411-0.035,0.613c-0.056,0.042-0.112,0.084-0.166,0.126 c-0.522,0.4-0.936,0.787-0.772,1.533c0.055,0.178,0.177,0.477,0.3,0.857c-0.079,0.192-0.17,0.379-0.263,0.564 C24.194,16.016,24.132,16.033,24.071,16.053z"></path> </g> </g></svg>
+                </span>
+              </div>
+              <div>
+                <h4>Certificate of Recognition (COR) Support</h4>
+                <p>
+                  Norpro H&S is well-versed in the development and implementation of COR. Whether you're aiming for COR certification or want to enhance your workplace health and safety programming, we tailor programs to meet your specific business needs. 
+                </p>
+                <br>
+                <p>Our team provides support services tailored to the specific needs of the organization and can range from the initial gap analysis to full implementation and certification support, including:
+                </p>
+                <br>
+                <ul class="ulli">
+                  <li>Conducting training sessions for employees and management on the COR standard requirements, key benefits for the workplace and effective implementation strategies.                   </li>
+                  <li>Updating and/or developing internal policies, risk assessments, procedures and monitoring tools to align with standard requirements. 
+                  </li>
+                  <li>Conducting mock internal audits on standard elements to evaluate the effectiveness of the management system, to identify non-conformities and areas for improvement.
+                  </li>
+                  <li>Aiding with preparation for external certification audit(s).</li>
+                  <li>Providing ongoing support with re-occurring internal audits and continuous improvement plans.
+                  </li>
+              </ul>
+              <br>
+              <p>By leveraging Norpro’s COR consulting services, organizations can effectively implement a robust management system, ensuring a safer workplace with programming built in line with the COR standard. 
+              </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row color_code" id="custom_occupational_health_and_safety_management_system_development">
+        <div class="col-lg-12 valign mine-modal-1">
+          <div class="content">
+            <div class="item d-flex mb-50">
+              <div>
+                <span class="icon icon_code">
+                    <svg width="25" height="38" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M981.333333 469.333333a21.333333 21.333333 0 0 0-21.333333 21.333334v85.333333a85.333333 85.333333 0 0 1-85.333333 85.333333H149.333333a85.333333 85.333333 0 0 1-85.333333-85.333333V149.333333a85.333333 85.333333 0 0 1 85.333333-85.333333h725.333334a85.333333 85.333333 0 0 1 85.333333 85.333333 21.333333 21.333333 0 0 0 42.666667 0 128 128 0 0 0-128-128H149.333333a128 128 0 0 0-128 128v426.666667a128 128 0 0 0 128 128h725.333334a128 128 0 0 0 128-128v-85.333333a21.333333 21.333333 0 0 0-21.333334-21.333334z" fill="#ffffff"></path><path d="M981.333333 298.666667a21.333333 21.333333 0 0 0-21.333333 21.333333v85.333333a21.333333 21.333333 0 0 0 42.666667 0v-85.333333a21.333333 21.333333 0 0 0-21.333334-21.333333zM966.186667 219.52a21.333333 21.333333 0 0 0 0 30.293333 21.333333 21.333333 0 0 0 30.293333 0l2.56-3.413333a11.946667 11.946667 0 0 0 1.92-3.626667 13.226667 13.226667 0 0 0 1.706667-3.84 26.88 26.88 0 0 0 0-4.266666 21.333333 21.333333 0 0 0-36.48-15.146667zM896 960H128a21.333333 21.333333 0 0 0 0 42.666667h768a21.333333 21.333333 0 0 0 0-42.666667zM682.666667 853.333333a21.333333 21.333333 0 0 0 0-42.666666H341.333333a21.333333 21.333333 0 0 0 0 42.666666zM704 384a21.333333 21.333333 0 0 0 0-42.666667h-44.373333a149.333333 149.333333 0 0 0-28.16-67.84l31.36-31.36a21.333333 21.333333 0 1 0-30.08-30.08l-31.573334 31.146667A149.333333 149.333333 0 0 0 533.333333 215.04V170.666667a21.333333 21.333333 0 0 0-42.666666 0v44.373333a149.333333 149.333333 0 0 0-67.84 28.16l-31.573334-31.36a21.333333 21.333333 0 0 0-30.08 30.08l31.36 31.36A149.333333 149.333333 0 0 0 364.373333 341.333333H320a21.333333 21.333333 0 0 0 0 42.666667h44.373333a149.333333 149.333333 0 0 0 28.16 67.84l-31.36 31.36a21.333333 21.333333 0 1 0 30.08 30.08l31.36-31.36A149.333333 149.333333 0 0 0 490.666667 510.293333V554.666667a21.333333 21.333333 0 0 0 42.666666 0v-44.373334a149.333333 149.333333 0 0 0 67.84-28.16l31.36 31.36a21.333333 21.333333 0 0 0 30.08-30.08l-31.146666-31.573333A149.333333 149.333333 0 0 0 659.626667 384z m-192 85.333333a106.666667 106.666667 0 1 1 106.666667-106.666666 106.666667 106.666667 0 0 1-106.666667 106.666666z" fill="#ffffff"></path></g></svg>
+                </span>
+              </div>
+              <div>
+                <h4>Custom Occupational Health & Safety Management System Development</h4>
+                <p>
+                  An occupational health and safety management system (OHSMS) is a framework based on the PDCA (Plan, Do, Check, Act) cycle put in place by employers to manage risks, establish controls, and minimize the incidence of injury and illness to their workers. This is accomplished through identifying, assessing, and controlling risks to workers in all workplaces. The scope and complexity of the management system will vary according to the type of workplace and nature of the business. An organization with a strong safety culture may choose to implement their own health and safety system, not aligning with established standards such as COR or ISO.  In this case Norpro H&S can provide consulting support including:
+                </p>
+                <br>
+                <ul class="ulli ulli_w">
+                  <li>Working with your organization to establish key metrics for your management system, including legal and other requirements. </li>
+                  <li>Updating and/or building programming in line with operating practices and established metrics.  </li>
+                  <li>Providing training for staff on roles and responsibilities within the management system.</li>
+                  <li>Develop monitoring processes to track performance of the system.</li>
+                  <li>Conducting internal audits to identify non-conformities and areas of improvement.
+                  </li>
+                  <li>Assist with ongoing review of system documentation and regular updates.
+                  </li>
+              </ul>
+              <p>
+                By leveraging Norpro’s custom OHSMS development services, organizations can effectively implement a robust health and safety management system, focusing on enhancing employee involvement to reduce injury and incident frequency in the workplace.
+             </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+      
+    </div>
+  </section>
+  <header class="page-header bord-thin-top">
+      <div class="container mt-80">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div class="caption">
+                      <h6 class="sub-title">Need to ask something?</h6>
+                      <h2>FAQ About Management System Implementation & Auditing</h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <section class="faqs mb-80">
+      <div class="container">
+        <div class="accordion" id="faqAccordion">
+                
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    01. What are the main components of a Management System?
+                  </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <p class="fz-15">The main components of any management system include: policies, processes, procedures, documentation, roles and responsibilities, resources, performance monitoring and continuous improvement.
+                    </p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    02. What are some benefits of a Management System?
+                  </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <span>
+                      <p>Implementation of a management system can benefit an organization in a number of ways including:
+                      </p>
+                      <ul class="ulli">
+                        <li><b>Improved Efficiency:</b> Streamlines processes and reduces waste.</li>
+                        <li><b>Enhanced Compliance:</b> Ensures adherence to legal, regulatory, and industry standards.</li>
+                        <li><b>Risk Management:</b> Identifies and mitigates risks to operations and stakeholders.</li>
+                        <li><b>Customer Satisfaction:</b> Delivers consistent quality performance and meets customer expectations.</li>
+                        <li><b>Employee Engagement:</b> Provides clear roles, responsibilities, and training.</li>
+                        <li><b>Continuous Improvement:</b> Encourages ongoing improvement and innovation. </li>
+                        <li><b>Competitive Advantage:</b> Enhances reputation and market position as some buyers of services require certification to bid on work.</li>
+                      </ul>
+                    </span>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    03. What is ISO Certification?
+                  </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <p>ISO certification is a formal recognition by an accredited certification body indicating that an organization’s management system complies with the requirements of a specific ISO standard (e.g., ISO 9001, ISO 45001). It demonstrates the organization’s commitment to best practices and continuous improvement.</p>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    04. Can multiple management systems be integrated?
+                  </button>
+              </h2>
+              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <p>Yes, organizations can integrate multiple management systems (e.g., ISO 9001, ISO 14001, ISO 45001) into a single, unified system. This approach, known as an Integrated Management System (IMS), reduces duplication, improves efficiency, and ensures alignment across different areas.
+                    </p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    05. How do I maintain a management system after certification?
+                  </button>
+              </h2>
+              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <p>Obtaining your managed system certification is only half of the battle. Continuing to follow the practices outlined in your system and maintaining evidence of conformity can be achieved by:
+                    </p>
+                    <ul class="ulli">
+                      <li>Conducting regular internal audits and management reviews.</li>
+                      <li>Monitoring performance using KPIs. (key performance indicators)</li>
+                      <li>Addressing non-conformities and implementing corrective actions.</li>
+                      <li>Staying updated on changes to the standard or regulatory requirements.</li>
+                      <li>Preparing for surveillance audits and recertification.</li>
+                    </ul>
+                  </div>
+              </div>
+          </div>
+          
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    06. What is the Plan-Do-Check-Act (PDCA) Cycle?
+                  </button>
+              </h2>
+              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <p>The PDCA cycle is a four-step method for continuous improvement:
+                    </p>
+                    <ul class="ulli">
+                      <li><b>Plan:</b> Identify objectives and processes required to deliver results.
+                      </li>
+                      <li><b>Do:</b> Implement the plan and execute the processes.
+                      </li>
+                      <li><b>Check:</b> Monitor and measure processes against objectives.
+                      </li>
+                      <li><b>Act:</b> Take actions to improve performance based on the results.
+                      </li>
+                  </ul>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSeven">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  07. Do I need a consultant to implement a management system?
+                </button>
+            </h2>
+            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  <p>While it’s possible to implement a management system without a consultant, hiring an expert can save time, ensure compliance, and provide valuable guidance. Consultants bring experience, industry knowledge, and best practices to the process.
+                  </p>
+                </div>
+            </div>
+        </div>
+      </div>
+  </section>
+
+  {% comment %} <section class="block-serv pb-80 bord-thin-top">
+    <div class="container">
+      <div class="row mt-80">
+        <div class="col-lg-12 valign mine-modal-1">
+          <div class="content">
+            <div class="item d-flex mb-50">
+              <div>
+                <span class="icon_test">
+                    <svg width="50" height="40" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 478.248 478.248" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M456.02,44.821H264.83c-12.26,0-22.232,9.972-22.232,22.229v98.652c0,12.258,9.974,22.23,22.232,22.23h16.787v39.161 c0,2.707,1.58,5.165,4.043,6.292c0.92,0.42,1.901,0.627,2.875,0.627c1.631,0,3.244-0.576,4.523-1.685l51.383-44.396h111.576 c12.26,0,22.23-9.973,22.23-22.23V67.05C478.25,54.792,468.277,44.821,456.02,44.821z M319.922,112.252l-10.209,9.953 l2.41,14.054c0.174,1.015-0.242,2.038-1.076,2.643c-0.469,0.342-1.027,0.516-1.588,0.516c-0.428,0-0.861-0.103-1.256-0.31 l-12.621-6.635l-12.619,6.635c-0.912,0.478-2.016,0.398-2.848-0.206s-1.248-1.628-1.074-2.643l2.41-14.054l-10.211-9.953 c-0.734-0.718-1.002-1.792-0.685-2.769c0.317-0.978,1.164-1.691,2.183-1.839l14.11-2.05l6.31-12.786 c0.457-0.923,1.396-1.507,2.424-1.507s1.969,0.584,2.422,1.507l6.312,12.786l14.107,2.05c1.02,0.148,1.863,0.861,2.184,1.839 C320.924,110.46,320.658,111.535,319.922,112.252z M384.766,112.252l-10.211,9.953l2.412,14.054 c0.172,1.015-0.244,2.038-1.076,2.643c-0.469,0.342-1.025,0.516-1.588,0.516c-0.43,0-0.859-0.103-1.26-0.31l-12.619-6.635 l-12.619,6.635c-0.912,0.478-2.014,0.398-2.846-0.206c-0.834-0.604-1.25-1.628-1.076-2.643l2.41-14.054l-10.209-9.953 c-0.734-0.718-1.002-1.792-0.684-2.769c0.316-0.978,1.16-1.691,2.182-1.839l14.109-2.05l6.311-12.786 c0.455-0.923,1.396-1.507,2.422-1.507c1.029,0,1.967,0.584,2.422,1.507l6.312,12.786l14.109,2.05 c1.021,0.148,1.863,0.861,2.182,1.839C385.768,110.46,385.5,111.535,384.766,112.252z M449.607,112.252l-10.211,9.953 l2.408,14.054c0.176,1.015-0.238,2.038-1.072,2.643c-0.471,0.342-1.027,0.516-1.59,0.516c-0.43,0-0.859-0.103-1.258-0.31 l-12.621-6.635l-12.621,6.635c-0.908,0.478-2.012,0.398-2.844-0.206c-0.834-0.604-1.248-1.628-1.076-2.643l2.412-14.054 l-10.211-9.953c-0.734-0.718-1-1.792-0.684-2.769c0.316-0.978,1.164-1.691,2.182-1.839l14.111-2.05l6.311-12.786 c0.453-0.923,1.395-1.507,2.42-1.507c1.027,0,1.971,0.584,2.426,1.507L434,105.594l14.109,2.05 c1.018,0.148,1.861,0.861,2.182,1.839C450.609,110.46,450.344,111.535,449.607,112.252z"></path> <path d="M152.844,112.924c-46.76,0-72.639,24.231-72.166,70.921c0.686,63.947,27.859,102.74,72.166,102.063 c0,0,72.131,2.924,72.131-102.063C224.975,137.155,200.605,112.924,152.844,112.924z"></path> <path d="M280.428,334.444l-72.074-28.736l-16.877-14.223c-4.457-3.766-11.041-3.488-15.178,0.621l-23.463,23.336l-23.533-23.342 c-4.137-4.104-10.713-4.369-15.164-0.615l-16.881,14.223l-72.074,28.739C1.975,343.69,1.995,425.884,0,433.427h305.646 C303.656,425.9,303.646,343.679,280.428,334.444z"></path> </g> </g> </g> </g></svg>
+                </span>
+              </div>
+              <div>
+                <h4>Testimonials</h4>
+                <p>
+                  <span class="fs-5">“</span> We were looking for ways to improve the effectiveness of our JHSC. A member of Norpro H&S attended one of our committee meetings where we reviewed the regulatory requirements and obligations of the committee, as well as the committees’ current practices. They were able to assist in setting out valuable guidelines for the team including building a terms or reference and conducting effective workplace inspections, to help us to build on our existing committee structure and functionality. Having them attend our meeting was a great way to re-engage the committee as we move forward. I would highly recommend Norpro H&S to any committee looking for some guidance. <span class="fs-5">”</span>
+                </p>
+                <p>
+                  — Barb Sharpe, YMCA SSM
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> {% endcomment %}
+
+  <section class="contact-crev section-padding dark_gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="sec-lg-head mb-80">
+            <h2 class="fz-50">Get In Touch</h2>
+            <p class="fz-14 mt-10">
+              If you would like to work with us or just want to get in touch,
+              we’d love to hear from you!
+            </p>
+            <!-- <div class="phone fz-30 fw-600 mt-30 underline">
+                                <a href="#0">+1 840 841 25 69</a>
+                            </div>
+                           -->
+            <div class="phone fz-25 fw-600 mt-30">
+              <a href="tel:18004615114"><i class="bi bi-telephone"></i> 1-800-461-5114</a>
+            </div>
+            <div class="phone fz-25 fw-600 mt-30">
+              <a href="mailto:healthandsafety@norpro.ca"><i class="bi bi-envelope"></i> healthandsafety@norpro.ca</a>
+            </div>
+            <div class="phones fw-600 mt-30">
+              <a href="tel:18004615114"><i class="bi bi-telephone"></i> 1-800-461-5114</a>
+            </div>
+            <div class="phones fw-600 mt-30">
+              <a href="mailto:healthandsafety@norpro.ca"><i class="bi bi-envelope"></i> healthandsafety@norpro.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 offset-lg-1 valign">
+          <div class="full-width">
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="messages"></div>
+
+              <div class="controls row">
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.name}}</div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.email}}</div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.phone}}</div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.location}}</div>
+                </div>
+
+                <div class="col-12">
+                  <!-- <div class="form-group mb-30">
+                                            <input id="form_subject" type="text" name="subject" placeholder="Services">
+                                        </div> -->
+                  {{form.message}}
+                </div>
+                {{ form.type_service }}
+
+                <div class="col-12">
+                  <div class="mt-30">
+                    <button
+                      type="submit"
+                      class="butn butn-md butn-bord radius-30"
+                    >
+                      <span class="text">Submit</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== End about ==================== -->
+</main>
+
+{% comment %} <section class="section1-padding"></section> {% endcomment %}
+
+{% endblock content %}

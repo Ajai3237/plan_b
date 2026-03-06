@@ -1,0 +1,226 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block SEO %}
+    <!-- SEO module  -->
+    <!-- Title  -->
+    <title>Terms and Conditions | Norpro</title>
+    <meta content="Norpro offers the finest security services and comprehensive health and
+    safety solutions. Protect your business with our expert guidance today." name="description">
+    <meta name="keywords" content="Safety, safety sault ste marie, health and safety, health and safety sault ste marie, safety services, health and safety services, respirator fit testing, respirator fit testing sault ste marie, fit testing sault ste marie, safety training, safety training sault ste marie, health and safety training, health and safety training sault ste marie, whmis training, confined space training, respirator training, supervisor training,">
+    <meta property="og:description" content="Norpro offers the finest security services and comprehensive health and
+    safety solutions. Protect your business with our expert guidance today."/>
+    <meta property="og:title" content="Terms and Conditions | Norpro"/>
+    <meta property="og:image" content="https://norpro.ca{% static "assets/imgs/header/new-logos.png" %}" />
+
+<!--End of SEO module  -->
+{% endblock SEO %}
+
+{% block content %}
+
+<style>
+    .phones{
+      display:none;
+    }
+    .ulli{
+        color: #ddd;
+    }
+    .ulli li{
+        list-style-type: circle;
+        margin-bottom: 5px;
+    }
+    .table {
+        margin: 0 auto;
+    }
+    
+    .table-dark th, .table-dark td {
+        vertical-align: middle;
+    }
+    
+    @media(max-width:422px){
+      .phone{
+        display:none;
+      }
+      .phones{
+        display:block;
+        font-size: 18px;
+      }
+    }
+  </style>
+
+
+<main>
+    <section class="pg-about sub-bg">
+        <div class="container">
+            <div class="sec-lg-head mb-80">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="fz-40 fw-700 d-rotate wow animated">
+                            <span class="rotate-text">Terms and Conditions</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ==================== Start about ==================== -->
+
+    <section class="block-serv pb-80 bord-thin-top">
+        <div class="container mt-80">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="caption">
+                        <div>
+                            <p>Welcome to Norpro! By accessing or using our website (<a href="https://norpro.ca" style="font-weight: 600;">https://norpro.ca</a>) and/or services, you agree to be bound by the following Terms and Conditions. If you do not agree to these terms, please do not use our website or services.</p>
+                        <div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                    <div class="caption">
+                        <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">1. Acceptance of Terms</h6>
+                        <div style="margin-left: 20px;">
+                          <p>By accessing our website or using our services, you confirm that you are of legal age and have the capacity to enter into a binding contract. You agree to comply with all applicable laws and regulations.</p>
+                      <div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">2. Use of the Website</h6>
+                      <div style="margin-left: 20px;">
+                        <ul class="cor col-lg-6 col-12">
+                            <li>
+                              You may use our website solely for lawful purposes.
+                            </li>
+                            <li>
+                              You are prohibited from violating or attempting to violate the security of our website, including, without limitation, accessing data not intended for you, attempting to probe or test the vulnerability of our system, or interfering with our network.
+                            </li>
+                            <li>
+                              Norpro reserves the right to restrict or terminate your access to the website if you violate these Terms and Conditions.
+                            </li>
+                        </ul>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">3. Services</h6>
+                      <div style="margin-left: 20px;">
+                        <p>Norpro provides various security and health & safety services. The specific details of each service, including features, deliverables, and fees, are outlined in separate agreements for each client.</p>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">4. Intellectual Property</h6>
+                      <div style="margin-left: 20px;">
+                        <ul class="cor col-lg-6 col-12">
+                          <li>
+                            All content, design, logos, and trademarks displayed on this website are the property of Norpro or used with permission. Unauthorized use of these materials is prohibited.
+                          </li>
+                          <li>
+                            You may not copy, distribute, or modify any content on this website without our explicit written permission.
+                          </li>
+                        </ul>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">5. Privacy Policy
+                      </h6>
+                      <div style="margin-left: 20px;">
+                      <p>Our Privacy Policy, available at [<a href="{% url "privacy_and_policy" %}" style="font-weight: 600;">Privacy Policy Link</a>], governs the collection, use, and protection of your personal information when using our website. By using our website and services, you consent to the data practices described in our Privacy Policy.
+                      </p>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">6. Limitation of Liability
+                      </h6>
+                      <div style="margin-left: 20px;">
+                        <ul class="cor col-lg-6 col-12">
+                          <li>
+                            Norpro will not be liable for any damages (including direct, indirect, incidental, or consequential damages) arising from the use or inability to use the website or services.
+                          </li>
+                          <li>
+                            We do not guarantee the accuracy, completeness, or timeliness of the information available on our website. Your use of the website is at your own risk.
+                          </li>
+                      </ul>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">7. Indemnification</h6>
+                      <div style="margin-left: 20px;">
+                        <p>You agree to indemnify and hold harmless Norpro, its employees, agents, and affiliates from any claims, damages, liabilities, and expenses arising out of your use of the website, breach of these Terms, or violation of any rights of third parties.</p>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">8. Third-Party Links</h6>
+                      <div style="margin-left: 20px;">
+                        <p>Our website may contain links to external websites that are not operated or controlled by Norpro. We do not endorse and are not responsible for the content, privacy policies, or practices of third-party websites.</p>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">9. Changes to Terms and Conditions</h6>
+                      <div style="margin-left: 20px;">
+                        <p>Norpro reserves the right to update or modify these Terms and Conditions at any time without prior notice. Any changes will be effective immediately upon posting on this page. Your continued use of the website and services following any changes constitutes your acceptance of the updated Terms.</p>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">10. Governing Law</h6>
+                      <div style="margin-left: 20px;">
+                        <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of Ontario, Canada. Any disputes arising from or related to these Terms will be subject to the exclusive jurisdiction of the courts in Ontario.</p>
+                    <div>
+                  </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                  <div class="caption">
+                      <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">11. Contact Information</h6>
+                      <div style="margin-left: 20px;">
+                        <p>For questions regarding these Terms and Conditions, please contact us:</p>
+                        <ul class="cor col-lg-6 col-12">
+                          <li>
+                            <b>Email: </b>
+                            <a href="mailto:info@norpro.ca">info@norpro.ca</a>
+                          </li>
+                          <li>
+                            <b>Phone: </b>
+                            +1 705-949-3227 / Toll-Free: 1-800-461-5114
+                          </li>
+                          <li>
+                            <b>Address: </b>
+                            477 Queen St. East - Suite 303, Sault Ste. Marie, ON - P6A 1Z5
+                          </li>
+                      </ul>
+                    <div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    {% endblock content %}

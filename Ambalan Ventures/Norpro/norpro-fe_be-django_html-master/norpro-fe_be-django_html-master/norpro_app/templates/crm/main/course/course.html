@@ -1,0 +1,185 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+{% block title %} Training list {% endblock title %}
+{% block content %}
+<style>
+    .btn-group-sm>.btn-icon.btn,
+    .btn-icon.btn-sm {
+        font-size: 1.2rem !important;
+        height: calc(1.625rem + 2px);
+        width: calc(1.625rem + 2px);
+    }
+
+    @media (min-width: 992px) {
+        .card-datatable.table-responsive {
+            overflow-x: hidden;
+        }
+    }
+    .sform {
+        margin-top: -25px;
+    }
+</style>
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+
+    <!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light"></span><a href="{% url "course_list" %}">Training</a> / List
+                </h4>
+            </div>
+            <div class="col-md-6 sform">
+                <form method="get" action="#" class="d-flex justify-content-end">
+                    <input name="search" type="text" class="form-control" value="{{ request.GET.search }}" placeholder="Search by title" style="margin-right: 5px;">
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </form>
+            </div>
+        </div>
+        <!--Table Card-->
+        <div class="card">
+            <div class="card-datatable table-responsive">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                    <div class="card-header flex-column flex-md-row">
+                        <div class="head-label">
+                            <h5 class="card-title mb-0">Training List</h5>
+                        </div>
+                        <div class="dt-action-buttons text-end pt-3 pt-md-0">
+                            <div class="dt-buttons btn-group flex-wrap">
+                                <a class="btn btn-secondary create-new btn-primary" href="{% url "course_create" %}" tabindex="0" aria-controls="DataTables_Table_0" type="button">
+                                    <span style="display:flex; align-items:center;"><i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Add New Courses</span></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="datatables-basic table border-top dataTable no-footer dtr-column collapsed" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                        <thead>
+                            <tr>
+                                <th style="width: 0px;">#</th>
+                                {% comment %} <th style="width: 130px;">Title</th> {% endcomment %}
+                                <th style="width: 0px;">Title</th>
+                                <th style="width: 200px;">Course Date</th>
+                                <th style="width: 120px;">Course time</th>
+                                <th style="width: 120px;">Price</th>
+                                <th style="width: 100px;">Place</th>
+                                <th style="width: 100px;">Actions</th>
+                                {% comment %} <th style="width: 90px;">Status</th> {% endcomment %}
+                                <th style="width: 130px;" class="dtr-hidden"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for list in ne_page %}
+                            <tr class="odd">
+                                <td>{{ forloop.counter}}</td>
+                                {% comment %} <td><span class="emp_name text-truncate">{{ payment.title }}</span></td> {% endcomment %}
+                                <td>{{ list.title }}</td>
+                                <td>{{ list.from_date }} {% if list.to_date %}- {{ list.to_date }}{% endif %}</td>
+                                <td>{{ list.start_time }} {% if list.end_time %}- {{ list.end_time }}{% endif %}</td>
+                                <td>{{ list.price }}</td>
+                                <td>{{ list.place }}</td>
+                                {% comment %} <td>
+                                    <span class="badge 
+                                        {% if list.status == 'Active' %}bg-success{% else %}bg-secondary{% endif %}">
+                                        {{ list.status }}
+                                    </span>
+                                </td> {% endcomment %}
+                                <td><a class="btn btn-secondary create-new btn-primary" href="{% url 'application_list' list.id %}">
+                                    Application List ({{ list.application_count }})
+                                </a>    </td>
+                                <td class="dtr-hidden" style="">
+                                    {% comment %} <a href="{% url 'toggle_course' list.id %}" 
+                                        class="btn btn-sm 
+                                        {% if list.status == 'Active' %}btn-danger{% else %}btn-success{% endif %}">
+                                            {% if list.status == 'Active' %}
+                                                Disable
+                                            {% else %}
+                                                Enable
+                                            {% endif %}
+                                        </a> {% endcomment %}                                  
+                                    <a href="{% url 'course_edit' list.id %}" class="btn btn-sm btn-icon item-edit">
+                                        <i class="bx bxs-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <!-- ... more table rows ... -->
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="m-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                                            Showing {{ ne_page.start_index }} to {{ ne_page.end_index }} of {{ ne_page.paginator.count }} entries
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-end">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                            <ul class="pagination justify-content-end">
+                                                {% if ne_page.has_previous %}
+                                                    <li class="paginate_button page-item previous">
+                                                        <a href="?page={{ ne_page.previoune_page_number }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">Previous</a>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="paginate_button page-item previous disabled">
+                                                        <a href="#" aria-controls="DataTables_Table_0" class="page-link">Previous</a>
+                                                    </li>
+                                                {% endif %}
+
+                                                <!-- Pagination numbers -->
+                                                {% if ne_page.number > 3 %}
+                                                    <li class="paginate_button page-item">
+                                                        <a href="?page=1&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">...</a>
+                                                    </li>
+                                                {% endif %}
+
+                                                {% for i in ne_page.paginator.page_range %}
+                                                    {% if ne_page.number == i %}
+                                                        <li class="paginate_button page-item active">
+                                                            <a href="?page={{ i }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">{{ i }}</a>
+                                                        </li>
+                                                    {% elif i > ne_page.number|add:'-3' and i < ne_page.number|add:'3' %}
+                                                        <li class="paginate_button page-item">
+                                                            <a href="?page={{ i }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">{{ i }}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                {% if ne_page.paginator.num_pages > ne_page.number|add:'3' %}
+                                                    <li class="paginate_button page-item">
+                                                        <a href="?page={{ ne_page.paginator.num_pages }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">...</a>
+                                                    </li>
+                                                {% endif %}
+
+                                                {% if ne_page.has_next %}
+                                                    <li class="paginate_button page-item next">
+                                                        <a href="?page={{ ne_page.next_page_number }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">Next</a>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="paginate_button page-item next disabled">
+                                                        <a href="#" aria-controls="DataTables_Table_0" class="page-link">Next</a>
+                                                    </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div> <!--Table Card-->
+
+        </div>
+        <!-- / Content -->
+
+
+    </div>
+    <!-- Content wrapper -->
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+/* font  */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  color: var(--bs-white);
+  font-weight: 400;
+}
+
+:root {
+  --bsColor: #112646;
+  --bsTheme: #CDA349;
+  --color1: #1B2A41;
+  --border: #43526A;
+  --formborder: #CCCCCC80;
+  --formHolder: #838995;
+  --queryBordr: #39476A;
+}
+
+body {
+  background-color: var(--bsColor);
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* main page start */

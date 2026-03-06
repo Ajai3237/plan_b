@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install -r \"c:/Users/asus/Ambalan Ventures/Norpro/norpro-fe_be-django_html-master/norpro-fe_be-django_html-master/requirements.txt\")"
+    ]
+  }
+}

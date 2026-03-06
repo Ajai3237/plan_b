@@ -1,0 +1,254 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+{% block title %} Academy form list {% endblock title %}
+{% block content %}
+<style>
+    .btn-group-sm>.btn-icon.btn,
+    .btn-icon.btn-sm {
+        font-size: 1.2rem !important;
+        height: calc(1.625rem + 2px);
+        width: calc(1.625rem + 2px);
+    }
+
+    @media (min-width: 992px) {
+        .card-datatable.table-responsive {
+            overflow-x: auto;
+        }
+    }
+    .sform {
+        margin-top: -25px;
+    }
+</style>
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+
+    <!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light"></span><a href="{% url "academy" %}">Academy Form</a> / List
+                </h4>
+            </div>
+            <div class="col-md-6 sform">
+                <form method="get" action="#" class="d-flex justify-content-end">
+                    <input name="search" type="text" class="form-control" value="{{ request.GET.search }}" placeholder="Search by First name / Last name" style="margin-right: 5px;">
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </form>
+            </div>
+        </div>
+        <!--Table Card-->
+        <div class="card">
+            <div class="card-datatable table-responsive">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                    <div class="card-header flex-column flex-md-row">
+                        <div class="head-label">
+                            <h5 class="card-title mb-0">Academy Form List</h5>
+                        </div>
+                        <div class="dt-action-buttons text-end pt-3 pt-md-0">
+                            <div class="dt-buttons btn-group flex-wrap">
+                                <button type="button" class="btn btn-primary" id="delete-selected-btn">
+                                    <i class="bx bx-trash me-sm-1"></i> Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="delete-form" method="POST" action="{% url 'delete_academy_form' %}">
+                        {% csrf_token %}
+                        <input type="hidden" id="selected-academy-form-ids" name="selected_academy_form_ids" value="">
+                        <table class="datatables-basic table border-top dataTable no-footer dtr-column collapsed" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                            <thead>
+                                <tr>
+                                    <th style="width: 0px;"><input type="checkbox" id="select-all"></th>
+                                    <th style="width: 0px;">#</th>
+                                    <th style="width: 130px;">Name</th>
+                                    {% comment %} <th style="width: 130px;">Last Name</th> {% endcomment %}
+                                    <th style="width: 0px;">Contact</th>
+                                    {% comment %} <th style="width: 150px;">Phone Number</th> {% endcomment %}
+                                    <th style="width: 130px;">File Upload</th>
+                                    <th style="width:150px;">Date</th>
+                                    {% comment %} <th style="width: 90px;" class="dtr-hidden">Actions</th> {% endcomment %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for list in acpage %}
+                                <tr class="odd">
+                                    <td><input type="checkbox" name="selected_academy_forms" value="{{ list.id }}"></td>
+                                    <td>{{ forloop.counter}}</td>
+                                    <td><span class="emp_name text-truncate">{{ list.first_name }} {{ list.last_name }}</span></td>
+                                    {% comment %} <td></td> {% endcomment %}
+                                    <td>{{ list.email }}
+                                        <br>
+                                        {{ list.phone }}
+                                    </td>
+                                    {% comment %} <td></td> {% endcomment %}
+                                    <td>
+                                        <a href="{{ list.file_upload.url }}" target="_blank" >
+                                            View
+                                        </a>
+                                    </td>
+                                    <td>{{ list.created_at|date:"d-m-Y" }}</td>
+                                    {% comment %} <td class="dtr-hidden" style="">
+                                        <a href="{% url 'testimonial_edit' list.id %}" class="btn btn-sm btn-icon item-edit" title="Edit">
+                                            <i class="bx bxs-edit"></i>
+                                        </a> 
+                                        <a href="#" class="btn btn-sm btn-icon payment-delete" title="Delete" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ list.id }}">
+                                            <i class="bx bxs-x-circle"></i>
+                                        </a>
+                                        
+                                    </td>{% endcomment %}
+                                </tr>
+                                
+                                {% endfor %}
+                                <!-- ... more table rows ... -->
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-end mt-3">
+                            <!-- Hidden submit button for deleting selected forms -->
+                            <button type="submit" id="hidden-submit-btn" style="display: none;"></button>
+                        </div>
+                    </form>
+<!-- Button trigger modal -->
+{% comment %} <button type="button" class="btn btn-primary" >
+    Launch demo modal
+  </button> {% endcomment %}
+  
+  
+
+
+
+                    
+                </div>
+
+            </div> <!--Table Card-->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="m-3">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                                    Showing {{ acpage.start_index }} to {{ acpage.end_index }} of {{ acpage.paginator.count }} entries
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6 text-end">
+                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                    <ul class="pagination justify-content-end">
+                                        {% if acpage.has_previous %}
+                                            <li class="paginate_button page-item previous">
+                                                <a href="?page={{ acpage.previouacpage_number }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">Previous</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="paginate_button page-item previous disabled">
+                                                <a href="#" aria-controls="DataTables_Table_0" class="page-link">Previous</a>
+                                            </li>
+                                        {% endif %}
+
+                                        <!-- Pagination numbers -->
+                                        {% if acpage.number > 3 %}
+                                            <li class="paginate_button page-item">
+                                                <a href="?page=1&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">...</a>
+                                            </li>
+                                        {% endif %}
+
+                                        {% for i in acpage.paginator.page_range %}
+                                            {% if acpage.number == i %}
+                                                <li class="paginate_button page-item active">
+                                                    <a href="?page={{ i }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">{{ i }}</a>
+                                                </li>
+                                            {% elif i > acpage.number|add:'-3' and i < acpage.number|add:'3' %}
+                                                <li class="paginate_button page-item">
+                                                    <a href="?page={{ i }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">{{ i }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+
+                                        {% if acpage.paginator.num_pages > acpage.number|add:'3' %}
+                                            <li class="paginate_button page-item">
+                                                <a href="?page={{ acpage.paginator.num_pages }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">...</a>
+                                            </li>
+                                        {% endif %}
+
+                                        {% if acpage.has_next %}
+                                            <li class="paginate_button page-item next">
+                                                <a href="?page={{ acpage.next_page_number }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">Next</a>
+                                            </li>
+                                        {% else %}
+                                            <li class="paginate_button page-item next disabled">
+                                                <a href="#" aria-controls="DataTables_Table_0" class="page-link">Next</a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / Content -->
+
+
+    </div>
+    <!-- Content wrapper -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirm Delete</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete the selected academy application ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="confirm-delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show modal on Delete Selected button click
+        document.getElementById('delete-selected-btn').onclick = function() {
+            var checkboxes = document.getElementsByName('selected_academy_forms');
+            var selectedIds = [];
+            
+            for (var checkbox of checkboxes) {
+                if (checkbox.checked) {
+                    selectedIds.push(checkbox.value);
+                }
+            }
+            
+            if (selectedIds.length > 0) {
+                // Show the confirmation modal
+                $('#deleteConfirmationModal').modal('show');
+                
+                // Update hidden input value with selected IDs
+                document.getElementById('selected-academy-form-ids').value = JSON.stringify(selectedIds);
+            } else {
+                alert('Please select at least one academy entry to delete.');
+            }
+        };
+    
+        // Function to handle confirmed deletion
+        document.getElementById('confirm-delete-btn').onclick = function() {
+            // Submit the form
+            document.getElementById('hidden-submit-btn').click();
+        };
+    
+        // Functionality for Select All checkbox
+        document.getElementById('select-all').onclick = function() {
+            var checkboxes = document.getElementsByName('selected_academy_forms');
+            for (var checkbox of checkboxes) {
+                checkbox.checked = this.checked;
+            }
+        };
+    </script>
+
+{% endblock content %}

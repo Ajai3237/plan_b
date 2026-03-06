@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="algolia-site-verification"  content="C72783AE0641BFE3" />
+    
+    {% block SEO %}
+    <!-- SEO module  -->
+    <!-- Title  -->
+    <title>Security and Health & Safety | Norpro</title>
+    <meta content="Norpro offers the finest security services and comprehensive health and
+    safety solutions. Protect your business with our expert guidance today." name="description">
+    <meta name="keywords" content="Safety, safety sault ste marie, health and safety, health and safety sault ste marie, safety services, health and safety services, respirator fit testing, respirator fit testing sault ste marie, fit testing sault ste marie, safety training, safety training sault ste marie, health and safety training, health and safety training sault ste marie, whmis training, confined space training, respirator training, supervisor training,">
+    <meta property="og:description" content="Norpro offers the finest security services and comprehensive health and
+    safety solutions. Protect your business with our expert guidance today."/>
+    <meta property="og:title" content="Security and Health & Safety | Norpro"/>
+    <meta property="og:image" content="https://norpro.ca{% static "assets/imgs/header/new-logos.png" %}" />
+
+    <!--End of SEO module  -->
+    {% endblock SEO %}
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static "assets/imgs/header/N1Security.png" %}"  >
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+
+        {% comment %} <script src="http://maps.google.com/maps/api/js?sensor=false" 
+          type="text/javascript"></script> {% endcomment %}
+  {% comment %} <script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbivGXYekPu2_d1JRXFk7W06H5377XbXg&callback=initMap"></script> {% endcomment %}
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="{% static "assets/css/plugins.css" %}">
+
+    <!-- Core Style Css -->
+    <link rel="stylesheet" href="{% static "assets/css/style.css" %}">
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-N7KPVVN8');
+    </script>
+    <!-- End Google Tag Manager -->
+
+<style>
+    .mobile-view {
+        display:none;
+    }
+    .mobile-view-foot{
+        display:none;
+    }
+    .main_header{
+        display:none;
+    }
+    @media(max-width:991px) {
+        .web-view {
+            display:none;
+        }
+        .web-view-foot{
+            display:none;
+        }
+        .mobile-view {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .mobile-view-foot{
+            display: block;
+        }
+        .mobile-view-foot .container {
+            display: flex;
+            justify-content: center;
+        }
+        .main_header{
+            display:block;
+            font-size: 16px !important;
+            font-weight: bold;
+        }
+      }
+      .faq-mob-2 {
+        display:none;
+    }
+      @media(max-width:334px) {
+        .faq-mob-1 {
+            display:none;
+        }
+        .faq-mob-2 {
+            display:block;
+        }
+      }
+        .dark_gray{
+            background:#272727;
+        }
+</style>
+</head>
+<!-- jQuery -->
+<script src="{% static "assets/js/jquery-3.6.0.min.js" %}"></script>
+<script src="{% static "assets/js/jquery-migrate-3.4.0.min.js" %}"></script>
+
+
+<body class="home-corp main-bg">
+
+
+
+
+
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+
+        <div class="loader-wrap-heading">
+            <div class="load-text">
+                <span>      <img src="{% static "assets/imgs/header/N1Security.png" %}" class="loads"></span>
+                <!-- <span>L</span> -->
+                <!-- <span>o</span>
+                <span>a</span>
+                <span>d</span>
+                <span>i</span>
+                <span>n</span>
+                <span>g</span> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== End Loading ==================== -->
+
+
+    <div class="cursor"></div>
+
+
+    <!-- ==================== Start progress-scroll-button ==================== -->
+
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+
+    <!-- ==================== End progress-scroll-button ==================== -->
+
+
+    <div id="smooth-wrapper">
+
+        <!-- ==================== Start Navbar ==================== -->
+
+        <nav class="navbar navbar-expand-lg static ">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="logo icon-img-100" href="{% url "index" %}">
+                    <img src="{% static "assets/imgs/header/new-logos.png" %}" alt="logo">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"><i class="fas fa-bars"></i></span>
+                </button>
+
+                <!-- navbar links -->
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex justify-content-between align-items-center" data-toggle="dropdown"
+                                href="#" role="button" aria-haspopup="true" aria-expanded="false" id="dropdownMenuButtonAbout">
+                                <span class="rolling-text">About us</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonAbout">
+                                <a class="dropdown-item" href="{% url "company" %}">Company</a>
+                                <a class="dropdown-item" href="{% url "memberships_and_partnerships" %}">Memberships/Partnerships</a>
+                                <a class="dropdown-item" href="{% url "news_events" %}">News & Events</a>
+                                <a class="dropdown-item" href="{% url "gallery" %}">Gallery</a>
+                                <a class="dropdown-item" href="{% url "calendar" %}">Calendar</a>
+                                <a class="dropdown-item" href="{% url "meet_the_team" %}">Meet the Team</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  d-flex justify-content-between align-items-center" data-toggle="dropdown" href="{% url "security" %}" role="button"
+                                aria-haspopup="true" aria-expanded="false" id="dropdownMenuButtonSecurity"><span class="rolling-text">Security</span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonSecurity">
+                                <a class="dropdown-item main_header" href="{% url "security" %}">Security</a>
+                                <a class="dropdown-item" href="{% url "mine_security" %}">Mine Security</a>
+                                <a class="dropdown-item" href="{% url "mobile_patrol" %}">Patrol</a>
+                                <a class="dropdown-item" href="{% url "industrial_guards" %}">Industrial Guards</a>
+                                <a class="dropdown-item" href="{% url "static_guards_and_event_management" %}">Static Guards & Event Management</a>
+                                <a class="dropdown-item" href="{% url "institutional_guards" %}">Institutional Guards</a>
+                                <a class="dropdown-item" href="{% url "Loss_prevention" %}">Loss Prevention</a>
+                                <a class="dropdown-item" href="{% url "other_service" %}">Other Services</a>
+                            </div>
+                        </li>
+                        
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  d-flex justify-content-between align-items-center" data-toggle="dropdown" href="{% url "health_and_safety" %}" role="button"
+                            aria-haspopup="true" aria-expanded="false" id="dropdownMenuButtonhealth_and_safety"><span class="rolling-text">Health & Safety</span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonhealth_and_safety">
+                                <a class="dropdown-item main_header" href="{% url "health_and_safety" %}">Health & Safety</a>
+                                <a class="dropdown-item" href="{% url "respirator_fit_testing" %}">Respirator Fit Testing</a>
+                                <a class="dropdown-item" href="{% url "training" %}">Training</a>
+                                <a class="dropdown-item" href="{% url "support_services" %}">Support Services</a>
+                                <a class="dropdown-item" href="{% url "management_system_implementation_and_auditing" %}">Management System <br>Implementation & Auditing</a>
+                                <a class="dropdown-item" href="{% url "hazardous_materials_testing_management_and_remediation" %}">Hazardous Materials Testing, <br>Management & Remediation</a>
+                                <a class="dropdown-item" href="{% url "indoor_air_quality_assessment_services" %}">Indoor Air Quality (IAQ) <br>Assessment Services & Remediation</a>
+                                <a class="dropdown-item" href="{% url "workplace_noise_assessments" %}">Workplace Noise Assessments</a>
+                            </div>
+                        </li> 
+                         -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  d-flex justify-content-between align-items-center" data-toggle="dropdown" href="" role="button"
+                                aria-haspopup="true" aria-expanded="false" id="dropdownMenuButtonCareer"><span class="rolling-text">Career</span></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonCareer">
+                                <a class="dropdown-item" href="{% url "join_our_team" %}">Join Our Team</a>
+                                <a class="dropdown-item" href="{% url "courses" %}">Security Guard Training</a>
+                                {% comment %} <a class="dropdown-item" href="{% url "academy" %}">Academy</a> {% endcomment %}
+                                <a class="dropdown-item" href="{% url 'employee_refferal_security' %}">Employee Referral</a>
+                                
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "contact" %}"><span class="rolling-text">Contact us</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <button class="butn butn-md butn-bg main-colorbg3 text-white mt-10" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Employee Login
+                            </button>
+                        </li>
+
+                       
+                    </ul>
+                </div>
+
+                <!-- <div class="search-form">
+                    <div class="form-group">
+                        <input type="text" name="search" placeholder="Search">
+                        <button><span class="pe-7s-search"></span></button>
+                    </div>
+                    <div class="search-icon">
+                        <span class="pe-7s-search open-search"></span>
+                        <span class="pe-7s-close close-search"></span>
+                    </div>
+                </div> -->
+            </div>
+        </nav>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header" style="border: 0;">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    <p class="modal-title text-white text-center fs-4" id="exampleModalLabel">Login</p>
+                     <br>
+                     <div class="logx">
+                       
+                     <a href="https://norpro.staffr.ca/#patrol/default/index" target="_blank">   <img src="{% static "assets/imgs/L1.png" %}" class="logs" alt=""></a>
+                   
+                     <a href="https://payroll.payworks.ca/loginscreen.asp" target="_blank">    <img src="{% static "assets/imgs/L2.jpg" %}" class="logs" alt=""></a>
+                       
+                     <a href="https://app.hrdownloads.com/login" target="_blank">   <img src="{% static "assets/imgs/L3.jpg" %}" class="logs" alt=""></a>
+
+                     </div>
+                    </div>
+                    
+                </div>
+            </div>
+          </div>
+        <div>
+        <div id="smooth-content">
+
+<main class="main-bg">
+    {% comment %} <div id="feedback">
+        <div
+          id="feedback-form"
+          style="display: none"
+          class="col-xs-4 col-md-4 panel panel-default"
+        >
+          <p class="ph-number"  > <a href="mailto:info@norpro.ca">Email:info@norpro.ca</a></p>
+         
+          <p class="ph-number"><a href="tel:18004615114">Toll Free:1-800-461-5114</a></p>
+        </div>
+        <!-- <div id="feedback-tab">Contact Us</div> -->
+        <div id="feedback-tab">
+          <!-- <i class="bi bi-telephone"></i> -->
+          <p class="cnt-us fs-6 fw-bold">Contact Us</p>
+        </div>
+    </div> {% endcomment %}
+      
+      {% if messages %}
+      <div class="alert alert-dismissible fade show" role="alert" style="background-color:#9d1922; color:white">
+        {% for message in messages %}
+        {% if message.tags == 'success' %}
+        <strong>{{ message }}</strong>
+      {% elif message.tags == 'error' %}
+        <strong style="color: white;">{{ message }}</strong>
+      {% endif %}
+    {% endfor %}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    
+      {% endif %}
+    
+    {% block content %}
+
+    {% endblock content %}
+</main>
+
+
+    <!-- ==================== Start Footer ==================== -->
+    
+    <footer class="sub-bg">
+        <div class="footer-container">
+            <div class="container pb-80 pt-80 web-view">
+    
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="colum md-mb50">
+                            <div class="tit mb-20">
+                                <h6>Address</h6>
+                            </div>
+                            <!-- <div class="tit mb-0">
+                                <h6 class="fw-400 fs-20">Office 1</h6>
+                            </div> -->
+                            <div class="text address-foot">
+                                <p>477 Queen St. East - Suite 303<br />
+                                Sault Ste. Marie. ON - P6A 1Z5<br /><br />
+                                Phone: <a href="tel:+17059493227">+1 705-949-3227</a><br />
+                                <a href="tel:18004615114">Toll Free: 1-800-461-5114</a><br/>
+                                Email: <a href="mailto:info@norpro.ca">info@norpro.ca</a></p>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+                    <div class="col-lg-2 md-mb50">
+                        <div class="tit mb-20">
+                            <h6>Explore</h6>
+                        </div>
+                        <ul class="rest social-text">
+                            <li>
+                                <a href="{% url "index" %}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url "security" %}">Security</a>
+                            </li>
+                            <li>
+                                <a href="{% url "health_and_safety" %}">Health & Safety</a>
+                            </li>
+                            <li>
+                                <a href="{% url "index" %}#about_nav">About us </a>
+                            </li>
+                            <li>
+                                <a href="{% url "join_our_team" %}">Career </a>
+                            </li>
+                            <li>
+                                <a href="{% url "contact" %}">Contact us</a>
+                            </li>
+    
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="tit mb-20">
+                            <h6 >Affiliations & Certifications</h6>
+                            <span class=" text-center mt-20"><img src="{% static "assets/imgs/isso.png" %}" class="isos">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ">
+                            <div class="tit mb-20">
+                                <h6>Business Networks</h6>
+                                <span class=" text-center mt-20"><a href="https://portal.us.bn.cloud.ariba.com/profile/public?anId=AN01469722601"> <img alt="View Norpro Security Ltd on SAP Business Network Discovery" border=0 src="https://service.ariba.com/an/p/Ariba/badge_black_large.png"></a>
+                                     </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-footer pt-20 pb-40 bord-thin-top ontop web-view-foot">
+                <div class="container">
+                    <div class="row align-items-end">
+
+                        <div class="col-lg-4">
+    
+                            <div class="ms-auto">
+                                <p class="fz-15"> 
+                                    
+                                    <span>
+                                        <a href="https://www.facebook.com/norproltd" target="_blank">
+                                            <i class="bi bi-facebook"></i>
+                                        </a> 
+                                        <a href="" target="_blank"> &nbsp;</a>
+                                        <a href="https://www.linkedin.com/company/90460035/norproltdq" target="_blank">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a> &nbsp;
+                                        <a href="https://www.instagram.com/norproltd/" target="_blank">
+                                            <i class="bi bi-instagram"></i>
+                                        </a> &nbsp; 
+                                        <a href="https://www.youtube.com/@norprosecurity" target="_blank">
+                                            <i class="bi bi-youtube"></i>
+                                        </a> &nbsp;
+                                        <a href="https://twitter.com/norproltd" target="_blank">
+                                            <i class="bi bi-twitter-x"></i>
+                                        </a> &nbsp;Copyright © 
+                                            <span id="copyright"></span>
+                                    </span>
+                                </p>
+
+                            </div>    
+    
+    
+                        </div>
+                        <div class="col-lg-4" style="display: flex;justify-content: center;align-items: center;text-align: center;">
+                            <span>Powered by  
+                                <a href="https://eizie.com/" target="_blank" style="color: #AE7AFF; font-weight: 900;">EIZIE</a>
+                            </span>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="copyright d-flex">
+                                <div class="ml-auto">
+                                    <a href="{% url "contact" %}#faq"><p class="fz-15"> FAQ</a> &nbsp;<a href="{% url "terms_and_conditions" %}" target="_blank">Terms & Conditions </a><span class=""><a href="{% url "privacy_and_policy" %}" target="_blank">&nbsp;&nbsp; Privacy Policy</a></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container pb-80 pt-80 mobile-view">
+    
+                <div class="">
+                    <div class="col-lg-3">
+                        <div class="colum md-mb50">
+                            <div class="tit mb-20">
+                                <h6>Address</h6>
+                            </div>
+                            <!-- <div class="tit mb-0">
+                                <h6 class="fw-400 fs-20">Office 1</h6>
+                            </div> -->
+                            <div class="text address-foot">
+                                <p>477 Queen St. East - Suite 303<br />
+                                Sault Ste. Marie. ON - P6A 1Z5<br /><br />
+                                Phone: <a href="tel:+17059493227">+1 705-949-3227</a><br />
+                                <a href="tel:18004615114">Toll Free: 1-800-461-5114</a><br/>
+                                Email: <a href="mailto:info@norpro.ca">info@norpro.ca</a></p>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+                    <div class="col-lg-2 md-mb50">
+                        <div class="tit mb-20">
+                            <h6>Explore</h6>
+                        </div>
+                        <ul class="rest social-text">
+                            <li>
+                                <a href="{% url "index" %}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url "security" %}">Security</a>
+                            </li>
+                            <li>
+                                <a href="{% url "health_and_safety" %}">Health & Safety</a>
+                            </li>
+                            <li>
+                                <a href="{% url "index" %}#about_nav">About us </a>
+                            </li>
+                            <li>
+                                <a href="{% url "join_our_team" %}">Career </a>
+                            </li>
+                            <li>
+                                <a href="{% url "contact" %}">Contact us</a>
+                            </li>
+    
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="tit mb-20">
+                            <h6 >Affiliations & Certifications</h6>
+                            <span class=" text-center mt-20"><img src="{% static "assets/imgs/isso.png" %}" class="isos">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ">
+                            <div class="tit mb-20">
+                                <h6>Business Networks</h6>
+                                <span class=" text-center mt-20"><a href="https://portal.us.bn.cloud.ariba.com/profile/public?anId=AN01469722601"> <img alt="View Norpro Security Ltd on SAP Business Network Discovery" border=0 src="https://service.ariba.com/an/p/Ariba/badge_black_large.png"></a>
+                                     </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-footer pt-20 pb-40 bord-thin-top ontop mobile-view-foot">
+                <div class="container">
+                    <div class="">
+                        <div class="col-lg-4">
+                            <div class="ms-auto">
+                                <p class="fz-15" style="align-items: center;display: flex;justify-content: center;"> 
+                                    <span>
+                                        <a href="https://www.facebook.com/norpro.secuity.1" target="_blank">
+                                            <i class="bi bi-facebook"></i>
+                                        </a> 
+                                        <a href="" target="_blank"> &nbsp;</a>
+                                        <a href="https://www.linkedin.com/company/norpro-security/" target="_blank">
+                                            <i class="bi bi-linkedin"></i>
+                                        </a> &nbsp;
+                                        <a href="https://instagram.com/norprosecurity" target="_blank">
+                                            <i class="bi bi-instagram"></i>
+                                        </a> &nbsp; 
+                                        <a href="https://www.youtube.com/@norprosecurity" target="_blank">
+                                            <i class="bi bi-youtube"></i>
+                                        </a> &nbsp;Copyright © 
+                                            <span id="copyrights"></span>
+                                    </span>
+                                </p>
+                            </div>    
+    
+    
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="copyright d-flex">
+                                <div class="">
+                                    <a href="{% url "contact" %}#faq">
+                                        <p class="fz-15 faq-mob-1"> FAQ</a> &nbsp;<a href="{% url "terms_and_conditions" %}" target="_blank">Terms & Conditions </a><span class=""><a href="{% url "privacy_and_policy" %}" target="_blank">&nbsp;&nbsp; Privacy Policy</a></span></p>
+                                        <p class="faq-mob-2 align-items-center"> FAQ</a> &nbsp;<a href="{% url "terms_and_conditions" %}" target="_blank">Terms & Conditions </a><span class=""><a href="{% url "privacy_and_policy" %}" target="_blank">&nbsp;&nbsp; Privacy Policy</a></span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col-lg-4" style="display: flex;justify-content: center;align-items: center;text-align: center;">
+                            <span>Powered by  
+                                <a href="https://eizie.com/" target="_blank" style="color: #AE7AFF; font-weight: 900;">EIZIE</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    
+    <!-- ==================== End Footer ==================== -->
+    
+    
+    
+    </div>
+    </div>
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7KPVVN8"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    
+    <!-- plugins -->
+    <script src="{% static "assets/js/plugins.js" %}"></script>
+    
+    <script src="{% static "assets/js/gsap.min.js" %}"></script>
+    <!-- <script src="assets/js/ScrollSmoother.min.js"></script> -->
+    
+    <!--  testimonial conflict -->
+    
+    <script src="{% static "assets/js/ScrollTrigger.min.js" %}"></script>
+    {% comment %} <script src="{% static "assets/js/smoother-script.js" %}"></script> {% endcomment %}
+    
+    <!-- custom scripts -->
+    <script src="{% static "assets/js/scripts.js" %}"></script>
+    <script>
+    $(function() {
+  $("#feedback-tab").click(function() {
+    $("#feedback-form").toggle("slide");
+  });
+
+  $("#feedback-form form").on('submit', function(event) {
+    var $form = $(this);
+    $.ajax({
+      type: $form.attr('method'),
+      url: $form.attr('action'),
+      data: $form.serialize(),
+      success: function() {
+        $("#feedback-form").toggle("slide").find("textarea").val('');
+      }
+    });
+    event.preventDefault();
+  });
+});
+</script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B3WDPEQ78H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B3WDPEQ78H');
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentYear = new Date().getFullYear();
+        var copyrightElement = document.getElementById("copyright");
+        
+        if (copyrightElement) {
+            copyrightElement.textContent = currentYear;
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentYear = new Date().getFullYear();
+        var copyrightElement = document.getElementById("copyrights");
+        
+        if (copyrightElement) {
+            copyrightElement.textContent = currentYear;
+        }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function handleDropdowns() {
+            const screenWidth = window.innerWidth;
+            
+            if (screenWidth <= 991) {
+                const dropdowns = document.querySelectorAll(".nav-item.dropdown");
+
+                dropdowns.forEach(dropdown => {
+                    const toggle = dropdown.querySelector(".nav-link.dropdown-toggle");
+                    const menu = dropdown.querySelector(".dropdown-menu");
+
+                    toggle.addEventListener("click", function (event) {
+                        event.preventDefault(); // Prevent default link behavior
+                        event.stopPropagation(); // Stop event from bubbling up
+
+                        // Close other dropdowns before opening the clicked one
+                        document.querySelectorAll(".dropdown-menu").forEach(item => {
+                            if (item !== menu) {
+                                item.classList.remove("show");
+                            }
+                        });
+
+                        // Toggle 'show' class for this dropdown
+                        menu.classList.toggle("show");
+                    });
+                });
+
+                // Close dropdowns when clicking outside
+                document.addEventListener("click", function (event) {
+                    if (!event.target.closest(".nav-item.dropdown")) {
+                        document.querySelectorAll(".dropdown-menu").forEach(menu => {
+                            menu.classList.remove("show");
+                        });
+                    }
+                });
+            }
+        }
+
+        // Run on page load
+        handleDropdowns();
+
+        // Run when window resizes
+        window.addEventListener("resize", function () {
+            handleDropdowns();
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const scrollLinks = document.querySelectorAll(".scroll-to-section");
+  
+      scrollLinks.forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = link.getAttribute("data-target");
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const yOffset = -180; // scroll up 500px above the element
+            const y = targetElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  
+            window.scrollTo({
+              top: y,
+              behavior: "smooth"
+            });
+          }
+        });
+      });
+    });
+  </script>
+    </body>
+    
+    </html>

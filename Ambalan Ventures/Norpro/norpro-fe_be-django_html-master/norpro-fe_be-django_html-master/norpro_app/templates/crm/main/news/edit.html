@@ -1,0 +1,166 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+{% block title %}{{title}} News edit {% endblock title %}
+{% block content %}
+<style>
+    .btn-group-sm>.btn-icon.btn, .btn-icon.btn-sm {
+        font-size: 1.2rem !important;
+        height: calc(1.625rem + 2px);
+        width: calc(1.625rem + 2px);
+    }
+@media (min-width: 992px) {
+  .card-datatable.table-responsive {
+    overflow-x: hidden;
+  }
+}
+</style>
+    <!-- Content wrapper -->
+    <div class="content-wrapper">
+
+        <!-- Content -->
+          <div class="container-xxl flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-3 mb-4">
+                <span class="text-muted fw-light"></span><a href="{% url "news_list" %}">News</a> / Edit
+              </h4>
+            <!--Table Card-->
+            <div class="container">
+              <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{form.media}}    
+                {% if form.errors %}
+                      <div class="alert alert-danger">
+                          {% for field in form %}
+                              {% if field.errors %}
+                              {{ field.label }}: {{ field.errors }}
+                              {% endif %}
+                          {% endfor %}
+                      </div>
+                      {% endif %}  
+                      
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                      <div class="card">
+                          <div class="card-body">
+                            <div class="align-items-center">
+                              <label for="{{ form.heading.id_for_label }}" class="form-label">Header <span class="text-danger">*</span></label>
+                              {{ form.heading }}
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                          <div class="align-items-center">
+                            <label for="{{ form.image.id_for_label }}" class="form-label">Image <span class="text-danger">*</span></label>
+                            {{ form.image }}
+                            {% if news.image %}
+                            <a href="{{news.image.url}}">
+                              <img id="imagePreview" src="{{ news.image.url }}" alt="Selected Image" style="max-width: 100%; height: 100px; margin-top: 10px;">
+                            </a>
+                            {% else %}
+                                <img id="imagePreview" src="#" alt="No Image Selected" style="max-width: 100%; height: 100px; margin-top: 10px; display: none;">
+                            {% endif %}
+                            <div class="mt-4 space-y-1">
+                              <label class="block text-sm font-medium text-gray-700">
+                                Upload an image
+                                <span class="block text-xs text-gray-500">
+                                  (Recommended dimensions: 512px × 512px)
+                                </span>
+                              </label>
+                            
+                              <label class="block text-xs text-red-500 font-medium">
+                                Image size must be less than 2MB.
+                              </label>
+                            </div>
+                            
+
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                          <div class="align-items-center">
+                            <label for="{{ form.description.id_for_label }}" class="form-label">Description <span class="text-danger">*</span></label>
+                            {{ form.description }}
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                      <div class="card">
+                          <div class="card-body">
+                            <div class="align-items-center">
+                              <label for="{{ form.department.id_for_label }}" class="form-label">Department <span class="text-danger">*</span></label>
+                              {{ form.department }}
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                          <div class="align-items-center">
+                            <label for="{{ form.status.id_for_label }}" class="form-label">Status <span class="text-danger">*</span></label>
+                            {{ form.status }}
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+                <button class="btn btn-primary mb-3" type="submit">Save</button>
+              </form>
+              
+            </div>  
+
+          </div>
+        <!-- / Content -->
+
+
+    </div>
+    <!-- Content wrapper -->
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const imageInput = document.querySelector('[name="image"]'); // Replace with the actual name of the image field if different
+        const imagePreview = document.getElementById('imagePreview');
+
+        // Check if the input already has a selected file (for editing)
+        if (imageInput.files && imageInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block'; // Show the image preview
+            };
+            reader.readAsDataURL(imageInput.files[0]);
+        }
+
+        imageInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block'; // Show the image preview
+                };
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.style.display = 'none'; // Hide the preview if no file selected
+                imagePreview.src = '#';
+            }
+        });
+      });
+    </script>
+
+{% endblock content %}

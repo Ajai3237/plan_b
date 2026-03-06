@@ -1,0 +1,229 @@
+.gallery {
+    margin: 103px 0;
+}
+
+.galleryBtn {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 30px;
+    margin-bottom: 72px;
+}
+
+.galleryList button {
+    padding: 15px 20px;
+    margin: 0px 20px;
+    color: var(--bs-white);
+    background-color: transparent;
+}
+
+.galleryList button:hover {
+    background-color: transparent;
+    color: var(--bsTheme);
+}
+
+.galleryList button:focus {
+    background-color: transparent;
+    color: var(--bs-white);
+    border: 1px solid var(--bs-white);
+}
+
+.gallery .card-body {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.galleryList .activated {
+    color: var(--bsTheme) !important;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.galleryImgBox {
+    font-weight: 600;
+    font-size: 22px;
+    text-align: center;
+    text-transform: capitalize;
+    color: var(--bsTheme);
+    gap: 36px;
+    max-width: 395px;
+}
+
+.galleryImg {
+    width: 395px;
+    height: 395px;
+    border-radius: 50px;
+    background-color: var(--bs-white);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 0px 5px var(--bs-white);
+}
+
+.galleryImg img {
+    object-fit: contain;
+    width: 100%;
+}
+
+.galleryModal .modal-header {
+    background-color: var(--bsColor);
+    color: var(--bsTheme);
+}
+
+.galleryModal,
+.galleryModal .modal-body {
+    background-color: var(--bsColor);
+}
+
+.galleryModal .modal-header .btn-close {
+    font-size: 30px;
+    display: flex;
+    padding: 0;
+    background: none;
+}
+
+.galleryModal .modal-dialog {
+    max-width: 1000px;
+}
+
+.galleryModal .modal-body {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.galleryModal .galImg {
+    width: 50%;
+}
+
+.galleryModal p {
+    padding: 0px 10px;
+}
+
+.gallery .card-body {
+    justify-content: center;
+    align-items: start;
+}
+
+.galleryContainer .btn-group {
+    width: 75%;
+    margin: auto;
+}
+
+.galleryContainer .btn {
+    color: var(--bs-white);
+    border-right: 1px solid var(--bs-white);
+}
+
+.galleryContainer .btn:last-child {
+    border-right: transparent;
+}
+
+.galleryContainer .btn.active {
+    color: var(--bsTheme);
+    border-right: 1px solid var(--bsTheme);
+    border-left: 1px solid var(--bsTheme);
+}
+
+/* responsive  */
+
+@media(max-width:1399.98px) {
+    .gallery .card-body {
+        justify-content: space-around;
+    }
+}
+
+@media(max-width:1199.98px) {
+
+    .galleryModal .modal-dialog {
+        max-width: 900px;
+    }
+}
+
+@media(max-width:991.98px) {
+    .galleryImg {
+        width: 300px;
+        height: 300px;
+    }
+
+    .galleryModal .modal-dialog {
+        max-width: 790px;
+    }
+
+    .galleryImgBox {
+        align-items: center;
+    }
+
+    .galleryContainer .btn-group {
+        width: 100%;
+    }
+}
+
+@media(max-width:767.98px) {
+    .galleryList button {
+        margin: 0
+    }
+
+    .gallery .card-body {
+        gap: 0;
+    }
+
+    .galleryImgBox {
+        margin-bottom: 30px;
+        gap: 10px;
+    }
+
+    .galleryImg {
+        width: 205px;
+        height: 205px;
+    }
+
+    .galleryModal .modal-dialog {
+        max-width: 100%;
+    }
+
+    .galleryModal .modal-body {
+        flex-direction: column;
+    }
+
+    .galleryContainer .btn-group {
+        width: 75%;
+        flex-direction: column;
+    }
+
+    .galleryContainer .btn {
+        border-right: transparent;
+    }
+
+    .galleryContainer .btn:first-child {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 6px !important;
+    }
+
+    .galleryContainer .btn:last-child {
+        border-bottom-left-radius: 6px !important;
+        border-top-right-radius: 0;
+    }
+}
+
+@media(max-width:574.98px) {
+    .galleryModal .galImg {
+        width: 100%;
+    }
+
+    .galleryModal .modal-title,
+    .galleryImgBox {
+        font-size: 18px;
+    }
+
+    .galleryModal .modal-header {
+        align-items: start;
+    }
+}

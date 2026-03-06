@@ -1,0 +1,66 @@
+<!-- service_request_email.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Referral Request</title>
+    <style>
+        /* Add any CSS styles for formatting here */
+        /* For example, basic styles for readability */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color:#000;
+            color:#fff;
+        }
+        /* Customize styles based on your preferences */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="padding:20px">
+        <h2>Referral Request</h2>
+        <p>
+            {% if first_name or last_name %}
+            <strong>Name:</strong> {{ first_name }} {{ last_name }}<br>
+            {% endif %}
+            {% if email %}
+            <strong>Email:</strong> {{ email }} <br>
+            {% endif %}
+            {% if phone %}
+            <strong>Phone:</strong> {{ phone }} <br>
+            {% endif %}
+            {% if referal_first_name or referal_last_name %}
+            <strong>Referral name:</strong> {{ referal_first_name }} {{referal_last_name}} <br>
+            {% endif %}
+            {% if rf_email %}
+            <strong>Referral Email:</strong> {{ rf_email }} <br>
+            {% endif %}
+            {% if rf_phone %}
+            <strong>Referral Phone:</strong><P> {{ rf_phone }}</p><br>
+            {% endif %}
+            {% if referral_reason %}
+            <strong>Referring Reason:</strong><P> {{ referral_reason }}</p><br>
+            {% endif %}
+            <strong>Referral have security guard license:</strong><P> {{ have_security_guard_license }}</p><br>
+            <strong>Referral have drivers license  G2 or G level:</strong><P> {{ have_drivers_license }}</p><br>
+            <!-- <strong>Preferred gift cards:</strong><P> {{ gc_president_choice }}</p><br> -->
+            {% comment %} <strong>Selected Gift Cards:</strong>
+            <ul>
+                {% if gc_president_choice %}<li>President’s Choice</li>{% endif %}
+                {% if gc_the_marconi %}<li>The Marconi</li>{% endif %}
+                {% if gc_canadian_tire %}<li>Canadian Tire</li>{% endif %}
+                {% if gc_esso_gas_card %}<li>ESSO Gas Card</li>{% endif %}
+            </ul> {% endcomment %}
+            
+                
+        </p>
+    </div>
+    </div>
+</body>
+</html>

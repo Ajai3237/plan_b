@@ -1,0 +1,499 @@
+{% extends "layout/base.html" %} 
+{% load static %} 
+{% block SEO %}
+    <!-- SEO module  -->
+    <!-- Title  -->
+    <title>Workplace Noise Assessments | Norpro</title>
+    <meta content="Noise is a physical hazard that is found in many workplaces. High noise levels in workplaces can create stress and lead to noise induced hearing loss if exposure is uncontrolled. Noise can also be a safety hazard if it interferes with communication or warning signals in the workplace. Ontario Regulation 351/15 as written under the Occupational Health & Safety Act requires employers to take all measures reasonably necessary in the circumstances to protect workers from exposure to hazardous sound levels." name="description">
+    <meta name="keywords" content="Safety, safety sault ste marie, health and safety, health and safety sault ste marie, safety services, health and safety services, respirator fit testing, respirator fit testing sault ste marie, fit testing sault ste marie, safety training, safety training sault ste marie, health and safety training, health and safety training sault ste marie, whmis training, confined space training, respirator training, supervisor training,">
+    <meta property="og:description" content="Noise is a physical hazard that is found in many workplaces. High noise levels in workplaces can create stress and lead to noise induced hearing loss if exposure is uncontrolled. Noise can also be a safety hazard if it interferes with communication or warning signals in the workplace. Ontario Regulation 351/15 as written under the Occupational Health & Safety Act requires employers to take all measures reasonably necessary in the circumstances to protect workers from exposure to hazardous sound levels."/>
+    <meta property="og:title" content="Workplace Noise Assessments | Norpro"/>
+    <meta property="og:image" content="https://norpro.ca{% static "assets/imgs/about/no_image_1.png" %}" />
+<!--End of SEO module  -->
+{% endblock SEO %}
+
+{% block content %}
+<style>
+  .color_code{
+    background:#9d1922;
+    padding: 40px 0 0 0;
+    }
+    .icon_code{
+        background: rgb(255 255 255 / 28%) !important;
+    }
+  .profile-images {
+      left: auto;
+      top: 66%;
+      left: 60px;
+      height: 95px;
+      width: 95px;
+      border-radius: 50%;
+      background-position: center center !important;
+      background-size: cover !important;
+      margin: 10px auto 0 auto;
+      border: 4px solid #cbc7c7;
+      object-fit: cover;
+  }
+  .grid-img {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+  .icon_size {
+      height: 50px;
+      width: 50px;
+      margin-left: 18px;
+      margin-top: 18px;
+  }
+  .grid-img > a {
+      flex-basis: calc(18% - 20px);
+      max-width: calc(20% - 20px);
+  }
+  .phones{
+    display:none;
+  }
+  .ulli{
+    color: #ddd;
+  }
+  .ulli li{
+      list-style-type: circle;
+      margin-bottom: 5px;
+  }
+  ::marker {
+    color:rgb(255, 255, 255);
+  }
+  .accordion-item {
+    background-color: #222; /* Slightly lighter than body */
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+
+  .accordion-button {
+    background-color: #090912;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    border: 0.5px solid white;
+  }
+
+  .accordion-button::after {
+    display: none; /* Remove Bootstrap default icon */
+  }
+
+  .accordion-button i {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .accordion-button[aria-expanded="true"] i {
+    transform: rotate(180deg); /* Change + to - when open */
+  }
+
+  .accordion-body {
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .accordion-button:focus {
+    box-shadow: none;
+  }
+  .accordion-button:not(.collapsed) {
+    color: #9d1922;
+    background-color: #e7f1ff;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .125);
+  }
+  .block-serv .content .icon_test {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 20px;
+    font-size: 13px;
+  }
+  .serv-intro {
+    background: url('{% static "assets/imgs/health_safety/wna.jpg" %}') no-repeat center center/cover;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 140px 0;
+  }
+  .block-serv .row{
+    padding: 80px;
+  }
+  @media(max-width:600px){
+    .grid-img a {
+      flex: 1 1 calc(33.33% - 30px); /* Each item takes up 1/3 of the row with gap */
+      max-width: calc(33.33% - 30px);
+    }
+  }
+  @media(max-width:500px){
+    .profile-images {
+      left: auto;
+      top: 66%;
+      left: 60px;
+      height: 80px;
+      width: 80px;
+      border-radius: 50%;
+      background-position: center center !important;
+      background-size: cover !important;
+      margin: 10px auto 0 auto;
+      border: 4px solid #cbc7c7;
+      object-fit: cover;
+  }
+  .icon_size {
+    height: 40px;
+    width: 40px;
+    margin-left: 16px;
+    margin-top: 16px;
+  }
+  .grid-img a {
+    flex: 1 1 calc(50% - 30px); 
+    max-width: calc(50% - 30px);
+  }
+  }
+  @media(max-width:422px){
+    .phone{
+      display:none;
+    }
+    .phones{
+      display:block;
+      font-size: 18px;
+    }
+    .block-serv .row{
+      padding: 40px 10px;
+    }
+  }
+</style>
+<main>
+  <section class="serv-intro">
+    <div class="container">
+      <div class="sec-lg-head mb-20">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="dot-titl-non mb-15 wow fadeIn">
+              Our Health & Safety Services
+            </h1>
+            <h2 class="fz-60 fw-700 d-rotate wow animated">
+              <span class="rotate-text">Workplace Noise Assessments</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== Start Slider ==================== -->
+
+  <header class="page-header" style="min-height:25vh">
+    <div class="container-fluid rest pt-20 pb-20 main-colorbg3" style="overflow:hidden;">
+      <div class="row">
+          <div class="col-12">
+              <div class="main-marq dark-text">
+                  <div class="slide-har st1">
+                      <div class="box non-strok">
+                      <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span>
+                                  <span class="fz-30 ml-50 mb-5  stroke icon" style="height:30px; width:30px">
+                                  <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                  </span>
+                              </h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5  stroke icon" style="height:30px; width:30px">
+                                  <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                  </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span>
+                                  <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                  <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                  </span>
+                              </h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                          <div class="item">
+                              <h4 class="d-flex align-items-center"><span>Workplace Noise Assessments</span> 
+                              <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                              <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                              </span></h4>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="process">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-12 col-md-9">
+          <div class="sec-head mb-80">
+            <h3 class="fs-50 fw-700 text-left">Overview</h3>
+            <span class="text-left my-4">
+              <p>
+                Noise is a physical hazard that is found in many workplaces. High noise levels in workplaces can create stress and lead to noise induced hearing loss if exposure is uncontrolled. Noise can also be a safety hazard if it interferes with communication or warning signals in the workplace. <b>Ontario Regulation 351/15</b> as written under the <b>Occupational Health & Safety Act</b> requires employers to take all measures reasonably necessary in the circumstances to protect workers from exposure to hazardous sound levels. 
+              </p>
+              <p>Occupational noise surveys can be completed to:</p>
+              <ul class="ulli">
+                <li>Evaluate the noise environment and identify workers who are exposed to noise levels that are harmful to their hearing.
+                </li>
+                <li>Guide the development of controls and strategies for mitigating workplace noise.
+                </li>
+                <li>Frame the development of a Hearing Loss Prevention Program (HLPP).
+                </li>
+                <li>Evaluate the effectiveness of noise-control measures in the workplace.
+                </li>
+                <li>Evaluate noise levels of new equipment once installed in the workplace.</li>
+              </ul>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== End process ==================== -->
+
+  <!-- ==================== Start about ==================== -->
+
+  <section class="block-serv bord-thin-top" style="padding: 65px 0;padding-bottom: 0px;">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 col-md-9">
+          <div class="sec-head  mb-80">
+              <h3 class=" fs-50 fw-700 text-center">Our Services </h3>
+          </div>
+      </div>
+    </div>
+    <div class="row color_code">
+      <div class="col-lg-12 valign mine-modal-1">
+        <div class="content">
+          <div class="item d-flex mb-50">
+            <div>
+              <h4>Noise Level Surveys</h4>
+              <p>
+                Norpro H&S conducts noise level surveys using an integrated sound level meter (ISLM) to measure noise levels throughout the workplace. Noise levels can be depicted in tabular format and/or recorded on a floor plan of the workplace. Baseline noise level surveys are a great way to identify point sources of noise in the workplace as well as any areas that may expose workers to noise levels about the occupational exposure limit.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 valign mine-modal-1">
+        <div class="content">
+          <div class="item d-flex mb-50">
+            <div>
+              <h4>Noise Exposure Surveys</h4>
+              <p>
+                When a noise level survey shows that noise levels exceed the occupational exposure limit for noise, it is recommended that a noise exposure survey be conducted. These surveys are conducted using personal noise exposure monitors, or noise dosimeters. Employee noise exposures are measured for various work processes for the duration of their shift. Noise levels can be reviewed over the course of the shift to determine what the high-risk noise areas, or tasks are.
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <header class="page-header bord-thin-top">
+      <div class="container mt-80">
+          <div class="row">
+              <div class="col-lg-9">
+                  <div class="caption">
+                      <h6 class="sub-title">Need to ask something?</h6>
+                      <h2>FAQ About Workplace Noise Assessments</h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </header>
+
+  <section class="faqs mb-80">
+      <div class="container">
+        <div class="accordion" id="faqAccordion">
+                  
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    01. What is the Occupational Exposure Limit (OEL) for noise in the workplace?
+                  </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <p class="fz-15">In Ontario, no workers shall be exposed to a sound level greater than an equivalent sound exposure level of 85 dBA, Lex,8. Lex,8 refers to the sound levels averaging over a duration of 8 hours, which is a typical work shift. 
+                    </p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    02. How often should noise be assessed in the workplace?
+                  </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                  <div class="accordion-body">
+                    <span>
+                      <p>If there is a change to a work process, or new equipment is installed in the workplace that could contribute to overall noise levels, it is advisable that noise levels are reassessed. Reassessments are important to ensure that noise levels in the workplace haven’t changed and any implemented controls are still adequate.  
+                      </p>
+                  </span>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="block-serv pb-80 bord-thin-top">
+    <div class="container">
+      <div class="row mt-80">
+        <div class="col-lg-12 valign mine-modal-1">
+          <div class="content">
+            <div class="item d-flex mb-50">
+              <div>
+                <span class="icon_test">
+                    <svg width="50" height="40" fill="#ffffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 478.248 478.248" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M456.02,44.821H264.83c-12.26,0-22.232,9.972-22.232,22.229v98.652c0,12.258,9.974,22.23,22.232,22.23h16.787v39.161 c0,2.707,1.58,5.165,4.043,6.292c0.92,0.42,1.901,0.627,2.875,0.627c1.631,0,3.244-0.576,4.523-1.685l51.383-44.396h111.576 c12.26,0,22.23-9.973,22.23-22.23V67.05C478.25,54.792,468.277,44.821,456.02,44.821z M319.922,112.252l-10.209,9.953 l2.41,14.054c0.174,1.015-0.242,2.038-1.076,2.643c-0.469,0.342-1.027,0.516-1.588,0.516c-0.428,0-0.861-0.103-1.256-0.31 l-12.621-6.635l-12.619,6.635c-0.912,0.478-2.016,0.398-2.848-0.206s-1.248-1.628-1.074-2.643l2.41-14.054l-10.211-9.953 c-0.734-0.718-1.002-1.792-0.685-2.769c0.317-0.978,1.164-1.691,2.183-1.839l14.11-2.05l6.31-12.786 c0.457-0.923,1.396-1.507,2.424-1.507s1.969,0.584,2.422,1.507l6.312,12.786l14.107,2.05c1.02,0.148,1.863,0.861,2.184,1.839 C320.924,110.46,320.658,111.535,319.922,112.252z M384.766,112.252l-10.211,9.953l2.412,14.054 c0.172,1.015-0.244,2.038-1.076,2.643c-0.469,0.342-1.025,0.516-1.588,0.516c-0.43,0-0.859-0.103-1.26-0.31l-12.619-6.635 l-12.619,6.635c-0.912,0.478-2.014,0.398-2.846-0.206c-0.834-0.604-1.25-1.628-1.076-2.643l2.41-14.054l-10.209-9.953 c-0.734-0.718-1.002-1.792-0.684-2.769c0.316-0.978,1.16-1.691,2.182-1.839l14.109-2.05l6.311-12.786 c0.455-0.923,1.396-1.507,2.422-1.507c1.029,0,1.967,0.584,2.422,1.507l6.312,12.786l14.109,2.05 c1.021,0.148,1.863,0.861,2.182,1.839C385.768,110.46,385.5,111.535,384.766,112.252z M449.607,112.252l-10.211,9.953 l2.408,14.054c0.176,1.015-0.238,2.038-1.072,2.643c-0.471,0.342-1.027,0.516-1.59,0.516c-0.43,0-0.859-0.103-1.258-0.31 l-12.621-6.635l-12.621,6.635c-0.908,0.478-2.012,0.398-2.844-0.206c-0.834-0.604-1.248-1.628-1.076-2.643l2.412-14.054 l-10.211-9.953c-0.734-0.718-1-1.792-0.684-2.769c0.316-0.978,1.164-1.691,2.182-1.839l14.111-2.05l6.311-12.786 c0.453-0.923,1.395-1.507,2.42-1.507c1.027,0,1.971,0.584,2.426,1.507L434,105.594l14.109,2.05 c1.018,0.148,1.861,0.861,2.182,1.839C450.609,110.46,450.344,111.535,449.607,112.252z"></path> <path d="M152.844,112.924c-46.76,0-72.639,24.231-72.166,70.921c0.686,63.947,27.859,102.74,72.166,102.063 c0,0,72.131,2.924,72.131-102.063C224.975,137.155,200.605,112.924,152.844,112.924z"></path> <path d="M280.428,334.444l-72.074-28.736l-16.877-14.223c-4.457-3.766-11.041-3.488-15.178,0.621l-23.463,23.336l-23.533-23.342 c-4.137-4.104-10.713-4.369-15.164-0.615l-16.881,14.223l-72.074,28.739C1.975,343.69,1.995,425.884,0,433.427h305.646 C303.656,425.9,303.646,343.679,280.428,334.444z"></path> </g> </g> </g> </g></svg>
+                </span>
+              </div>
+              <div>
+                <h4>Testimonials</h4>
+                <p>
+                  <span class="fs-5">“</span> We have had the pleasure of working with Norpro on several occasions for indoor air quality assessments. Their prompt and professional service made the entire process seamless and productive. The team members took the time to listen to our concerns, meticulously review all necessary documentation, and truly understand our specific needs. The assessments were carried out in a timely manner, with very thorough reporting and actionable, manageable recommendations for controls. Norpro’s communication with our team was not only efficient but also insightful, ensuring proper mitigation of the concerns at hand. I highly recommend Norpro for their expertise, dedication, and commitment to delivering exceptional results. <span class="fs-5">”</span>
+                </p>
+                <p>
+                  — Luci Wurdemann, Algoma University
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-crev section-padding dark_gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="sec-lg-head mb-80">
+            <h2 class="fz-50">Get In Touch</h2>
+            <p class="fz-14 mt-10">
+              If you would like to work with us or just want to get in touch,
+              we’d love to hear from you!
+            </p>
+            <!-- <div class="phone fz-30 fw-600 mt-30 underline">
+                                <a href="#0">+1 840 841 25 69</a>
+                            </div>
+                           -->
+            <div class="phone fz-25 fw-600 mt-30">
+              <a href="tel:18004615114"><i class="bi bi-telephone"></i> 1-800-461-5114</a>
+            </div>
+            <div class="phone fz-25 fw-600 mt-30">
+              <a href="mailto:healthandsafety@norpro.ca"><i class="bi bi-envelope"></i> healthandsafety@norpro.ca</a>
+            </div>
+            <div class="phones fw-600 mt-30">
+              <a href="tel:18004615114"><i class="bi bi-telephone"></i> 1-800-461-5114</a>
+            </div>
+            <div class="phones fw-600 mt-30">
+              <a href="mailto:healthandsafety@norpro.ca"><i class="bi bi-envelope"></i> healthandsafety@norpro.ca</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 offset-lg-1 valign">
+          <div class="full-width">
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="messages"></div>
+
+              <div class="controls row">
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.name}}</div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.email}}</div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.phone}}</div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group mb-30">{{form.location}}</div>
+                </div>
+
+                <div class="col-12">
+                  <!-- <div class="form-group mb-30">
+                                            <input id="form_subject" type="text" name="subject" placeholder="Services">
+                                        </div> -->
+                  {{form.message}}
+                </div>
+                {{ form.type_service }}
+
+                <div class="col-12">
+                  <div class="mt-30">
+                    <button
+                      type="submit"
+                      class="butn butn-md butn-bord radius-30"
+                    >
+                      <span class="text">Submit</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ==================== End about ==================== -->
+</main>
+
+{% comment %} <section class="section1-padding"></section> {% endcomment %}
+
+{% endblock content %}

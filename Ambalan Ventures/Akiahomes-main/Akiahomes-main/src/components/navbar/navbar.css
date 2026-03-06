@@ -1,0 +1,145 @@
+/* Header start */
+header {
+    background-color: var(--bsColor);
+}
+
+.navbar {
+    padding: 0 60px;
+}
+
+.navbar-brand {
+    width: 243px;
+    display: flex;
+    align-items: center;
+    min-height: 107px;
+}
+
+.navbar-nav {
+    gap: 15px;
+}
+
+.nav-link {
+    color: var(--bs-white);
+    font-size: 18px;
+    font-weight: 400;
+    border: 1px solid transparent;
+    padding: 8px 20px !important;
+}
+
+.navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    border-radius: 25px;
+    border: 1px solid #596679;
+    color: var(--bsTheme);
+    font-weight: 400;
+    transition: all 0.3s linear;
+}
+
+.navbar-nav2 {
+    width: 243px;
+}
+
+.bookNow {
+    font-size: 23px;
+    border: 1px solid #FFFFFF;
+    color: var(--bsTheme);
+    border-radius: 30px;
+}
+
+.navbar-toggler {
+    font-size: 18px;
+    padding: 8px 10px;
+    border-radius: 15px;
+    color: var(--bsTheme);
+    border: 1px solid #596679;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 32px;
+    width: 40px;
+}
+
+
+.navbar-toggler span:nth-child(1) {
+    width: 100%;
+    height: 2px;
+    background: var(--bsTheme);
+    transition: all 0.3s linear;
+    transform: translate(1px, 4px) rotate(45deg);
+}
+
+.navbar-toggler span:nth-child(2) {
+    transition: all 0.3s linear;
+    display: none;
+}
+
+.navbar-toggler span:nth-child(3) {
+    width: 100%;
+    height: 2px;
+    background: var(--bsTheme);
+    transition: all 0.3s linear;
+    transform: translate(1px, -3px) rotate(-45deg);
+}
+
+.navbar-toggler.collapsed span {
+    width: 100%;
+    height: 2px;
+    background: var(--bsTheme);
+    display: block;
+    transition: all 0.3s linear;
+    transform: translate(0px);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Header end */
+
+/* responsive  */
+@media(max-width:1399.98px) {
+    .navbar-nav {
+        gap: 5px;
+        align-items: center;
+    }
+
+    .nav-link {
+        margin-top: 10px;
+    }
+
+    .navbar-collapse {
+        padding-bottom: 20px;
+    }
+
+    .bookNow {
+        font-size: 18px;
+        margin-top: 15px;
+    }
+}
+
+@media(max-width:1199.98px) {}
+
+@media(max-width:991.98px) {}
+
+@media(max-width:767.98px) {}
+
+@media(max-width:574.98px) {}
+
+@media(max-width:574.98px) {
+    .navbar {
+        padding: 0 10px;
+    }
+
+    header.nav-open {
+        box-shadow: 0px 34px 54px #172f54;
+        transition: box-shadow 0.3s ease;
+    }
+}
+
+@media(max-width:424.98px) {
+    .navbar-brand {
+        width: 200px;
+    }
+}

@@ -1,0 +1,584 @@
+
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block SEO %}
+    <!-- SEO module  -->
+    <!-- Title  -->
+    <title>Industrial Guards | Sault Ste. Marie | Norpro</title>
+    <meta content="Elevate your industrial security with our expert guard services. Our
+    trained industrial guards provide complete protection and peace of mind for your
+    operations." name="description">
+    <meta name="keywords" content="Safety, safety sault ste marie, health and safety, health and safety sault ste marie, safety services, health and safety services, respirator fit testing, respirator fit testing sault ste marie, fit testing sault ste marie, safety training, safety training sault ste marie, health and safety training, health and safety training sault ste marie, whmis training, confined space training, respirator training, supervisor training,">
+    <meta property="og:description" content="Elevate your industrial security with our expert guard services. Our
+    trained industrial guards provide complete protection and peace of mind for your
+    operations."/>
+    <meta property="og:title" content="Industrial Guards | Sault Ste. Marie | Norpro"/>
+    <meta property="og:image" content="https://norpro.ca{% static "assets/imgs/industry-ser.jpg" %}" />
+
+<!--End of SEO module  -->
+{% endblock SEO %}
+{% block content %}
+<style>
+    .color_code{
+        background:#9d1922;
+        padding: 40px 0 0 0;
+    }
+    .icon_code{
+        background: rgb(255 255 255 / 28%) !important;
+    }
+    .profile-images {
+        left: auto;
+        top: 66%;
+        left: 60px;
+        height: 95px;
+        width: 95px;
+        border-radius: 50%;
+        background-position: center center !important;
+        background-size: cover !important;
+        margin: 10px auto 0 auto;
+        border: 4px solid #cbc7c7;
+        object-fit: cover;
+    }
+    .grid-img {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 30px;
+        margin-top: 0px;
+    }
+    .icon_size {
+        height: 50px;
+        width: 50px;
+        margin-left: 18px;
+        margin-top: 18px;
+    }
+    .grid-img > a {
+        flex-basis: calc(18% - 20px);
+        max-width: calc(20% - 20px);
+    }
+    .serv-intro {
+        background: url('{% static "assets/imgs/security/is.jpg" %}') no-repeat center center/cover;
+        background-blend-mode: multiply;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 80px 0;
+    }
+    .block-serv .row{
+        padding: 80px;
+    }
+    @media(max-width:600px){
+        .grid-img a {
+          flex: 1 1 calc(33.33% - 30px); /* Each item takes up 1/3 of the row with gap */
+          max-width: calc(33.33% - 30px);
+        }
+    }
+    @media(max-width:500px){
+        .profile-images {
+          left: auto;
+          top: 66%;
+          left: 60px;
+          height: 80px;
+          width: 80px;
+          border-radius: 50%;
+          background-position: center center !important;
+          background-size: cover !important;
+          margin: 10px auto 0 auto;
+          border: 4px solid #cbc7c7;
+          object-fit: cover;
+        }
+        .icon_size {
+            height: 40px;
+            width: 40px;
+            margin-left: 16px;
+            margin-top: 16px;
+        }
+        .grid-img a {
+            flex: 1 1 calc(50% - 30px); 
+            max-width: calc(50% - 30px);
+        }
+    }
+    @media(max-width:422px){
+        .block-serv .row{
+          padding: 40px 10px;
+        }
+    }
+</style>
+
+    <main>
+
+        
+        <section class="serv-intro">
+            <div class="container">
+                <div class="sec-lg-head mb-20">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1 class="dot-titl-non mb-15 wow fadeIn">Our Security Service</h1>
+                            <h2 class="fz-60 fw-700 d-rotate wow animated">
+                                <span class="rotate-text">Industrial Guards</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+
+                        <div class="grid-img">
+                            <a href="#" class="scroll-to-section" data-target="site_access_control" rel="noopener noreferrer">
+                                <div class="center-div">
+                                <div class="profile-images mb-2">
+                                    <svg class="icon_size" viewBox="0 0 1301 1301" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1107.41 445.15C1114.64 359.128 1140.59 280.157 1186.25 207.744L1011.03 39.03C955.688 84.9033 892.616 110.325 821.217 114.8C755.75 120.499 693.719 108.529 635.33 78.8146C575.328 107.541 513.53 119.588 449.131 114.8C383.583 109.565 320.9 85.6946 268.474 46.0034L92.8129 214.665C136.032 288.093 160.101 364.931 164.81 445.15C167.048 482.073 156.12 532.968 131.531 598.668C120.373 629.696 110.623 661.213 102.31 693.121C96.1695 719.375 92.3446 740.659 91.0436 756.662C90.1589 826.681 110.559 889.91 152.399 946.139C185.106 987.173 239.045 1032.5 313.931 1082.07C395.842 1122.22 459.253 1148.26 503.669 1159.37L540.513 1175.9C552.092 1181.2 564.503 1186.43 577.435 1192.11C605.407 1208.24 625 1225.7 635.33 1243.73C648.028 1224.19 668.089 1207.2 694.734 1192.11C710.708 1185.51 726.549 1178.6 742.246 1171.37L770.061 1159.4C779.559 1154.9 791.97 1149.69 807.062 1143.94C825.736 1136.83 844.507 1129.96 863.369 1123.36C906.64 1108.63 938.151 1094.66 958.16 1082.07C1030.81 1032.53 1083.91 987.901 1117.71 948.065C1161.04 891.653 1182.11 828.113 1181.15 756.714C1178.58 724.709 1164.5 673.554 1138.95 603.846C1114.64 535.908 1103.9 483.191 1107.41 445.15Z" fill="#F8F8F8"/>
+                                    </svg>
+                                </div>
+                                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Site Access Control</h6>
+                                    
+                                </div>
+                            </a>
+                            <a href="#" class="scroll-to-section" data-target="drug_and_alochol_detection" rel="noopener noreferrer">
+                                <div class="center-div">
+                                <div class="profile-images mb-2">
+                                    <svg class="icon_size" xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-capsule" viewBox="0 0 16 16">
+                                        <path d="M1.828 8.9 8.9 1.827a4 4 0 1 1 5.657 5.657l-7.07 7.071A4 4 0 1 1 1.827 8.9Zm9.128.771 2.893-2.893a3 3 0 1 0-4.243-4.242L6.713 5.429l4.243 4.242Z"/>
+                                    </svg>
+                                    </div>
+                                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Drug and Alochol Detection</h6>
+                                    
+                                </div>
+                            </a>
+    
+                            <a href="#" class="scroll-to-section" data-target="testing_and_administration" rel="noopener noreferrer">
+                                <div class="center-div">
+                                <div class="profile-images mb-2">
+                                    <svg class="icon_size" xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
+                                        <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
+                                    </svg>
+                                    </div>
+                                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Testing and Administration</h6>
+                                    
+                                </div>
+                            </a>
+    
+                            <a href="#" class="scroll-to-section" data-target="foot_patrol" rel="noopener noreferrer">
+                                <div class="center-div">
+                                <div class="profile-images mb-2">
+                                    <svg class="icon_size" xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-person-walking" viewBox="0 0 16 16">
+                                        <path d="M9.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6.44 3.752A.75.75 0 0 1 7 3.5h1.445c.742 0 1.32.643 1.243 1.38l-.43 4.083a1.75 1.75 0 0 1-.088.395l-.318.906.213.242a.75.75 0 0 1 .114.175l2 4.25a.75.75 0 1 1-1.357.638l-1.956-4.154-1.68-1.921A.75.75 0 0 1 6 8.96l.138-2.613-.435.489-.464 2.786a.75.75 0 1 1-1.48-.246l.5-3a.75.75 0 0 1 .18-.375l2-2.25Z"/>
+                                        <path d="M6.25 11.745v-1.418l1.204 1.375.261.524a.75.75 0 0 1-.12.231l-2.5 3.25a.75.75 0 1 1-1.19-.914l2.345-3.048Zm4.22-4.215-.494-.494.205-1.843a1.93 1.93 0 0 0 .006-.067l1.124 1.124h1.44a.75.75 0 0 1 0 1.5H11a.75.75 0 0 1-.531-.22Z"/>
+                                    </svg>
+                                    </div>
+                                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Foot Patrol</h6>
+                                    
+                                </div>
+                            </a>
+    
+                            <a href="#" class="scroll-to-section" data-target="vehicle_searches" rel="noopener noreferrer">
+                                <div class="center-div">
+                                <div class="profile-images mb-2">
+                                    <svg class="icon_size" xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                    </svg>
+                                    </div>
+                                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Vehicle Searches</h6>
+                                    
+                                </div>
+                            </a>
+    
+                            <a href="#" class="scroll-to-section" data-target="asset_protection" rel="noopener noreferrer">
+                                <div class="center-div">
+                                <div class="profile-images mb-2">
+                                    <svg class="icon_size" xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                                    </svg>
+                                    </div>
+                                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Asset Protection</h6>
+                                    
+                                </div>
+                            </a>
+    
+                            <a href="#" class="scroll-to-section" data-target="monitor_entrances_and_exits" rel="noopener noreferrer">
+                                <div class="center-div">
+                                <div class="profile-images mb-2">
+                                    <svg class="icon_size" xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-pc-display-horizontal" viewBox="0 0 16 16">
+                                        <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"/>
+                                    </svg>
+                                    </div>
+                                    <h6 class="text-center" style="line-height: 18px;font-size: 15px;">Monitor Entrances and Exits</h6>
+                                    
+                                </div>
+                            </a>
+    
+                        </div>
+                       
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- ==================== Start Slider ==================== -->
+
+        <header class="page-header " style="min-height:25vh">
+            <div class="container-fluid rest pt-20 pb-20 main-colorbg3" style="overflow:hidden;">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="main-marq dark-text">
+                            <div class="slide-har st1">
+                                <div class="box non-strok">
+                                <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                        <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                        </span></h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span>
+                                            <span class="fz-30 ml-50 mb-5  stroke icon" style="height:30px; width:30px">
+                                            <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                            </span>
+                                        </h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5  stroke icon" style="height:30px; width:30px">
+                                            <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                            </span></h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                        <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                        </span></h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span>
+                                            <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                            <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                            </span>
+                                        </h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                        <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                        </span></h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                        <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                        </span></h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                        <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                        </span></h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                        <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                        </span></h4>
+                                    </div>
+                                    <div class="item">
+                                        <h4 class="d-flex align-items-center"><span>Industrial Guards</span> 
+                                        <span class="fz-30 ml-50 mb-5 stroke icon" style="height:30px; width:30px">
+                                        <img width="30" heigh="30" src="{% static "assets/imgs/norpro - back.png" %}">
+                                        </span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ==================== End Slider ==================== -->
+
+
+
+        <!-- ==================== Start process ==================== -->
+
+        <section class="process">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-9">
+                  <div class="sec-head mb-80">
+                    <h3 class="fs-50 fw-700 text-left">Overview</h3>
+                    <p class="text-left my-4">Norpro, a trusted leader in Industrial Security Services, prioritizes the precision and expertise needed to safeguard your operations. Our highly trained personnel ensure the safety of industrial facilities, assets, and personnel through advanced security measures tailored to the unique challenges of the sector. Offering comprehensive protection from access control to incident response, our skilled professionals, trained in industrial security, are equipped to handle the complexities of your environment. With rapid emergency response, technological innovation, and customized solutions, Norpro provides a robust and professional industrial security solution. Your operations are our priority—choose Norpro for unparalleled safety.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+        <!-- ==================== End process ==================== -->
+
+
+
+        <!-- ==================== Start about ==================== -->
+
+        <section class="block-serv section-padding bord-thin-top"  style="padding: 65px 0;padding-bottom: 0px;">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 col-md-9">
+                    <div class="sec-head  mb-80">
+                        <h3 class=" fs-50 fw-700 text-center">Our Services </h3>
+                        <p class="text-center my-4">Rest assured, Norpro's security services, with the inclusion of industrial guards, offer thorough coverage across Northern Ontario, ensuring your peace of mind.</p>
+         
+                    </div>
+                </div>
+            </div>
+
+            <div class="row color_code" id="site_access_control" style="background: url('{% static "assets/imgs/site.jpg" %}') no-repeat center center/cover;
+                background-blend-mode: multiply;
+                background-color: rgba(0, 0, 0, 0.6);">
+                <div class="col-lg-12 valign mine-modal-1">
+                    <div class="content">
+                        <div class="item d-flex mb-50">
+                            <div>
+                                <span class="icon icon_code"> <svg width="25" height="38" viewBox="0 0 1301 1301" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1107.41 445.15C1114.64 359.128 1140.59 280.157 1186.25 207.744L1011.03 39.03C955.688 84.9033 892.616 110.325 821.217 114.8C755.75 120.499 693.719 108.529 635.33 78.8146C575.328 107.541 513.53 119.588 449.131 114.8C383.583 109.565 320.9 85.6946 268.474 46.0034L92.8129 214.665C136.032 288.093 160.101 364.931 164.81 445.15C167.048 482.073 156.12 532.968 131.531 598.668C120.373 629.696 110.623 661.213 102.31 693.121C96.1695 719.375 92.3446 740.659 91.0436 756.662C90.1589 826.681 110.559 889.91 152.399 946.139C185.106 987.173 239.045 1032.5 313.931 1082.07C395.842 1122.22 459.253 1148.26 503.669 1159.37L540.513 1175.9C552.092 1181.2 564.503 1186.43 577.435 1192.11C605.407 1208.24 625 1225.7 635.33 1243.73C648.028 1224.19 668.089 1207.2 694.734 1192.11C710.708 1185.51 726.549 1178.6 742.246 1171.37L770.061 1159.4C779.559 1154.9 791.97 1149.69 807.062 1143.94C825.736 1136.83 844.507 1129.96 863.369 1123.36C906.64 1108.63 938.151 1094.66 958.16 1082.07C1030.81 1032.53 1083.91 987.901 1117.71 948.065C1161.04 891.653 1182.11 828.113 1181.15 756.714C1178.58 724.709 1164.5 673.554 1138.95 603.846C1114.64 535.908 1103.9 483.191 1107.41 445.15Z" fill="#F8F8F8"/>
+                                    </svg></span>
+                            </div>
+                            <div>
+                                <h6>Site Access Control</h6>
+                                <p>Norpro Site Access Control service offers a sophisticated solution to manage and monitor access points efficiently. Our skilled professionals employ cutting-edge technology to regulate entry, ensuring only authorized individuals gain access. With Norpro's commitment to proactive security measures, trust us for reliable and effective site access control that sets the standard for excellence in securing your premises. Your security, our priority.</p>
+                            
+                                
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row color_code" id="drug_and_alochol_detection">
+                <div class="col-lg-6 mb-40">
+                    <div class="img">
+                        <img src="{% static "assets/imgs/drugs.jpg" %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 valign mb-40">
+                    <div class="content">
+                        <div class="item d-flex mb-50">
+                            <div>
+                                <span class="icon icon_code"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-capsule" viewBox="0 0 16 16">
+                                <path d="M1.828 8.9 8.9 1.827a4 4 0 1 1 5.657 5.657l-7.07 7.071A4 4 0 1 1 1.827 8.9Zm9.128.771 2.893-2.893a3 3 0 1 0-4.243-4.242L6.713 5.429l4.243 4.242Z"/>
+                                </svg></span>
+                            </div>
+                            <div>
+                                <h6>Drug and Alochol Detection</h6>
+                                <p>Norpro takes a proactive stance on safety with our Drug & Alcohol Detection services. Our highly trained professionals utilize advanced testing methodologies to identify and address substance-related risks effectively. With Norpro's commitment to comprehensive security measures, trust us for precise and reliable drug and alcohol detection, setting the standard for excellence in maintaining a secure environment.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="testing_and_administration">
+                <div class="col-lg-5 valign mb-40  mine-modal-1">
+                    <div class="content">
+                        <div class="item d-flex mb-50  ">
+                            <div>
+                                <span class="icon"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-laptop" viewBox="0 0 16 16">
+                                <path d="M13.5 3a.5.5 0 0 1 .5.5V11H2V3.5a.5.5 0 0 1 .5-.5h11zm-11-1A1.5 1.5 0 0 0 1 3.5V12h14V3.5A1.5 1.5 0 0 0 13.5 2h-11zM0 12.5h16a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5z"/>
+                                </svg></span>
+                            </div>
+                            <div>
+                                <h6>Testing and Administration
+                                </h6>
+                                <p>Norpro excels in Testing & Administration services, providing meticulous and efficient solutions for various security and health & safety needs. From thorough examinations to streamlined administrative processes, our skilled professionals uphold the highest standards. With Norpro's commitment to proactive security measures, trust us for reliable and comprehensive testing and administration services that set the standard for excellence in maintaining a secure environment.</p>
+                            
+                                
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 mb-40  mine-modal">
+                    <div class="img">
+                        <img src="{% static "assets/imgs/test&admin.jpg" %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row color_code" id="foot_patrol" style="background: url('{% static "assets/imgs/foot.jpg" %}') no-repeat center center/cover;
+                background-blend-mode: multiply;
+                background-color: rgba(0, 0, 0, 0.6);">
+                <div class="col-lg-12 valign mine-modal-1">
+                    <div class="content">
+                        <div class="item d-flex mb-50">
+                            <div>
+                                <span class="icon icon_code"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-person-walking" viewBox="0 0 16 16">
+                                <path d="M9.5 1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM6.44 3.752A.75.75 0 0 1 7 3.5h1.445c.742 0 1.32.643 1.243 1.38l-.43 4.083a1.75 1.75 0 0 1-.088.395l-.318.906.213.242a.75.75 0 0 1 .114.175l2 4.25a.75.75 0 1 1-1.357.638l-1.956-4.154-1.68-1.921A.75.75 0 0 1 6 8.96l.138-2.613-.435.489-.464 2.786a.75.75 0 1 1-1.48-.246l.5-3a.75.75 0 0 1 .18-.375l2-2.25Z"/>
+                                <path d="M6.25 11.745v-1.418l1.204 1.375.261.524a.75.75 0 0 1-.12.231l-2.5 3.25a.75.75 0 1 1-1.19-.914l2.345-3.048Zm4.22-4.215-.494-.494.205-1.843a1.93 1.93 0 0 0 .006-.067l1.124 1.124h1.44a.75.75 0 0 1 0 1.5H11a.75.75 0 0 1-.531-.22Z"/>
+                                </svg></span>
+                            </div>
+                            <div>
+                                <h6>Foot Patrol
+                                </h6>
+                                <p>Norpro introduces Foot Patrol services, offering a mobile and vigilant approach to secure diverse environments. Our skilled professionals conduct strategic and proactive patrols on foot, ensuring a visible and responsive presence. With Norpro's commitment to proactive security measures, trust us for reliable and adaptable foot patrols that set the standard for excellence in maintaining a safe and secure atmosphere.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row color_code" id="vehicle_searches">
+                <div class="col-lg-5 valign mb-40  mine-modal-1">
+                    <div class="content">
+                        <div class="item d-flex mb-50">
+                            <div>
+                                <span class="icon icon_code"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
+                                <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                </svg></span>
+                            </div>
+                            <div>
+                                <h6>Vehicle Searches
+                                </h6>
+                                <p>Norpro Vehicle Searches service provides a thorough and effective solution to bolster security measures. Our skilled professionals conduct meticulous inspections, employing advanced techniques to identify and address potential threats. With Norpro's commitment to proactive security measures, trust us for reliable and precise vehicle searches that set the standard for excellence in maintaining a secure environment.</p>
+                            
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 mb-40  mine-modal">
+                    <div class="img">
+                        <img src="{% static "assets/imgs/in1.jpg" %}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="asset_protection">
+                <div class="col-lg-6 mb-40">
+                    <div class="img">
+                        <img src="{% static "assets/imgs/bank.jpg" %}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 valign mb-40">
+                    <div class="content">
+                        <div class="item d-flex mb-50">
+                            <div>
+                                <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                                </svg></span>
+                            </div>
+                            <div>
+                                <h6>Asset Protection
+                                </h6>
+                                <p>Norpro is your trusted partner for Asset Protection services. Our comprehensive approach and skilled professionals ensure the safeguarding of your valuable assets. With Norpro's commitment to proactive security measures, trust us for reliable and effective asset protection that sets the standard for excellence in maintaining a secure environment</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row color_code" id="monitor_entrances_and_exits" style="background: url('{% static "assets/imgs/moni-.jpg" %}') no-repeat center center/cover;
+                background-blend-mode: multiply;
+                background-color: rgba(0, 0, 0, 0.6);">
+                <div class="col-lg-12 valign mine-modal-1">
+                    <div class="content">
+                        <div class="item d-flex mb-50">
+                            <div>
+                                <span class="icon icon_code"> <svg xmlns="http://www.w3.org/2000/svg" width="25" height="38" fill="currentColor" class="bi bi-pc-display-horizontal" viewBox="0 0 16 16">
+                                <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v7A1.5 1.5 0 0 0 1.5 10H6v1H1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-5v-1h4.5A1.5 1.5 0 0 0 16 8.5v-7A1.5 1.5 0 0 0 14.5 0h-13Zm0 1h13a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .5-.5ZM12 12.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM1.5 12h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1ZM1 14.25a.25.25 0 0 1 .25-.25h5.5a.25.25 0 1 1 0 .5h-5.5a.25.25 0 0 1-.25-.25Z"/>
+                                </svg></span>
+                            </div>
+                            <div>
+                                <h6>Monitor Entrances and Exits
+                                </h6>
+                                <p>Norpro Entrance and Exit Monitoring service ensures a vigilant and secure environment for your premises. Our skilled professionals employ advanced technology to monitor access points, providing real-time visibility and control. With Norpro's commitment to proactive security measures, trust us for comprehensive monitoring of entrances and exits, setting the standard for excellence in maintaining a safe and secure atmosphere.</p>
+                            
+                                
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+   
+
+        <section class="contact-crev section-padding dark_gray">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="sec-lg-head mb-80">
+                            <h2 class="fz-50">Get In Touch</h2>
+                            <p class="fz-14 mt-10">If you would like to work with us or just want to get in
+                                touch, we’d love to hear from you!</p>
+                           <div class="phone fz-25 fw-600 mt-30">
+                                <a href="tel:18004615114"><i class="bi bi-telephone"></i> 1-800-461-5114</a>
+                            </div>
+                            <div class="phone fz-25 fw-600 mt-30 ">
+                                <a href="mailto:info@norpro.ca"><i class="bi bi-envelope"></i>info@norpro.ca</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-1 valign">
+                        <div class="full-width">
+                            <form  method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="messages"></div>
+    
+                                <div class="controls row">
+                                    
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-30">
+                                            {{form.name}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-30">
+                                            {{form.email}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-30">
+                                            {{form.phone}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-30">
+                                            {{form.location}}
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12">
+                                        <!-- <div class="form-group mb-30">
+                                            <input id="form_subject" type="text" name="subject" placeholder="Services">
+                                        </div> -->
+                                        {{form.service}}
+    
+                                        
+                                    </div>
+                                    <div class="col-12">
+                                        <!-- <div class="form-group mb-30">
+                                            <input id="form_subject" type="text" name="subject" placeholder="Services">
+                                        </div> -->
+                                        {{form.message}}
+    
+                                        
+                                    </div>
+                                    {{ form.type_service }}
+    
+                                    <div class="col-12">
+    
+                                        <div class="mt-30">
+                                            <button type="submit" class="butn butn-md butn-bord radius-30">
+                                                <span class="text">Submit</span>
+                                            </button>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================== End about ==================== -->
+
+    </main>
+
+    {% endblock content %}

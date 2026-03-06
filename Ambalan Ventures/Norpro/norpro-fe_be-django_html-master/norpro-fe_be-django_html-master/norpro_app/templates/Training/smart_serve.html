@@ -1,0 +1,116 @@
+{% extends "layout/base.html" %}
+{% load static %}
+{% block SEO %}
+    <!-- SEO module  -->
+    <!-- Title  -->
+    <title>Smart Serve | Norpro</title>
+    <meta content="The Smart Serve Responsible Alcohol Beverage Sales &amp; Service Training Program is the only
+        responsible alcohol training program approved by the Alcohol and Gaming Commission of
+        Ontario (AGCO)." name="description">
+    <meta name="keywords" content="Safety, safety sault ste marie, health and safety, health and safety sault ste marie, safety services, health and safety services, respirator fit testing, respirator fit testing sault ste marie, fit testing sault ste marie, safety training, safety training sault ste marie, health and safety training, health and safety training sault ste marie, whmis training, confined space training, respirator training, supervisor training,">
+    <meta property="og:description" content="The Smart Serve Responsible Alcohol Beverage Sales &amp; Service Training Program is the only
+        responsible alcohol training program approved by the Alcohol and Gaming Commission of
+        Ontario (AGCO)."/>
+    <meta property="og:title" content="Smart Serve | Norpro"/>
+    <meta property="og:image" content="https://norpro.ca{% static "assets/imgs/smart-serve.jpg" %}" />
+
+<!--End of SEO module  -->
+{% endblock SEO %}
+
+{% block content %}
+
+<style>
+    .phones{
+      display:none;
+    }
+    .ulli{
+        color: #ddd;
+    }
+    .ulli li{
+        list-style-type: circle;
+        margin-bottom: 5px;
+    }
+    .table {
+        margin: 0 auto;
+    }
+    
+    .table-dark th, .table-dark td {
+        vertical-align: middle;
+    }
+    
+    @media(max-width:422px){
+      .phone{
+        display:none;
+      }
+      .phones{
+        display:block;
+        font-size: 18px;
+      }
+    }
+  </style>
+
+
+<main>
+
+
+
+    <!-- ==================== Start about ==================== -->
+
+    <section class="block-serv pb-80 bord-thin-top">
+        <div class="container mt-80">
+            <div class="row">
+                <h2 style="font-size: 30px;font-weight: 600;">Smart Serve</h2>
+                <div class="col-lg-12 mb-3 mt-2">
+                    <div class="caption">
+                        <p class="fs-6" style="margin-left: 20px;"><span style="font-weight: 600;">Course Type:</span> Online</p>
+                        <p class="fs-6" style="margin-left: 20px;"><span style="font-weight: 600;">Course Price:</span> $44.95</p>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-3 mt-2">
+                    <div class="caption">
+                        <p class="fs-6" style="margin-left: 20px;"><span style="font-weight: 600;">PROMO CODE:</span> Norpro25</p>
+                        <p class="fs-6" style="margin-left: 20px;">* For 10% off</p>
+                    </div>
+                </div>
+                <h4 class="text-left mb-4">Overview</h4>
+                <div class="col-lg-12 mt-5">
+                    <div class="caption">
+                        <h6 class="sub-title" style="font-weight: 600;margin-left: 20px;">WHY DO I NEED THIS TRAINING?</h6>
+                        <div style="margin-left: 30px;">
+                            <p>The Smart Serve Responsible Alcohol Beverage Sales &amp; Service Training Program is the only
+                                responsible alcohol training program approved by the Alcohol and Gaming Commission of
+                                Ontario (AGCO).</p>
+                                <br>
+                                <p>Established in 1995, this program was designed to educate and raise awareness about
+                                    responsible alcohol sales and service for Licensees and employees. As an industry leader,
+                                    Smart Serve Ontario is committed to fostering a safer, healthier Ontario by supporting ongoing
+                                    research and education in the tourism and hospitality sector.</p><br>
+                                <p>Training is available online 24/7, preparing you to work in any setting where alcohol is sold,
+                                    served, delivered, or sampled in Ontario. The course includes engaging videos, quizzes,
+                                    text/audio content, interactive activities, and games to help you learn before taking the Final
+                                    Certification Test online.</p><br>
+                                <p>The program is fully translated into six languages: English, French, Chinese, Korean, Punjabi,
+                                    and Spanish.</p>
+                        <div>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-12">
+                    <div class="caption">
+                        <h6 style="font-weight: 600; margin-left: 20px;">Register:</h6>
+                        <p style="margin-left: 30px;">Click the button below to register now!</p><br>
+                        <div style="margin-left: 30px;">
+                            <a href="https://securityguardcourse.ca/product/smart-serve/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                Register Now
+                            </a>
+                        </div>                        
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    
+
+    {% endblock content %}

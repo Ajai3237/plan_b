@@ -1,0 +1,118 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+{% block title %}Set Permissions{% endblock title %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <h4 class="fw-bold py-3 mb-4">
+            <span class="text-muted fw-light"></span><a href="{% url "role_list" %}">Set Permissions</a> / List
+        </h4>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="card">
+                <div class="card-body">
+                    <h5>Permissions</h5>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Permission Name</th>
+                                <th>Select</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for main_permission in path %}
+                            <!-- Main Permission Row -->
+                            <tr>
+                                <td><strong>{{ main_permission.path_name }}</strong></td>
+                                <td>
+                                    <input 
+                                        type="checkbox" 
+                                        name="main_perm" 
+                                        value="{{ main_permission.id }}" 
+                                        id="main_perm_{{ main_permission.id }}" 
+                                        class="form-check-input"
+                                        {% if main_permission.id in permission %}checked{% endif %}
+                                        onclick="selectSubPermissions(this)">
+                                </td>
+                            </tr>
+
+                            <!-- Sub-permissions Row -->
+                            {% for sub_permission in main_permission.path_set.all %}
+                            <tr class="sub-permission" data-main-perm-id="{{ main_permission.id }}">
+                                <td class="ps-4">
+                                    {{ sub_permission.path_name }}
+                                </td>
+                                <td>
+                                    <input 
+                                        type="checkbox" 
+                                        name="sub_perm" 
+                                        value="{{ sub_permission.id }}" 
+                                        id="sub_perm_{{ sub_permission.id }}" 
+                                        class="form-check-input"
+                                        {% if sub_permission.id in permission %}checked{% endif %}
+                                    >
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Save Permissions</button>
+        </form>
+    </div>
+</div>
+
+<script>
+  function selectSubPermissions(mainCheckbox) {
+      const mainPermId = mainCheckbox.value;
+
+      // Get all sub-permission checkboxes related to the selected main permission
+      const subPermissions = document.querySelectorAll('.sub-permission[data-main-perm-id="' + mainPermId + '"] input[type="checkbox"]');
+
+      // If the main permission is checked, check all related sub-permissions
+      if (mainCheckbox.checked) {
+          subPermissions.forEach((subPermCheckbox) => {
+              subPermCheckbox.checked = true;
+          });
+      } else {
+          // If unchecked, uncheck all related sub-permissions
+          subPermissions.forEach((subPermCheckbox) => {
+              subPermCheckbox.checked = false;
+          });
+      }
+
+      // Deselect all sub-permissions of other main permissions
+      const allSubPermissions = document.querySelectorAll('.sub-permission input[type="checkbox"]');
+      allSubPermissions.forEach((subPermCheckbox) => {
+          if (!subPermCheckbox.closest('.sub-permission').dataset.mainPermId === mainPermId) {
+              subPermCheckbox.checked = false;
+          }
+      });
+  }
+
+  // New function to handle sub-permission checkbox click
+  function handleSubPermissionClick(subCheckbox) {
+      const mainPermId = subCheckbox.closest('.sub-permission').dataset.mainPermId;
+      const mainCheckbox = document.getElementById('main_perm_' + mainPermId);
+
+      // If the sub-permission is checked and main permission is not checked, check the main permission
+      if (subCheckbox.checked && !mainCheckbox.checked) {
+          mainCheckbox.checked = true; // Check the main permission
+      }
+  }
+
+  // Attach the new event to all sub-permission checkboxes
+  document.querySelectorAll('.sub-permission input[type="checkbox"]').forEach((subCheckbox) => {
+      subCheckbox.addEventListener('click', function() {
+          handleSubPermissionClick(this);
+      });
+  });
+</script>
+
+{% endblock content %}

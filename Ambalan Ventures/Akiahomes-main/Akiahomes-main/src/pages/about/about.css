@@ -1,0 +1,219 @@
+.aboutPage::before {
+    content: none;
+}
+
+.aboutPage .bannerPic img {
+    border-radius: 500px;
+    border-top-left-radius: 0;
+    box-shadow: none;
+}
+
+.aboutPage .heading {
+    max-width: 346px;
+}
+
+.aboutPage .container {
+    padding-bottom: 137px;
+}
+
+.aboutPage .heading {
+    letter-spacing: -2px;
+}
+
+.aboutdescLand {
+    width: 508px;
+    border-top-right-radius: 500px;
+    background-color: var(--bsTheme);
+    padding: 146px 44px;
+    position: absolute;
+    bottom: 0;
+    padding-top: 143px;
+    left: auto;
+    right: 0;
+    padding-bottom: 61px;
+}
+
+.aboutPage {
+    margin-bottom: 173px;
+}
+
+/* vision  */
+.aboutVision {
+    margin-bottom: 166px;
+}
+
+.aboutVision .servicesImgBox {
+    overflow: visible;
+}
+
+.aboutVision .servicesImgBox img {
+    width: 601.9422607421875px;
+    height: 775px;
+    border-radius: 300px;
+}
+
+.aboutVision .servicesImgBox:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--bsTheme);
+    border-radius: 300px;
+    right: -36px;
+    top: -13px;
+    z-index: -1;
+}
+
+.aboutVision p {
+    padding-top: 44px;
+    max-width: 424px;
+    width: 100%;
+}
+
+/* vision end */
+
+/* mision :start */
+
+.aboutMision .container {
+    background-image: url(../../assets/icons/bck1.png);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    position: relative;
+}
+
+.aboutMision .servicesImgBox:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--bsTheme);
+    border-radius: 300px;
+    left: -36px;
+    top: -13px;
+    z-index: -1;
+}
+
+/* mision end  */
+
+/* teams start  */
+.ourTeam {
+    margin-bottom: 0;
+}
+
+.teams {
+    margin: 115px 0;
+}
+
+.teamMember {
+    width: 395px;
+    height: 422px;
+    border-radius: 50px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.teams h1 {
+    font-size: 22px;
+    color: var(--bsTheme);
+    margin-bottom: 12px;
+    margin-top: 20px;
+}
+
+/* teams end  */
+/* responsive  */
+@media(max-width:1399.98px) {
+    .aboutPage {
+        margin-bottom: 100px;
+    }
+
+    .aboutPage .aboutdescLand {
+        padding-top: 50px;
+        border-top-right-radius: 150px;
+    }
+
+    .aboutPage .heading {
+        max-width: 300px;
+    }
+
+    .aboutPage .aboutdescLand p {
+        font-size: 16px;
+    }
+
+    .aboutVision .heading {
+        margin-left: 0px;
+    }
+
+    .aboutVision {
+        margin-bottom: 100px;
+    }
+
+    .teamMember {
+        width: 340px;
+        height: 363px;
+    }
+}
+
+@media(max-width:1199.98px) {
+    .aboutVision p {
+        max-width: 100%;
+        padding-bottom: 40px;
+    }
+
+    .aboutVision {
+        margin-bottom: 90px;
+    }
+}
+
+@media(max-width:991.98px) {
+    .teams {
+        margin: 70px 0;
+    }
+}
+
+@media(max-width:767.98px) {
+    .aboutVision .servicesImgBox:before {
+        right: -15px;
+    }
+
+    .aboutMision .servicesImgBox:before {
+        left: -15px;
+    }
+
+    .aboutVision {
+        margin-bottom: 66px;
+    }
+
+    .aboutPage .aboutdescLand {
+        border-top-right-radius: 150px;
+        padding: 40px;
+        bottom: -119px;
+        width: 90%;
+    }
+
+    .teams {
+        margin: 50px 0;
+    }
+}
+
+@media(max-width:574.98px) {
+    .aboutPage .aboutdescLand {
+        padding: 30px 25px;
+        padding-top: 50px;
+        bottom: -91px;
+        width: 100%;
+    }
+
+    .ourTeam .serviceArrow {
+        display: none;
+    }
+
+    .aboutPage .heading {
+        max-width: 100%;
+        font-size: 25px;
+    }
+
+    .teamMember {
+        width: 270px;
+        height: 288px;
+    }
+}

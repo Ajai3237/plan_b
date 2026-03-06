@@ -1,0 +1,195 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+{% load embed_video_tags %}
+{% block title %} Gallery list {% endblock title %}
+{% block content %}
+<style>
+    .btn-group-sm>.btn-icon.btn,
+    .btn-icon.btn-sm {
+        font-size: 1.2rem !important;
+        height: calc(1.625rem + 2px);
+        width: calc(1.625rem + 2px);
+    }
+
+    @media (min-width: 992px) {
+        .card-datatable.table-responsive {
+            overflow-x: hidden;
+        }
+    }
+    .sform {
+        margin-top: -25px;
+    }
+</style>
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+
+    <!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light"></span><a href="{% url "gallery_list" %}">Gallery</a> / List
+                </h4>
+            </div>
+            {% comment %} <div class="col-md-6 sform">
+                <form method="get" action="#" class="d-flex justify-content-end">
+                    <input name="search" type="text" class="form-control" value="{{ request.GET.search }}" placeholder="Search by date" style="margin-right: 5px;">
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </form>
+            </div> {% endcomment %}
+        </div>
+        <!--Table Card-->
+        <div class="card">
+            <div class="card-datatable table-responsive">
+                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                    <div class="card-header flex-column flex-md-row">
+                        <div class="head-label">
+                            <h5 class="card-title mb-0">Gallery List</h5>
+                        </div>
+                        <div class="dt-action-buttons text-end pt-3 pt-md-0">
+                            <div class="dt-buttons btn-group flex-wrap">
+                                <a class="btn btn-secondary create-new btn-primary" href="{% url "gallery_create" %}" tabindex="0" aria-controls="DataTables_Table_0" type="button">
+                                    <span style="display:flex; align-items:center;"><i class="bx bx-plus me-sm-1"></i> <span class="d-none d-sm-inline-block">Add Gallery</span></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="datatables-basic table border-top dataTable no-footer dtr-column collapsed" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">#</th>
+                                <th style="width: 150px;">Image or Video</th>
+                                <th style="width: 100px;">Date</th>
+                                <th style="width: 90px;" class="dtr-hidden">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for list in g_page %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                {% if list.image %}
+                                    <td style="max-width: 150px; word-wrap: break-word;">
+                                        <a href="{{ list.image.url }}">
+                                            <img src="{{ list.image.url }}" alt="" width="80px">
+                                        </a>
+                                    </td>
+                                {% elif list.video %}
+                                    <td style="max-width: 150px; word-wrap: break-word;">
+                                        {% video list.video as my_video %}
+                                        <div class="embed-responsive embed-responsive-16by9">
+                                            <iframe class="embed-responsive-item" src="{{ my_video.url }}" allowfullscreen></iframe>
+                                        </div>
+                                        {% endvideo %}
+                                    </td>
+                                {% endif %}
+
+                                <td>{{ list.updated_at|date:"d-m-Y" }}</td>
+                                <td class="dtr-hidden">
+                                    <a href="{% url 'gallery_edit' list.id %}" class="btn btn-sm btn-icon item-edit">
+                                        <i class="bx bxs-edit"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-sm btn-icon payment-delete" title="Delete" data-bs-toggle="modal" data-bs-target="#exampleModal_{{ list.id }}">
+                                        <i class="bx bxs-x-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal_{{ list.id }}" tabindex="-1" aria-labelledby="exampleModalLabel_{{ list.id }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel_{{ list.id }}">Delete Gallery</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete this gallery?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <a href="{% url 'delete_gallery' list.id %}">
+                                                <button type="button" class="btn btn-danger">Delete</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="m-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">
+                                            Showing {{ g_page.start_index }} to {{ g_page.end_index }} of {{ g_page.paginator.count }} entries
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 text-end">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                            <ul class="pagination justify-content-end">
+                                                {% if g_page.has_previous %}
+                                                    <li class="paginate_button page-item previous">
+                                                        <a href="?page={{ g_page.previoug_page_number }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">Previous</a>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="paginate_button page-item previous disabled">
+                                                        <a href="#" aria-controls="DataTables_Table_0" class="page-link">Previous</a>
+                                                    </li>
+                                                {% endif %}
+
+                                                <!-- Pagination numbers -->
+                                                {% if g_page.number > 3 %}
+                                                    <li class="paginate_button page-item">
+                                                        <a href="?page=1&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">...</a>
+                                                    </li>
+                                                {% endif %}
+
+                                                {% for i in g_page.paginator.page_range %}
+                                                    {% if g_page.number == i %}
+                                                        <li class="paginate_button page-item active">
+                                                            <a href="?page={{ i }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">{{ i }}</a>
+                                                        </li>
+                                                    {% elif i > g_page.number|add:'-3' and i < g_page.number|add:'3' %}
+                                                        <li class="paginate_button page-item">
+                                                            <a href="?page={{ i }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">{{ i }}</a>
+                                                        </li>
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                                {% if g_page.paginator.num_pages > g_page.number|add:'3' %}
+                                                    <li class="paginate_button page-item">
+                                                        <a href="?page={{ g_page.paginator.num_pages }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">...</a>
+                                                    </li>
+                                                {% endif %}
+
+                                                {% if g_page.has_next %}
+                                                    <li class="paginate_button page-item next">
+                                                        <a href="?page={{ g_page.next_page_number }}&search={{ request.GET.search }}" aria-controls="DataTables_Table_0" class="page-link">Next</a>
+                                                    </li>
+                                                {% else %}
+                                                    <li class="paginate_button page-item next disabled">
+                                                        <a href="#" aria-controls="DataTables_Table_0" class="page-link">Next</a>
+                                                    </li>
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div> <!--Table Card-->
+        </div>
+        
+        <!-- / Content -->
+
+
+    </div>
+    <!-- Content wrapper -->
+
+{% endblock content %}

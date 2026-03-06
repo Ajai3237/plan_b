@@ -1,0 +1,172 @@
+{% extends 'crm/base.html' %}
+{% load static %}
+{% block title %} Employee referral form entry detail {% endblock title %}
+{% block content %}
+<style>
+    .btn-group-sm>.btn-icon.btn,
+    .btn-icon.btn-sm {
+        font-size: 1.2rem !important;
+        height: calc(1.625rem + 2px);
+        width: calc(1.625rem + 2px);
+    }
+
+    @media (min-width: 992px) {
+        .card-datatable.table-responsive {
+            overflow-x: auto;
+        }
+    }
+    .sform {
+        margin-top: -25px;
+    }
+    table .td-order p {
+        width:175px;
+        text-wrap: wrap;
+      }
+</style>
+
+<!-- Content wrapper -->
+<div class="content-wrapper">
+
+    <!-- Content -->
+    <div class="container-xxl flex-grow-1 container-p-y">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h4 class="fw-bold py-3 mb-4">
+                    <span class="text-muted fw-light"></span><a href="{% url "employee_referral_form" %}">Employee Referral Form Entry</a> / Details
+                </h4>
+            </div>
+        </div>
+        <!--Table Card-->
+        <div class="card">
+            <div class="container mt-3">
+                <div class="row">
+                  <div class="col-lg-6 valign mb-40 mine-modal-1">
+                    <div class="content">
+                      <div class="item d-flex mb-50">
+                        <div>
+                            <h6>Date :</h6>
+                          <h6>Name :</h6>
+                          
+                        <h6>
+                            Contact :
+                        </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 valign mb-40 mine-modal-1">
+                    <div class="content">
+                      <div class="item d-flex mb-50">
+                        <div>
+                            <h6>{{employee_referral.created_at|date:"d-m-Y"}}</h6>
+                          <h6>{{ employee_referral.first_name }} {{ employee_referral.last_name }}</h6>
+                          
+                        <h6>
+                            {{employee_referral.email}}<br>{{employee_referral.phone}}
+                        </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6 valign mb-40 mine-modal-1">
+                      <div class="content">
+                        <div class="item d-flex mb-50">
+                          <div>
+                            <h6>Referral Name :</h6>
+                            
+                          <h6>
+                            Referral Contact :
+                          </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 valign mb-40 mine-modal-1">
+                      <div class="content">
+                        <div class="item d-flex mb-50">
+                          <div>
+                            <h6>{{ employee_referral.referal_first_name }} {{ employee_referral.referal_last_name }}</h6>
+                            
+                          <h6>
+                              {{employee_referral.referal_email}}<br>{{employee_referral.referal_phone}}
+                          </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 valign mb-40 mine-modal-1">
+                      <div class="content">
+                        <div class="item d-flex mb-50">
+                          <div>
+                          <h6>
+                            Referral Reason :
+                          </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 valign mb-40 mine-modal-1">
+                      <div class="content">
+                        <div class="item d-flex mb-50">
+                          <div>
+                          <h6>
+                            {{employee_referral.referral_reason}}
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 valign mb-40 mine-modal-1">
+                      <div class="content">
+                        <div class="item d-flex mb-50">
+                          <div>
+                          <h6>
+                            Security Guard License :
+                          </h6>
+                          <h6>
+                            Drivers License :
+                          </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 valign mb-40 mine-modal-1">
+                      <div class="content">
+                        <div class="item d-flex mb-50">
+                          <div>
+                            <h6>
+                                {% if employee_referral.have_security_guard_license %}
+                                Yes
+                            {% else %}
+                                No
+                            {% endif %}
+                                </h6>
+                                <h6>
+                                    {% if  employee_referral.have_drivers_license %}
+                                    Yes
+                                {% else %}
+                                    No
+                                {% endif %}
+                                    </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- / Content -->
+
+
+    </div>
+    <!-- Content wrapper -->
+
+{% endblock content %}
